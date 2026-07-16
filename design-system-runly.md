@@ -1,7 +1,8 @@
-# Runly — Charte design (v1)
+# Runly — Charte design (v1.1)
 
 > Extraite des maquettes Sleek validées (accueil/jauge, détail séance, player). Dark mode only pour le MVP.
 > Principe directeur : **un coach, pas une alarme** — lisibilité en extérieur, chiffres énormes, couleurs sémantiques strictes.
+> **v1.1 (16/07/2026)** : tab bar 3→4 onglets ; player sans FC temps réel (cf. `decisions-cadrage-mvp.md`).
 
 ## 1. Couleurs
 
@@ -64,7 +65,7 @@ Rangée de 3 cartes égales (label MAJUSCULES + valeur H2) : Distance / Durée /
 Points reliés par une ligne verticale ; point actif en `action`, inactifs en `surface-2`. Chaque étape : titre 600 + sous-texte muted (durée · allure). Les répétitions sont une carte imbriquée : "2000 m @ 4:59/km" à gauche, "FC 158-166" en `action` à droite, barre de progression, récupération en caption.
 
 ### Player
-Fond légèrement dégradé vers le vert quand on est dans la cible. Hiérarchie : label série ("SÉRIE 1 / 2") → timer géant → "sur 10:00" muted → barre d'allure cible (zone verte centrale + curseur point blanc) → trio de stats → bannière coaching (pleine largeur, `positive-bg`, icône check + message : "Dans la cible, relâche les épaules") → "PROCHAIN" + contrôles. Contrôles : pause = cercle blanc 64 px icône sombre ; skip = cercle `surface-2` 56 px. Chip d'état GPS en haut à droite.
+Fond légèrement dégradé vers le vert quand on est dans la cible. Hiérarchie : label série ("SÉRIE 1 / 2") → timer géant → "sur 10:00" muted → barre d'allure cible (zone verte centrale + curseur point blanc) → trio de stats (**allure courante · distance · durée — pas de FC temps réel au MVP**) → bannière coaching (pleine largeur, `positive-bg`, icône check + message : "Dans la cible, relâche les épaules") → "PROCHAIN" + contrôles. Contrôles : pause = cercle blanc 64 px icône sombre ; skip = cercle `surface-2` 56 px. Chip d'état GPS en haut à droite.
 
 ### Pills & chips
 Statut : fond sémantique 12 %, texte couleur pleine, 600. Tags de séance (QUALITÉ, RPE 4) : `surface-2`, MAJUSCULES 11 px muted. Sélection (onboarding) : bordure `action` quand actif.
@@ -76,7 +77,7 @@ Pleine largeur, pill 28 px, fond `action`, texte `#04121C` 700, icône ▶ possi
 Case cochée = carré arrondi vert avec check blanc ; à cocher = carré `surface-2`. Ligne : jour · séance en 600, tag à droite.
 
 ### Tab bar
-3 onglets (Accueil 📊 / Plan 🗓 / Séance ▶), fond `bg` 96 % + bordure haute, actif en `action`, labels 10 px.
+4 onglets (Accueil 📊 / Plan 🗓 / Séances 📚 / Profil 👤), fond `bg` 96 % + bordure haute, actif en `action`, labels 10 px. *(L'onglet Plan porte aussi la gestion de l'objectif ; « Séances » est la bibliothèque.)*
 
 ## 5. Ton & rédaction (UX writing)
 

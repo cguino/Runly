@@ -1,7 +1,8 @@
 flowchart TD
     OB1[Onboarding 1 · Santé] --> OB2[Onboarding 2 · Profil & blessures]
-    OB2 --> OB3[Onboarding 3 · Objectif]
-    OB3 --> OB4[Onboarding 4 · Restitution du plan]
+    OB2 --> OB3["Onboarding 3 · Objectif<br/>(optionnel · skippable)"]
+    OB3 --> ACCOUNT["Onboarding 4 · Création de compte<br/>(email / Apple / Google · âge 16+)"]
+    ACCOUNT --> OB4["Onboarding 5 · Restitution<br/>plan daté OU semaine type"]
     OB4 --> HOME
 
     subgraph TABS["Tab bar · 4 destinations racines (jamais de bouton retour ici)"]
@@ -18,6 +19,9 @@ flowchart TD
     PLAN -->|"push ‹ retour"| DETAIL
     PLAN -->|"push ‹ retour"| PAST["Séance passée<br/>réalisé vs prévu, RPE, charge"]
     PLAN -->|"déplacer une séance"| MOVE["Choisir un autre jour<br/>(bottom sheet + impact jauge)"]
+    PLAN -->|"gérer l'objectif"| OBJ["Objectif daté<br/>créer / modifier / supprimer"]
+    PLAN -->|"sans objectif"| WEEKTYPE["Composer ma semaine type<br/>(depuis la bibliothèque)"]
+    WEEKTYPE -.-> LIB
 
     LIB -->|"push ‹ retour"| FICHE["Fiche séance<br/>quoi, pourquoi, pour quel objectif,<br/>effort attendu, variantes"]
     FICHE -->|"L'ajouter à ma semaine"| MOVE

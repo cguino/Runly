@@ -1,6 +1,6 @@
 # Spec MVP — App d'entraînement running "courir mieux, sans se blesser"
 
-> **Version** : 0.2 — 16/07/2026 (intégration retours UX : navigation 4 onglets, profil/FCmax, timeline plan, flexibilité du plan, bibliothèque pédagogique)
+> **Version** : 0.3 — 16/07/2026 (cadrage : objectif optionnel + semaine type, compte en fin d'onboarding, player sans FC live, gratuit au MVP, âge 16+ — voir `decisions-cadrage-mvp.md`)
 > **Auteur** : Cédric Guinoiseau
 > **Fondation scientifique** : Lantelme S., *Quantification de la charge d'entraînement et blessures liées à la course à pied : une revue systématique* (2023)
 
@@ -33,7 +33,7 @@
 
 ## 3. Cible & persona
 
-**Cible MVP** : coureur·se intermédiaire, 25–50 ans, 2 à 5 séances/semaine, possède une montre GPS (Garmin, Apple Watch, Coros, Polar…), prépare 1 à 3 courses datées par an, connaît vaguement les notions d'allure/VMA sans savoir les exploiter.
+**Cible MVP** : coureur·se intermédiaire, 25–50 ans, 2 à 5 séances/semaine, possède une montre GPS (Garmin, Apple Watch, Coros, Polar…), prépare 1 à 3 courses datées par an **ou court régulièrement sans dossard** (objectif daté optionnel — cf. §6.1), connaît vaguement les notions d'allure/VMA sans savoir les exploiter.
 
 **Persona — "Marc, 38 ans"** : court depuis 4 ans, 3 séances/semaine, ~35 km. Objectif semi-marathon en 1h45 dans 14 semaines. A déjà eu une périostite en suivant un plan trouvé en ligne « trop dur, trop vite ». Utilise une Garmin + Strava. Frustrations : ne sait pas quelle allure viser en fractionné, ne sait pas si sa semaine est « trop » ou « pas assez », abandonne ses plans quand la vie décale ses séances.
 
@@ -43,7 +43,7 @@
 
 **Goals**
 
-1. L'utilisateur dispose d'un plan périodisé daté vers son objectif, généré depuis son profil réel, en < 10 min après installation.
+1. L'utilisateur dispose, en < 10 min après installation, soit d'un plan périodisé daté vers son objectif (généré depuis son profil réel), soit — s'il n'a pas de course — d'une semaine type qu'il compose lui-même.
 2. Chaque séance est **exécutable** : allures cibles, zones FC, timer guidé — plus jamais de calcul mental sur « 2×2000 m allure semi ».
 3. L'utilisateur voit en permanence où il se situe dans sa zone de charge (jauge ACWR) et reçoit une alerte actionnable en cas de pic (> 1,3) ou de sous-régime (< 0,8).
 4. Le plan s'adapte automatiquement au vécu : séance manquée, RPE élevé, charge qui dérive.
@@ -81,9 +81,10 @@ Traduction directe de la revue Lantelme en logique applicative :
 1. **Connexion santé** : Apple Santé (iOS) / Health Connect (Android) → import de l'historique course (26 dernières semaines si dispo) pour amorcer la charge chronique et estimer le niveau.
 2. **Profil** : âge, sexe, poids (optionnel), antécédents de blessure (12 derniers mois : type, gravité), FCmax connue ou estimée.
 3. **Contexte d'entraînement** : séances/sem souhaitées (2–6), jours disponibles, volume actuel (pré-rempli depuis l'historique importé), types de séances déjà pratiqués/appréciés.
-4. **Objectif** : distance (5K, 10K, semi, marathon), date de course, ambition (finir / chrono cible), nom de l'épreuve (texte libre).
+4. **Objectif (optionnel, skippable)** : distance (5K, 10K, semi, marathon), date de course, ambition (finir / chrono cible), nom de l'épreuve (texte libre). *Sans objectif, l'utilisateur composera sa semaine type lui-même depuis la bibliothèque (cf. §7.9) ; l'objectif reste ajoutable/modifiable à tout moment depuis l'onglet Plan.*
 5. **Estimation des références** : VMA estimée depuis l'historique (meilleurs efforts) ou test guidé proposé (demi-Cooper 6 min) ; dérivation FCmax, allures et zones (cf. §7.5).
-6. **Restitution** : « Voici ton plan de 14 semaines » + explication de la jauge de charge en 3 écrans pédagogiques.
+6. **Création de compte** : en fin d'onboarding, juste avant la restitution et la première synchronisation cloud (email + Apple/Google). Jusque-là, les données saisies vivent en local ; à la création du compte elles sont rattachées et synchronisées. *(Âge minimum 16 ans, vérifié à cette étape.)*
+7. **Restitution** : « Voici ton plan de 14 semaines » (ou « Voici ta semaine type à composer » sans objectif) + explication de la jauge de charge en 3 écrans pédagogiques.
 
 **Cas limites** : pas de montre / refus de permission → mode déclaratif (saisie manuelle durée + distance + RPE), l'app reste 100 % fonctionnelle. Historique < 4 semaines → charge chronique en « warm-up » : jauge affichée comme « en calibration » pendant 3 semaines, alertes désactivées.
 
@@ -113,7 +114,7 @@ Critères d'acceptation : permissions demandées avec écran d'explication préa
 - **US-03** : En tant que coureur, je définis une course cible (distance, date, ambition) pour obtenir un plan périodisé jusqu'au jour J.
 - **US-04** : En tant que coureur, je choisis mes jours et mon nombre de séances/sem pour que le plan colle à ma vie.
 
-Comportement : plan découpé en phases (générale → spécifique → affûtage 7–14 j), semaines types avec 1 semaine allégée toutes les 3–4 semaines ; ~80 % du volume en endurance fondamentale, 1–2 séances de qualité/sem ; progression hebdo ≤ 10 % (5–8 % si antécédent de blessure < 12 mois) ; refus de générer < 2 séances/sem ; distances MVP : 5K, 10K, semi, marathon (trail P2).
+**La génération de plan n'est déclenchée que si un objectif daté est défini** (sinon : semaine type manuelle, cf. §7.9). Comportement : plan découpé en phases (générale → spécifique → affûtage 7–14 j), semaines types avec 1 semaine allégée toutes les 3–4 semaines ; ~80 % du volume en endurance fondamentale, 1–2 séances de qualité/sem ; progression hebdo ≤ 10 % (5–8 % si antécédent de blessure < 12 mois) ; refus de générer < 2 séances/sem ; distances MVP : 5K, 10K, semi, marathon (trail P2).
 
 Critères d'acceptation : Given un objectif semi à 14 semaines et 3 j dispo, When je valide, Then je vois 14 semaines de séances datées, chaque semaine ≤ +10 % de charge vs précédente, affûtage présent. Si la date est trop proche pour l'ambition (ex. marathon dans 4 semaines, volume actuel 15 km), l'app le dit et propose : autre objectif, ambition « finir », ou date ultérieure.
 
@@ -133,7 +134,7 @@ Critères d'acceptation : l'exemple canonique « 2×2000 m @ allure semi, récup
 
 - **US-07** : En tant que coureur, je lance une séance guidée qui m'annonce chaque bloc (timer, allure cible, zone FC) pour ne plus rien calculer en courant.
 
-Comportement : timer par bloc avec annonces audio (début/fin de bloc, allure cible) ; affichage gros caractères lisible en courant ; fonctionne écran verrouillé ; GPS téléphone pour allure temps réel (FC temps réel si capteur connecté au téléphone — sinon zones annoncées à titre indicatif) ; pause/reprise/abandon ; à la fin : enregistrement + demande RPE.
+Comportement : timer par bloc avec annonces audio (début/fin de bloc, allure cible) ; affichage gros caractères lisible en courant ; fonctionne écran verrouillé ; GPS téléphone pour allure temps réel. **Pas de FC temps réel au MVP** (une montre GPS n'expose pas sa FC en BLE au téléphone) : les zones FC sont affichées comme cibles indicatives, la FC réelle est récupérée post-séance via la santé ; **perte de signal GPS = dégradation gracieuse** (le timer et la structure de séance continuent, l'allure se fige avec un badge « signal faible », la distance reprend au retour) ; pause/reprise/abandon ; à la fin : enregistrement + demande RPE.
 
 Critères d'acceptation : dérive du timer < 1 s sur 1 h ; consommation batterie < 15 %/h GPS actif ; si l'utilisateur préfère courir avec sa montre, il peut jouer la séance en « mode carte » (brief consultable) et laisser la montre tracker — la séance remonte ensuite via santé et est rapprochée de la séance planifiée (matching par date/durée/distance).
 
@@ -158,7 +159,7 @@ Critères : chaque valeur porte un indice de confiance (mesuré / estimé / déf
 - **US-09** : En tant que coureur, je vois en un coup d'œil si ma charge est dans ma zone favorable pour décider de ma prochaine séance en confiance.
 - **US-10** : En tant que coureur, je reçois une suggestion concrète quand ma charge dérive, pour corriger sans réfléchir.
 
-Comportement : charge de séance = sRPE (RPE 0–10 × durée min), avec fallback = durée × zone moyenne si RPE non saisi ; ACWR = charge 7 j / moyenne 28 j, affiché en jauge 3 zones (< 0,8 sous-charge / 0,8–1,3 favorable / > 1,3 pic) ; projection : la jauge montre aussi l'ACWR *prévisionnel* si l'utilisateur suit le plan de la semaine ; alertes : pic → suggestion de substitution de séance ; sous-charge prolongée (> 2 sem) → encouragement à la régularité ; RPE ≥ 8 sur 2 séances consécutives → suggestion d'allègement.
+Comportement : charge de séance = sRPE (RPE 0–10 × durée min), avec fallback = durée × zone moyenne si RPE non saisi (méthode utilisée pour **amorcer la charge chronique depuis l'historique importé, dépourvu de RPE** ; les UA des deux méthodes doivent être normalisées pour rester comparables dans la fenêtre 28 j) ; ACWR = charge 7 j / moyenne 28 j, affiché en jauge 3 zones (< 0,8 sous-charge / 0,8–1,3 favorable / > 1,3 pic) ; projection : la jauge montre aussi l'ACWR *prévisionnel* si l'utilisateur suit le plan de la semaine ; alertes : pic → suggestion de substitution de séance ; sous-charge prolongée (> 2 sem) → encouragement à la régularité ; RPE ≥ 8 sur 2 séances consécutives → suggestion d'allègement.
 
 Critères : jamais plus d'1 alerte charge / 48 h ; chaque alerte propose une action en 1 tap + option « garder mon plan » ; wording validé selon la posture §2 (pas de prédiction de blessure) ; jauge « en calibration » tant que < 4 semaines d'historique.
 
@@ -166,18 +167,18 @@ Critères : jamais plus d'1 alerte charge / 48 h ; chaque alerte propose une act
 
 - **US-11** : En tant que coureur, mes séances montre apparaissent automatiquement et sont rapprochées de mon plan.
 
-Comportement : lecture HealthKit / Health Connect (workouts running : durée, distance, FC, cadence si dispo) ; **connexion Strava optionnelle (OAuth) dès le MVP** — comble Suunto/Android, la trace GPS et les utilisateurs sans partage santé activé ; priorité de source en cas de doublon : Strava > santé, déduplication par date/durée/distance ; écriture des séances player vers santé ; matching auto séance réalisée ↔ planifiée (même jour ± tolérance, confirmation en 1 tap si ambigu) ; saisie RPE post-séance (notification 30 min après détection) ; journal chronologique : prévu/réalisé, charge, notes libres, douleurs (tag simple corps humain — P1 pour la cartographie, P0 pour un tag texte).
+Comportement : lecture HealthKit / Health Connect (workouts running : durée, distance, FC, cadence si dispo) ; **connexion Strava optionnelle (OAuth) dès le MVP** — comble Suunto/Android, la trace GPS et les utilisateurs sans partage santé activé ; priorité de source en cas de doublon : Strava > santé, déduplication par date/durée/distance ; écriture des séances player vers santé ; matching auto séance réalisée ↔ planifiée (filtre activités « course », même jour ± tolérance) avec **correction manuelle facile** (ré-associer / dissocier en 1-2 taps) pour les cas ambigus ou faux positifs ; saisie RPE post-séance (notification 30 min après détection) ; journal chronologique : prévu/réalisé, charge, notes libres, douleurs (tag simple corps humain — P1 pour la cartographie, P0 pour un tag texte).
 
 ### 7.8 Profil & références physiologiques (onglet « Profil »)
 
 - **US-12** : En tant que coureur, j'accède à un espace profil regroupant mes infos (âge, poids, antécédents), mon objectif en cours et mes références physiologiques (FCmax, VMA, SV1/SV2, zones), chacune avec son badge de provenance (mesurée / estimée / défaut) et éditable.
 - **US-13** : En tant que coureur dont la FCmax est estimée, je suis invité à la fiabiliser — saisie d'une valeur connue au MVP, **test demi-Cooper guidé via le player en P1** (l'invitation existe dès le MVP, avec le protocole expliqué pour le faire en autonomie).
 
-Contenu : identité & mesures, antécédents de blessure (modifiables, impactent la prudence du plan), références physio avec historique des révisions, objectif actif (modifier / abandonner), réglages (permissions santé, notifications, compte, suppression RGPD).
+Contenu : identité & mesures, antécédents de blessure (modifiables, impactent la prudence du plan), références physio avec historique des révisions, objectif actif (consultation ; création/modification/suppression dans l'onglet Plan), réglages (permissions santé, notifications, compte, suppression RGPD).
 
 ### 7.9 Flexibilité du plan — « le plan est une proposition, pas un contrat »
 
-Principe : la vie gagne toujours. Trois libertés garanties au MVP, toutes traduites dans la jauge prévisionnelle plutôt qu'interdites :
+Principe : la vie gagne toujours. **Cas sans objectif** : l'utilisateur n'a pas de plan généré — il compose lui-même sa **semaine type** (100 % manuel depuis la bibliothèque / le builder, §7.3), la jauge de charge restant le fil conducteur. Les libertés ci-dessous s'appliquent identiquement, avec ou sans objectif. Trois libertés garanties au MVP, toutes traduites dans la jauge prévisionnelle plutôt qu'interdites :
 
 - **Déplacer une séance** dans la semaine (bottom sheet « choisir un autre jour ») : l'app recalcule l'ACWR prévisionnel et avertit seulement si le déplacement crée un enchaînement déconseillé (2 qualités d'affilée, qualité la veille de la sortie longue). Elle n'empêche jamais.
 - **Ajouter une séance spontanée** (l'EF « test des nouvelles chaussures ») : depuis la bibliothèque ou en course libre. La séance entre dans la charge comme les autres ; si elle fait dériver la semaine, la jauge le montre et suggère un allègement ailleurs.
@@ -193,11 +194,11 @@ Schéma complet : voir `navigation-app-running.mermaid`. Principes (conformes HI
 - **Push + retour** pour les écrans de détail (détail séance, fiche pédagogique, références physio).
 - **Modal plein écran** pour les flux engageants : player (tab bar masquée, quitter = confirmation) puis RPE. **Bottom sheets** pour les micro-décisions : déplacer une séance, adapter la semaine.
 - **Accueil = vision 7 jours fixes** (lun→dim), **jours de repos affichés explicitement** : le repos fait partie de l'entraînement (message coach) et sert de cible de dépôt quand on déplace une séance. Le récap hebdo compare la semaine à la précédente.
-- **Plan (onglet) = timeline verticale continue** : semaines passées (séances réalisées vs prévues, RPE, charge) et à venir (séances planifiées, phases de périodisation, semaines allégées marquées). La liste simple suffit au MVP ; la visualisation graphique de charge par semaine est en P1.
+- **Plan (onglet) = timeline verticale continue** : semaines passées (séances réalisées vs prévues, RPE, charge) et à venir (séances planifiées, phases de périodisation, semaines allégées marquées). **C'est aussi le lieu de gestion de l'objectif** : créer / modifier / supprimer l'objectif daté ; sans objectif, l'utilisateur y compose et ajuste sa semaine type. La liste simple suffit au MVP ; la visualisation graphique de charge par semaine est en P1.
 
 ## 8. P1 (fast-follow) & P2 (plus tard, mais anticiper)
 
-**P1** : test demi-Cooper guidé via le player (fiabilisation FCmax/VMA) ; graphique de charge hebdomadaire dans l'onglet Plan ; semaine adaptative complète (re-génération du plan restant selon charge/RPE) ; conseils cadence (~180 ppm) post-séance ; import FC de repos + sommeil pour moduler les suggestions ; cartographie des douleurs et corrélation charge/douleur ; côtes et séances spécifiques ; widget iOS/Android (prochaine séance + jauge) ; export/partage d'une séance.
+**P1** : test demi-Cooper guidé via le player (fiabilisation FCmax/VMA) ; graphique de charge hebdomadaire dans l'onglet Plan ; semaine adaptative complète (re-génération du plan restant selon charge/RPE) ; conseils cadence (~180 ppm) post-séance ; import FC de repos + sommeil pour moduler les suggestions ; cartographie des douleurs et corrélation charge/douleur ; côtes et séances spécifiques ; widget iOS/Android (prochaine séance + jauge) ; export/partage d'une séance ; ACWR en EWMA (plus robuste aux trous de données) ; leviers de rétention/engagement (streaks, relance d'inactivité, récap mensuel) évalués selon les données de beta.
 
 **P2** : trail/ultra (charge en durée + D+, allure nivelée) ; app compagnon watchOS/Wear OS ; catalogue d'épreuves et inscription ; social léger (défis entre amis) ; mode débutant (mo­tivation, marche/course) ; coach conversationnel (LLM) s'appuyant sur la jauge et le plan ; API Strava en source complémentaire.
 
@@ -208,7 +209,7 @@ Schéma complet : voir `navigation-app-running.mermaid`. Principes (conformes HI
 ```
 User (profil, antécédents[], préférences, permissions)
  ├─ PhysioProfile (vma, fcmax, sv1, sv2, zones[], confiance par champ, historique des révisions)
- ├─ Goal (distance, date, ambition, épreuve, statut)
+ ├─ Goal? (optionnel — distance, date, ambition, épreuve, statut ; absent = mode semaine type)
  │   └─ TrainingPlan (phases[], statut, version)
  │       └─ PlannedWeek (index, volumeCible, chargeCible)
  │           └─ PlannedSession (date, type, blocs[], allures/zones cibles, statut)
@@ -221,7 +222,7 @@ User (profil, antécédents[], préférences, permissions)
 SessionBlock (répétitions, durée|distance, cible: allure|zoneFC|rpe, récup)
 ```
 
-Données de santé = données sensibles : hébergement UE, consentement explicite, minimisation (pas de stockage GPS brut si non nécessaire), suppression de compte = purge complète. RGPD by design.
+Données de santé = données sensibles : hébergement UE, consentement explicite, minimisation (pas de stockage GPS brut si non nécessaire), suppression de compte = purge complète. Âge minimum 16 ans. RGPD by design. **Multi-device** : après création du compte, les données applicatives (profil, plan, séances, charge, RPE) sont synchronisées via Supabase et restaurées sur réinstallation ou nouveau device ; l'historique santé se ré-importe localement via l'OS (iOS↔Android : les données app migrent, pas les permissions santé natives).
 
 ## 10. Métriques de succès
 
@@ -229,7 +230,7 @@ Données de santé = données sensibles : hébergement UE, consentement explicit
 
 **Lagging (M1–M3)** : rétention D30 ≥ 40 % / D90 ≥ 25 % chez les porteurs d'objectif daté ; % d'utilisateurs terminant leur plan jusqu'à la course (cible 35 %) ; part du temps passé en zone ACWR favorable (indicateur produit ET santé, cible 70 %) ; NPS ≥ 40.
 
-**Mesure** : événements analytics définis avant dev (plan_generated, session_played, rpe_submitted, alert_shown/accepted…), revue à S2, M1, M3.
+**Mesure** : **pas d'analytics comportemental tiers au MVP** (crash Sentry seul). Les KPI ci-dessus sont calculés par **requêtes directes sur la base Supabase** (données déjà détenues, base légale RGPD — ni ATT ni CMP requis) : plans générés, séances jouées, part de séances avec RPE, alertes affichées/acceptées. Revue à S2, M1, M3. Segmentation avec / sans objectif daté.
 
 ## 11. Questions ouvertes
 
@@ -238,9 +239,11 @@ Données de santé = données sensibles : hébergement UE, consentement explicit
 | 1 | ~~Health Connect : couverture réelle des montres côté Android. Faut-il l'API Strava en secours dès le MVP ?~~ **Résolu (16/07/2026, voir `spike-sources-donnees.md`)** : socle santé (HealthKit + Health Connect) + connexion Strava optionnelle dès le MVP. Suunto absent de Health Connect, GPS non fiable via les hubs, API Garmin fermée aux nouveaux entrants. Reste à tester en réel : ExerciseRoute/FC Garmin et Coros, latence de sync. | Eng (spike 3 j) | Résolu |
 | 2 | ~~Statut réglementaire : la jauge fait-elle basculer l'app en dispositif médical ?~~ **Résolu (16/07/2026, voir `note-reglementaire-dm.md`)** : risque faible si le wording reste discipliné. Destination officielle = « app d'entraînement et de performance » ; la prévention blessure reste un thème éditorial, jamais une revendication produit ; alertes libellées en conseils d'entraînement. Relecture avocat DM/e-santé avant lancement. | Juridique (validation avocat) | Résolu (sous réserve validation) |
 | 3 | Algorithme de génération de plan : moteur de règles maison vs partenariat contenu (coach/fédération) pour la crédibilité des plans ? **Orientation (backlog E3)** : moteur maison (`@runly/training-engine`, fonction pure testable) + validation des sorties par un coach/expert (E3-4). Partenariat fédération = piste P2 crédibilité/marketing. | Produit + expert running | Orienté |
-| 4 | Modèle éco : freemium (jauge gratuite, plan payant ?) vs abonnement full — impacte le périmètre du MVP gratuit | Produit/Business | Non |
-| 5 | ACWR : fenêtres 7/28 j strictes ou moyennes pondérées exponentiellement (EWMA, plus robustes aux trous de données) ? | Eng + science | Non |
+| 4 | ~~Modèle éco : freemium vs abonnement~~ **Résolu (cadrage 16/07/2026) : gratuit au MVP**, monétisation en P1 ; aucune plomberie de paiement au périmètre. L'intention de paiement se teste en entretien (H5). | Produit/Business | Résolu |
+| 5 | ~~ACWR : fenêtres 7/28 j vs EWMA~~ **Résolu (cadrage 16/07/2026) : rolling 7/28 j au MVP** (plus simple à expliquer/tester) ; EWMA en P1 si les données beta le justifient. | Eng + science | Résolu |
 | 6 | RPE : échelle 0–10 (Foster) confirmée ? Emoji vs chiffres pour maximiser la saisie ? | Design (test utilisateur) | Non |
+
+> **Décisions de cadrage actées le 16/07/2026** (détail : `decisions-cadrage-mvp.md`) : objectif daté optionnel + semaine type manuelle ; compte en fin d'onboarding ; player sans FC temps réel + **dégradation gracieuse en perte de GPS** ; **sync cloud multi-device** (santé re-importée par l'OS) ; **ACWR rolling 7/28 au MVP, EWMA en P1** ; gratuit au MVP ; FR + métrique (i18n-ready) ; matching simple + correction manuelle ; âge minimum 16 ans ; pas d'analytics tiers (KPI en base) ; **rétention = notifs de base, leviers d'engagement évalués post-beta**. Seul point encore ouvert : échelle RPE emoji vs chiffres (question #6, tranchée au test utilisateur).
 
 ## 12. Timeline indicative
 
