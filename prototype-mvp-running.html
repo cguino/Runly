@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prototype MVP — App Running</title>
+<style>
+  :root {
+    --bg: #0e1116;
+    --card: #171c24;
+    --card2: #1e2530;
+    --text: #f2f5f9;
+    --muted: #8a94a6;
+    --accent: #4ade80;      /* vert = zone favorable */
+    --warn: #fbbf24;        /* orange */
+    --danger: #f87171;      /* rouge = pic de charge */
+    --primary: #38bdf8;     /* actions */
+    --radius: 16px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  body { background:#05070a; color:var(--text); display:flex; flex-direction:column; align-items:center; min-height:100vh; padding:24px 12px; }
+  h1.proto-title { font-size:15px; font-weight:600; color:var(--muted); margin-bottom:4px; }
+  p.proto-sub { font-size:12px; color:#5b6472; margin-bottom:16px; text-align:center; max-width:420px;}
+  .phone {
+    width:375px; height:760px; background:var(--bg); border-radius:40px;
+    border:3px solid #2a3240; overflow:hidden; position:relative; box-shadow:0 24px 60px rgba(0,0,0,.6);
+  }
+  .screen { position:absolute; inset:0; display:none; flex-direction:column; overflow-y:auto; padding:52px 20px 90px; }
+  .screen.active { display:flex; }
+  .statusbar { position:absolute; top:0; left:0; right:0; height:44px; display:flex; align-items:center; justify-content:space-between; padding:0 24px; font-size:12px; color:var(--muted); background:linear-gradient(var(--bg), transparent); z-index:5;}
+  /* nav proto */
+  .protonav { display:flex; gap:6px; margin-top:14px; flex-wrap:wrap; justify-content:center; max-width:420px;}
+  .protonav button { background:#171c24; color:var(--muted); border:1px solid #2a3240; padding:6px 10px; border-radius:8px; font-size:11px; cursor:pointer; }
+  .protonav button.on { color:var(--text); border-color:var(--primary); }
+  /* composants */
+  .btn { display:block; width:100%; padding:15px; border:none; border-radius:14px; font-size:16px; font-weight:600; cursor:pointer; text-align:center; }
+  .btn-primary { background:var(--primary); color:#04121c; }
+  .btn-ghost { background:transparent; color:var(--muted); border:1px solid #2a3240; }
+  .btn + .btn { margin-top:10px; }
+  .card { background:var(--card); border-radius:var(--radius); padding:16px; margin-bottom:12px; }
+  .label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:6px; }
+  .h2 { font-size:22px; font-weight:700; margin-bottom:6px; }
+  .h3 { font-size:16px; font-weight:600; }
+  .muted { color:var(--muted); font-size:13px; line-height:1.45; }
+  .row { display:flex; align-items:center; justify-content:space-between; }
+  .chip { display:inline-block; padding:6px 12px; border-radius:999px; background:var(--card2); font-size:13px; color:var(--text); margin:0 6px 8px 0; cursor:pointer; border:1px solid transparent;}
+  .chip.sel { border-color:var(--primary); color:var(--primary); }
+  .progressdots { display:flex; gap:6px; margin-bottom:18px; }
+  .progressdots span { width:26px; height:4px; border-radius:2px; background:#2a3240; }
+  .progressdots span.on { background:var(--primary); }
+  .tabbar { position:absolute; bottom:0; left:0; right:0; height:78px; background:rgba(14,17,22,.96); border-top:1px solid #232b38; display:flex; z-index:6;}
+  .tabbar button { flex:1; background:none; border:none; color:var(--muted); font-size:10px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:3px; padding-top:12px;}
+  .tabbar button.on { color:var(--primary); }
+  .tabbar .ico { font-size:20px; }
+  .gauge-wrap { display:flex; flex-direction:column; align-items:center; }
+  .zone-pill { font-size:12px; font-weight:600; padding:4px 12px; border-radius:999px; }
+  .block-line { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #232b38; font-size:14px;}
+  .block-line:last-child { border-bottom:none; }
+  .bignum { font-size:52px; font-weight:800; font-variant-numeric:tabular-nums; }
+  .alert-banner { background:rgba(248,113,113,.12); border:1px solid rgba(248,113,113,.4); border-radius:var(--radius); padding:14px; margin-bottom:12px;}
+  .rpe-scale { display:grid; grid-template-columns:repeat(11,1fr); gap:4px; margin:14px 0;}
+  .rpe-scale button { aspect-ratio:1; border-radius:8px; border:none; background:var(--card2); color:var(--muted); font-weight:700; cursor:pointer; font-size:13px;}
+  .rpe-scale button.sel { outline:2px solid var(--primary); color:var(--text); }
+  .toast { position:absolute; bottom:96px; left:20px; right:20px; background:#233042; border-radius:12px; padding:12px 14px; font-size:13px; display:none; z-index:9; box-shadow:0 8px 24px rgba(0,0,0,.5);}
+  input[type=text], input[type=date] { width:100%; background:var(--card2); border:1px solid #2a3240; border-radius:10px; padding:12px; color:var(--text); font-size:15px; margin-bottom:10px;}
+  .footer-note { font-size:10px; color:#4b5563; text-align:center; margin-top:auto; padding-top:14px; }
+</style>
+</head>
+<body>
+<h1 class="proto-title">Prototype MVP — « Courir mieux, sans se blesser »</h1>
+<p class="proto-sub">Maquette cliquable pour test utilisateur. Parcours : Onboarding → Accueil (jauge de charge) → Séance → Player → RPE. Le bouton « Simuler une dérive » démontre le différenciateur.</p>
+
+<div class="phone">
+  <div class="statusbar"><span>9:41</span><span>Runly&nbsp;·&nbsp;proto</span><span>100%</span></div>
+
+  <!-- ═══════════ ONBOARDING 1 : santé ═══════════ -->
+  <div class="screen active" id="ob1">
+    <div class="progressdots"><span class="on"></span><span></span><span></span><span></span></div>
+    <div style="font-size:44px;margin-bottom:12px">⌚️</div>
+    <div class="h2">Connecte tes données santé</div>
+    <p class="muted" style="margin-bottom:18px">Tes séances remontent automatiquement depuis ta montre via Apple Santé. On lit uniquement tes activités de course — jamais rien d'autre, et tu peux couper à tout moment.</p>
+    <div class="card">
+      <div class="row"><span>🏃 Séances de course</span><span style="color:var(--accent)">Lecture</span></div>
+      <div class="row" style="margin-top:8px"><span>❤️ Fréquence cardiaque</span><span style="color:var(--accent)">Lecture</span></div>
+      <div class="row" style="margin-top:8px"><span>📝 Séances guidées</span><span style="color:var(--muted)">Écriture</span></div>
+    </div>
+    <div style="margin-top:auto">
+      <button class="btn btn-primary" onclick="go('ob2'); toast('Historique importé : 26 semaines, 118 séances')">Connecter Apple Santé</button>
+      <button class="btn btn-ghost" onclick="go('ob2')">Continuer sans montre (saisie manuelle)</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ ONBOARDING 2 : profil ═══════════ -->
+  <div class="screen" id="ob2">
+    <div class="progressdots"><span class="on"></span><span class="on"></span><span></span><span></span></div>
+    <div class="h2">Parle-nous de toi</div>
+    <p class="muted" style="margin-bottom:16px">Ces infos calibrent la prudence de ton plan.</p>
+    <div class="label">Blessure ces 12 derniers mois ?</div>
+    <div>
+      <span class="chip" onclick="selChip(this)">Aucune</span>
+      <span class="chip sel" onclick="selChip(this)">Périostite</span>
+      <span class="chip" onclick="selChip(this)">Tendon d'Achille</span>
+      <span class="chip" onclick="selChip(this)">Genou</span>
+      <span class="chip" onclick="selChip(this)">Autre</span>
+    </div>
+    <div class="card" style="margin-top:14px; border:1px solid rgba(251,191,36,.35)">
+      <div class="row"><span style="font-size:20px">🛡️</span>
+      <p class="muted" style="flex:1; margin-left:10px">Antécédent noté. Ton plan progressera plus doucement (+5 à 8 %/sem au lieu de 10 %) — c'est le facteur de risque le plus documenté.</p></div>
+    </div>
+    <div class="label" style="margin-top:10px">Séances par semaine souhaitées</div>
+    <div>
+      <span class="chip" onclick="selChip(this)">2</span>
+      <span class="chip sel" onclick="selChip(this)">3</span>
+      <span class="chip" onclick="selChip(this)">4</span>
+      <span class="chip" onclick="selChip(this)">5</span>
+    </div>
+    <p class="muted" style="font-size:11px">💡 En dessous de 2 séances/sem, le risque de blessure augmente — on ne le propose pas.</p>
+    <div style="margin-top:auto"><button class="btn btn-primary" onclick="go('ob3')">Continuer</button></div>
+  </div>
+
+  <!-- ═══════════ ONBOARDING 3 : objectif ═══════════ -->
+  <div class="screen" id="ob3">
+    <div class="progressdots"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+    <div class="h2">Ton objectif</div>
+    <p class="muted" style="margin-bottom:16px">Une course datée, et on remonte le plan jusqu'à aujourd'hui.</p>
+    <div class="label">Distance</div>
+    <div>
+      <span class="chip" onclick="selChip(this)">5 km</span>
+      <span class="chip" onclick="selChip(this)">10 km</span>
+      <span class="chip sel" onclick="selChip(this)">Semi</span>
+      <span class="chip" onclick="selChip(this)">Marathon</span>
+    </div>
+    <div class="label" style="margin-top:10px">Épreuve</div>
+    <input type="text" value="Semi de Nantes">
+    <div class="label">Date</div>
+    <input type="date" value="2026-10-18">
+    <div class="label">Ambition</div>
+    <div>
+      <span class="chip" onclick="selChip(this)">Finir</span>
+      <span class="chip sel" onclick="selChip(this)">1h45</span>
+      <span class="chip" onclick="selChip(this)">1h40</span>
+    </div>
+    <div style="margin-top:auto"><button class="btn btn-primary" onclick="go('ob4')">Générer mon plan</button></div>
+  </div>
+
+  <!-- ═══════════ ONBOARDING 4 : restitution ═══════════ -->
+  <div class="screen" id="ob4">
+    <div class="progressdots"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+    <div style="font-size:44px;margin-bottom:12px">🎯</div>
+    <div class="h2">Ton plan est prêt, Marc</div>
+    <p class="muted" style="margin-bottom:14px">Semi de Nantes · 18 oct. · objectif 1h45</p>
+    <div class="card">
+      <div class="row"><span class="muted">Durée du plan</span><b>14 semaines</b></div>
+      <div class="row" style="margin-top:8px"><span class="muted">Séances / semaine</span><b>3</b></div>
+      <div class="row" style="margin-top:8px"><span class="muted">VMA estimée (historique)</span><b>15,5 km/h <span style="color:var(--warn);font-size:11px">estimée</span></b></div>
+      <div class="row" style="margin-top:8px"><span class="muted">Allure semi cible</span><b>4:59 /km</b></div>
+      <div class="row" style="margin-top:8px"><span class="muted">Progression hebdo max</span><b>+8 % <span style="color:var(--warn);font-size:11px">prudence blessure</span></b></div>
+    </div>
+    <div class="card" style="background:rgba(74,222,128,.08); border:1px solid rgba(74,222,128,.3)">
+      <p class="muted" style="color:var(--text)">📊 <b>Ta jauge de charge</b> t'accompagnera à chaque séance : elle compare ta semaine à ton habitude des 4 dernières semaines. Dans le vert, tu progresses en sécurité. On t'explique tout au premier pic.</p>
+    </div>
+    <div style="margin-top:auto"><button class="btn btn-primary" onclick="go('home')">Découvrir mon accueil</button></div>
+  </div>
+
+  <!-- ═══════════ ACCUEIL / JAUGE ═══════════ -->
+  <div class="screen" id="home">
+    <div class="row" style="margin-bottom:14px">
+      <div><div class="h2">Salut Marc 👋</div><p class="muted">Semaine 3 / 14 · Semi de Nantes dans 12 sem.</p></div>
+    </div>
+
+    <div class="alert-banner" id="loadAlert" style="display:none">
+      <b style="color:var(--danger)">Ta charge a augmenté de 38 % vs ton habitude</b>
+      <p class="muted" style="margin:6px 0 10px">Sortie longue improvisée détectée dimanche. Suggestion : remplacer le fractionné de jeudi par 40 min d'endurance fondamentale.</p>
+      <div style="display:flex; gap:8px">
+        <button class="btn btn-primary" style="padding:10px; font-size:13px" onclick="resolveAlert(true)">Adapter ma semaine</button>
+        <button class="btn btn-ghost" style="padding:10px; font-size:13px; margin-top:0" onclick="resolveAlert(false)">Garder mon plan</button>
+      </div>
+    </div>
+
+    <div class="card gauge-wrap">
+      <div class="label">Jauge de charge (ACWR)</div>
+      <svg id="gauge" width="240" height="140" viewBox="0 0 240 140">
+        <path d="M 20 130 A 100 100 0 0 1 74 41" fill="none" stroke="#3b82f6" stroke-width="14" stroke-linecap="round" opacity=".45"/>
+        <path d="M 80 37 A 100 100 0 0 1 175 45" fill="none" stroke="#4ade80" stroke-width="14" stroke-linecap="round"/>
+        <path d="M 181 50 A 100 100 0 0 1 220 130" fill="none" stroke="#f87171" stroke-width="14" stroke-linecap="round" opacity=".55"/>
+        <line id="needle" x1="120" y1="130" x2="120" y2="52" stroke="#f2f5f9" stroke-width="3" stroke-linecap="round" transform="rotate(8 120 130)"/>
+        <circle cx="120" cy="130" r="7" fill="#f2f5f9"/>
+        <text x="16" y="115" fill="#8a94a6" font-size="10">0.6</text>
+        <text x="112" y="24" fill="#8a94a6" font-size="10">1.0</text>
+        <text x="212" y="115" fill="#8a94a6" font-size="10">1.6</text>
+      </svg>
+      <div class="bignum" id="acwrVal" style="font-size:34px">1,12</div>
+      <span class="zone-pill" id="zonePill" style="background:rgba(74,222,128,.15); color:var(--accent)">Zone favorable · continue comme ça</span>
+      <p class="muted" style="font-size:11px; margin-top:8px; text-align:center">Charge des 7 derniers jours vs ta moyenne sur 4 semaines. <u>Comment ça marche ?</u></p>
+    </div>
+
+    <div class="card">
+      <div class="label">Prochaine séance · jeudi</div>
+      <div class="row">
+        <div><div class="h3">2 × 2000 m allure semi</div><p class="muted">≈ 9 km · ≈ 47 min · qualité</p></div>
+        <button class="btn btn-primary" style="width:auto; padding:10px 16px; font-size:14px" onclick="go('session')">Voir</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="label">Cette semaine</div>
+      <div class="block-line"><span>✅ Mar · EF 45 min</span><span class="muted">RPE 4</span></div>
+      <div class="block-line"><span id="thuLine">◻️ Jeu · 2×2000 m semi</span><span class="muted">qualité</span></div>
+      <div class="block-line"><span>◻️ Dim · Sortie longue 1h10</span><span class="muted">EF</span></div>
+      <div class="row" style="margin-top:10px"><span class="muted">Volume prévu</span><b>32 km · charge dans ta zone</b></div>
+    </div>
+
+    <button class="btn btn-ghost" onclick="simulateDrift()" id="driftBtn">🧪 Démo : simuler une sortie longue improvisée</button>
+    <div class="footer-note">Aide à la décision d'entraînement — ne constitue pas un avis médical.</div>
+  </div>
+
+  <!-- ═══════════ DÉTAIL SÉANCE ═══════════ -->
+  <div class="screen" id="session">
+    <p class="muted" style="margin-bottom:8px" onclick="go('home')">‹ Retour</p>
+    <div class="h2">2 × 2000 m allure semi</div>
+    <p class="muted" style="margin-bottom:14px">Jeudi · séance de qualité · développement de l'allure spécifique semi : tu apprends à « sentir » ton 4:59/km en étant relâché.</p>
+    <div class="card">
+      <div class="row"><div><div class="label">Distance</div><b>≈ 9 km</b></div>
+      <div><div class="label">Durée</div><b>≈ 47 min</b></div>
+      <div><div class="label">Allure cible</div><b>4:59 /km</b></div>
+      <div><div class="label">FC cible</div><b>158–166</b></div></div>
+    </div>
+    <div class="card">
+      <div class="label">Déroulé</div>
+      <div class="block-line"><span>🔥 Échauffement</span><span>15 min · EF · 5:50-6:10/km</span></div>
+      <div class="block-line"><span>⚡ 2000 m — répétition 1</span><span>4:59/km · ≈ 9:58</span></div>
+      <div class="block-line"><span>💤 Récupération</span><span>2 min · trot</span></div>
+      <div class="block-line"><span>⚡ 2000 m — répétition 2</span><span>4:59/km · ≈ 9:58</span></div>
+      <div class="block-line"><span>🧊 Retour au calme</span><span>10 min · très facile</span></div>
+    </div>
+    <button class="btn btn-primary" onclick="startPlayer()">▶ Lancer la séance guidée</button>
+    <button class="btn btn-ghost" onclick="toast('Mode carte : brief affiché, tracke avec ta montre. La séance sera rapprochée automatiquement.')">Je cours avec ma montre (mode carte)</button>
+  </div>
+
+  <!-- ═══════════ PLAYER ═══════════ -->
+  <div class="screen" id="player" style="background:linear-gradient(180deg,#0e1116, #0d1a14)">
+    <div class="row" style="margin-bottom:10px">
+      <p class="muted" onclick="stopPlayer(); go('session')">✕ Quitter</p>
+      <span class="chip" id="speedChip" onclick="toggleSpeed()">Démo ×20</span>
+    </div>
+    <div style="text-align:center; margin-top:8px">
+      <div class="label" id="blockLabel">Échauffement · 1/5</div>
+      <div class="bignum" id="blockTimer">15:00</div>
+      <p class="muted" id="blockTarget">Allure cible 5:50 – 6:10 /km</p>
+    </div>
+    <div class="card" style="margin-top:22px; text-align:center">
+      <div class="row">
+        <div style="flex:1"><div class="label">Allure actuelle</div><div class="h2" id="curPace">6:02</div></div>
+        <div style="flex:1"><div class="label">FC</div><div class="h2" id="curHr">132</div></div>
+        <div style="flex:1"><div class="label">Distance</div><div class="h2" id="curDist">0,0</div></div>
+      </div>
+      <p class="muted" id="paceCoach" style="margin-top:10px; color:var(--accent)">✓ Dans la cible, relâche les épaules</p>
+    </div>
+    <div class="card">
+      <div class="label">Prochain bloc</div>
+      <p id="nextBlock" style="font-size:14px">⚡ 2000 m @ 4:59/km — FC 158-166</p>
+    </div>
+    <div style="margin-top:auto; display:flex; gap:10px">
+      <button class="btn btn-ghost" id="pauseBtn" onclick="togglePause()" style="margin-top:0">⏸ Pause</button>
+      <button class="btn btn-primary" onclick="finishSession()">Terminer</button>
+    </div>
+  </div>
+
+  <!-- ═══════════ RPE ═══════════ -->
+  <div class="screen" id="rpe">
+    <div style="font-size:44px; margin-bottom:12px">🏁</div>
+    <div class="h2">Séance terminée !</div>
+    <p class="muted" style="margin-bottom:6px">2 × 2000 m · 9,1 km · 47:22 · FC moy 151</p>
+    <p class="muted" style="margin-bottom:16px">Allure moyenne sur les 2000 m : <b style="color:var(--text)">4:58 /km</b> — pile dans la cible 👌</p>
+    <div class="card">
+      <div class="label">Comment c'était ? (effort ressenti)</div>
+      <div class="rpe-scale" id="rpeScale"></div>
+      <div class="row muted" style="font-size:11px"><span>😌 Très facile</span><span>🥵 Maximal</span></div>
+      <p class="muted" id="rpeHint" style="margin-top:10px">Ta réponse alimente ta jauge de charge — 5 secondes qui valent de l'or.</p>
+    </div>
+    <div class="card" style="display:none" id="rpeFeedback">
+      <p class="muted" id="rpeFeedbackText"></p>
+    </div>
+    <div style="margin-top:auto"><button class="btn btn-primary" onclick="submitRpe()">Valider</button></div>
+  </div>
+
+  <!-- ═══════════ PLAN (onglet) ═══════════ -->
+  <div class="screen" id="plan">
+    <div class="h2">Plan · Semi de Nantes</div>
+    <p class="muted" style="margin-bottom:14px">14 semaines · 3 phases · affûtage 10 jours</p>
+    <div class="card">
+      <div class="label">Phase 1 · Générale (sem. 1-5)</div>
+      <p class="muted">Construire la base : 80 % EF, 1 séance VMA courte/sem. 26 → 34 km.</p>
+    </div>
+    <div class="card" style="border:1px solid #2a3240">
+      <div class="label" style="color:var(--primary)">Phase 2 · Spécifique (sem. 6-12) — en cours</div>
+      <p class="muted">Allure semi & seuil : 2×2000, 3×2000, tempo 20-30 min. Sortie longue jusqu'à 1h45. Semaines 8 et 11 allégées (-30 %).</p>
+    </div>
+    <div class="card">
+      <div class="label">Phase 3 · Affûtage (sem. 13-14)</div>
+      <p class="muted">-40 % de volume, intensité conservée, fraîcheur pour le jour J.</p>
+    </div>
+    <p class="muted" style="font-size:11px">Chaque semaine respecte ta progression max de +8 % — le plan se régénère si ton vécu change.</p>
+  </div>
+
+  <!-- TABBAR -->
+  <div class="tabbar" id="tabbar" style="display:none">
+    <button id="tab-home" class="on" onclick="go('home')"><span class="ico">📊</span>Accueil</button>
+    <button id="tab-plan" onclick="go('plan')"><span class="ico">🗓️</span>Plan</button>
+    <button id="tab-session" onclick="go('session')"><span class="ico">▶️</span>Séance</button>
+  </div>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<div class="protonav" id="protonav"></div>
+
+<script>
+/* ─── navigation ─── */
+const screens = ["ob1","ob2","ob3","ob4","home","session","player","rpe","plan"];
+const names = {ob1:"Onb. Santé", ob2:"Onb. Profil", ob3:"Onb. Objectif", ob4:"Onb. Plan", home:"Accueil/Jauge", session:"Séance", player:"Player", rpe:"RPE", plan:"Plan"};
+function go(id){
+  screens.forEach(s=>document.getElementById(s).classList.toggle("active", s===id));
+  document.getElementById("tabbar").style.display = ["home","plan","session"].includes(id) ? "flex" : "none";
+  ["home","plan","session"].forEach(t=>{const b=document.getElementById("tab-"+t); if(b) b.classList.toggle("on", t===id);});
+  document.querySelectorAll("#protonav button").forEach(b=>b.classList.toggle("on", b.dataset.s===id));
+  if(id!=="player") stopPlayer();
+}
+const nav = document.getElementById("protonav");
+screens.forEach(s=>{const b=document.createElement("button"); b.textContent=names[s]; b.dataset.s=s; b.onclick=()=>go(s); nav.appendChild(b);});
+document.querySelector('#protonav button').classList.add("on");
+
+function toast(msg){
+  const t=document.getElementById("toast"); t.textContent=msg; t.style.display="block";
+  clearTimeout(t._h); t._h=setTimeout(()=>t.style.display="none", 3200);
+}
+function selChip(el){ [...el.parentElement.children].forEach(c=>c.classList.remove("sel")); el.classList.add("sel"); }
+
+/* ─── jauge / scénario dérive ─── */
+function setGauge(v){
+  // mapping 0.6→-82°, 1.0→0°(haut)… échelle linéaire 0.6-1.6 sur -82°..+82°
+  const angle = ((v-1.1)/0.5)*82;
+  document.getElementById("needle").setAttribute("transform", `rotate(${Math.max(-82,Math.min(82,angle))} 120 130)`);
+  document.getElementById("acwrVal").textContent = v.toFixed(2).replace(".",",");
+  const pill=document.getElementById("zonePill");
+  if(v>1.3){ pill.textContent="Pic de charge · prudence"; pill.style.background="rgba(248,113,113,.15)"; pill.style.color="var(--danger)"; }
+  else if(v<0.8){ pill.textContent="Sous-charge · relance-toi en douceur"; pill.style.background="rgba(59,130,246,.15)"; pill.style.color="#60a5fa"; }
+  else { pill.textContent="Zone favorable · continue comme ça"; pill.style.background="rgba(74,222,128,.15)"; pill.style.color="var(--accent)"; }
+}
+setGauge(1.12);
+function simulateDrift(){
+  setGauge(1.38);
+  document.getElementById("loadAlert").style.display="block";
+  document.getElementById("driftBtn").style.display="none";
+}
+function resolveAlert(adapt){
+  document.getElementById("loadAlert").style.display="none";
+  if(adapt){
+    document.getElementById("thuLine").innerHTML="◻️ Jeu · EF 40 min <span style='color:var(--warn)'>(adaptée)</span>";
+    setGauge(1.18);
+    toast("Semaine adaptée ✔ Le fractionné revient la semaine prochaine.");
+  } else {
+    toast("Plan conservé. On garde un œil sur ta charge — c'est toi qui décides.");
+  }
+  document.getElementById("driftBtn").style.display="block";
+}
+
+/* ─── player ─── */
+const blocks=[
+  {name:"Échauffement · 1/5", dur:900, target:"Allure cible 5:50 – 6:10 /km", pace:[350,370], hr:[125,140], next:"⚡ 2000 m @ 4:59/km — FC 158-166"},
+  {name:"2000 m · rép. 1 · 2/5", dur:598, target:"4:59 /km · FC 158-166", pace:[295,302], hr:[155,168], next:"💤 Récupération 2 min trot"},
+  {name:"Récupération · 3/5", dur:120, target:"Trot très lent, relâche tout", pace:[400,430], hr:[135,150], next:"⚡ 2000 m @ 4:59/km — dernière !"},
+  {name:"2000 m · rép. 2 · 4/5", dur:598, target:"4:59 /km · FC 158-166", pace:[295,304], hr:[158,171], next:"🧊 Retour au calme 10 min"},
+  {name:"Retour au calme · 5/5", dur:600, target:"Très facile, savoure", pace:[380,410], hr:[120,135], next:"🏁 Fin de séance"}
+];
+let bi=0, remaining=0, elapsed=0, dist=0, timer=null, paused=false, speed=20;
+function fmt(s){s=Math.max(0,Math.round(s)); return Math.floor(s/60)+":"+String(s%60).padStart(2,"0");}
+function startPlayer(){
+  bi=0; elapsed=0; dist=0; paused=false; loadBlock(); go("player");
+  clearInterval(timer); timer=setInterval(tick, 1000/ (speed===1?1:speed));
+}
+function loadBlock(){
+  const b=blocks[bi]; remaining=b.dur;
+  document.getElementById("blockLabel").textContent=b.name;
+  document.getElementById("blockTarget").textContent=b.target;
+  document.getElementById("nextBlock").textContent=b.next;
+  document.getElementById("blockTimer").textContent=fmt(remaining);
+}
+function tick(){
+  if(paused) return;
+  remaining--; elapsed++;
+  const b=blocks[bi];
+  const paceS=b.pace[0]+Math.random()*(b.pace[1]-b.pace[0]);
+  dist+=1/paceS;
+  document.getElementById("blockTimer").textContent=fmt(remaining);
+  document.getElementById("curPace").textContent=fmt(paceS).replace(":",":");
+  document.getElementById("curHr").textContent=Math.round(b.hr[0]+Math.random()*(b.hr[1]-b.hr[0]));
+  document.getElementById("curDist").textContent=dist.toFixed(1).replace(".",",");
+  const inTarget = bi===1||bi===3 ? paceS<305 : true;
+  const coach=document.getElementById("paceCoach");
+  coach.textContent = inTarget ? "✓ Dans la cible, relâche les épaules" : "△ Un poil vite — laisse filer 2 s/km";
+  coach.style.color = inTarget ? "var(--accent)" : "var(--warn)";
+  if(remaining<=0){ bi++; if(bi>=blocks.length){ finishSession(); } else { loadBlock(); toast("🔔 "+blocks[bi].name+" — "+blocks[bi].target); } }
+}
+function togglePause(){ paused=!paused; document.getElementById("pauseBtn").textContent = paused? "▶ Reprendre":"⏸ Pause"; }
+function toggleSpeed(){ speed = speed===20? 1: 20; document.getElementById("speedChip").textContent = speed===20? "Démo ×20":"Temps réel ×1";
+  clearInterval(timer); timer=setInterval(tick, 1000/(speed===1?1:speed)); }
+function stopPlayer(){ clearInterval(timer); timer=null; }
+function finishSession(){ stopPlayer(); go("rpe"); }
+
+/* ─── RPE ─── */
+let rpeVal=null;
+const scale=document.getElementById("rpeScale");
+for(let i=0;i<=10;i++){ const b=document.createElement("button"); b.textContent=i;
+  b.onclick=()=>{ rpeVal=i; [...scale.children].forEach(c=>c.classList.remove("sel")); b.classList.add("sel");
+    const fb=document.getElementById("rpeFeedback"), tx=document.getElementById("rpeFeedbackText"); fb.style.display="block";
+    tx.textContent = i>=8 ? "Effort très dur noté. Si ça se répète sur 2 séances, on te proposera d'alléger — c'est le signal le plus fiable dont on dispose."
+      : i<=3 ? "Très facile ? Parfait pour une séance de qualité maîtrisée. Ta charge reste dans le vert."
+      : "Nickel, c'est exactement l'effort attendu pour cette séance. Charge de séance : "+(i*47)+" UA.";
+  }; scale.appendChild(b); }
+function submitRpe(){
+  if(rpeVal===null){ toast("Choisis une note d'effort 🙏"); return; }
+  toast("Séance enregistrée ✔ Jauge mise à jour : 1,19 — zone favorable.");
+  setGauge(1.19); go("home");
+}
+</script>
+</body>
+</html>

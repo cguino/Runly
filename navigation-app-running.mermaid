@@ -1,0 +1,38 @@
+flowchart TD
+    OB1[Onboarding 1 · Santé] --> OB2[Onboarding 2 · Profil & blessures]
+    OB2 --> OB3[Onboarding 3 · Objectif]
+    OB3 --> OB4[Onboarding 4 · Restitution du plan]
+    OB4 --> HOME
+
+    subgraph TABS["Tab bar · 4 destinations racines (jamais de bouton retour ici)"]
+        HOME["📊 Accueil<br/>jauge ACWR + semaine 7 jours"]
+        PLAN["🗓 Plan<br/>timeline passé ↔ à venir"]
+        LIB["📚 Séances<br/>bibliothèque pédagogique"]
+        PROFIL["👤 Profil<br/>infos, FCmax, VMA, zones"]
+    end
+
+    HOME -->|"push ‹ retour"| DETAIL["Détail séance<br/>structure, allures, FC cibles"]
+    HOME -->|"push ‹ retour"| GAUGE["Comment ça marche ?<br/>pédagogie jauge"]
+    HOME -->|"banner alerte"| ADAPT["Adapter ma semaine<br/>(bottom sheet)"]
+
+    PLAN -->|"push ‹ retour"| DETAIL
+    PLAN -->|"push ‹ retour"| PAST["Séance passée<br/>réalisé vs prévu, RPE, charge"]
+    PLAN -->|"déplacer une séance"| MOVE["Choisir un autre jour<br/>(bottom sheet + impact jauge)"]
+
+    LIB -->|"push ‹ retour"| FICHE["Fiche séance<br/>quoi, pourquoi, pour quel objectif,<br/>effort attendu, variantes"]
+    FICHE -->|"L'ajouter à ma semaine"| MOVE
+    FICHE -->|"La faire maintenant"| PLAYER
+    LIB -->|"push ‹ retour"| BUILDER["Builder de séance<br/>blocs personnalisés"]
+
+    PROFIL -->|"push ‹ retour"| PHYSIO["Références physio<br/>FCmax · VMA · SV1/SV2 · zones<br/>(badge mesuré/estimé, éditable)"]
+    PHYSIO -->|"CTA test"| COOPER["Test demi-Cooper 6 min<br/>guidé via player · P1"]
+    PROFIL -->|"push ‹ retour"| SETTINGS["Réglages<br/>permissions santé, objectif, compte"]
+
+    DETAIL ==>|"modal plein écran<br/>tab bar masquée"| PLAYER["▶ Player<br/>timer, allure cible, coaching"]
+    PLAYER ==> RPE["🏁 Fin de séance · RPE<br/>(modal, non skippable en 1 tap)"]
+    RPE ==>|"jauge mise à jour"| HOME
+
+    style TABS fill:#171c24,stroke:#38bdf8,color:#f2f5f9
+    style PLAYER fill:#0d1a14,stroke:#4ade80,color:#f2f5f9
+    style RPE fill:#0d1a14,stroke:#4ade80,color:#f2f5f9
+    style COOPER stroke-dasharray: 5 5
