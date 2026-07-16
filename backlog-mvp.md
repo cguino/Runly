@@ -2,7 +2,7 @@
 
 > Découpage des P0 de la spec v0.3 en epics et stories estimées. Prêt à importer dans Jira/Linear.
 > Estimations en points (1/2/3/5/8/13), calibrées pour une équipe de 2 devs RN + 1 back (partagé). Vélocité hypothèse : ~20 pts/sprint de 2 semaines.
-> **MAJ cadrage 16/07/2026** (`decisions-cadrage-mvp.md`) : total 185→203 pts. Correction de coquille (E5 = 31, pas 26) + intégration des 12 décisions. Le périmètre croît légèrement : les ajouts (compte, semaine type + CRUD objectif, i18n-ready, KPI en base) dépassent les retraits (FC live, analytics tiers). À noter : ces choix évitent des coûts plus lourds (plomberie freemium, CMP/ATT, matching robuste) qui auraient sinon gonflé le total.
+> **MAJ cadrage 16/07/2026** (`decisions-cadrage-mvp.md`) : total 185→203 pts. Correction de coquille sur E5 (26 → 31, puis **29** après retrait de la FC temps réel — D6, valeur du tableau ci-dessous) + intégration des 12 décisions. Le périmètre croît légèrement : les ajouts (compte, semaine type + CRUD objectif, i18n-ready, KPI en base) dépassent les retraits (FC live, analytics tiers). À noter : ces choix évitent des coûts plus lourds (plomberie freemium, CMP/ATT, matching robuste) qui auraient sinon gonflé le total.
 
 ## Vue d'ensemble
 
@@ -25,7 +25,7 @@
 
 ## E0 — Fondations techniques (23 pts)
 
-- **E0-1** (7) Setup monorepo : app Expo SDK 56 (dev client, TS strict, expo-router 4 tabs), **i18n-ready dès le départ (strings externalisés, formats via lib — FR + métrique au MVP, D7)**, packages `@runly/schemas` (zod) et `@runly/training-engine`, EAS Build + GitHub Actions.
+- **E0-1** (7) Setup projet : app Expo SDK 56 seule (**pas de monorepo — yarn**, dev client, TS strict, expo-router 4 tabs), **i18n-ready dès le départ (strings externalisés, formats via lib — FR + métrique au MVP, D7)**, modules internes `src/schemas` (zod) et `src/training-engine`, EAS Build + GitHub Actions.
 - **E0-2** (3) Supabase région UE : projet, auth (email + Apple/Google), schéma Postgres initial + RLS, environnements dev/staging/prod.
 - **E0-3** (5) Design system : tokens de la charte (`design-system-runly.md`) en thème RN, composants de base (Button, Card, Chip, StatCard, Label), décision Paper vs maison (spike 1 j).
 - **E0-4** (5) Spikes sprint 0 : TTS écran verrouillé iOS (plan B audio pré-enregistré), ExerciseRoute/historique Health Connect sur vraie montre, lissage allure GPS.

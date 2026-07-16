@@ -16,7 +16,7 @@
 | Navigation | **expo-router** (file-based, 4 tabs + stacks conformes au diagramme de navigation) | recommandé |
 | State local | **zustand** (ton choix) — stores par domaine : session player, préférences | ✅ validé |
 | State serveur | **TanStack Query** en complément — cache, retry, sync des données backend. Zustand ne doit pas porter le cache serveur | ajout recommandé |
-| Validation | **zod** (ton choix) — schémas partagés front/back dans un package commun (`@runly/schemas`) : séances, workouts, profil physio. C'est lui qui garantit l'intégrité des données santé multi-sources | ✅ validé |
+| Validation | **zod** (ton choix) — schémas centralisés dans un module commun de l'app (`src/schemas`) : séances, workouts, profil physio. C'est lui qui garantit l'intégrité des données santé multi-sources | ✅ validé |
 | UI kit | **react-native-paper v5 (MD3)** : ⚠️ réserve — voir ci-dessous | ⚠️ à trancher |
 | Jauge ACWR | **@shopify/react-native-skia** en direct (arc + Reanimated, ~50 lignes, contrôle total) | recommandé |
 | Graphes de charge | **victory-native XL** (backend Skia) | recommandé |
@@ -46,12 +46,12 @@
 **Supabase, région Francfort ou Paris** : Auth, Postgres + RLS, Edge Functions. C'est le meilleur ratio vitesse/robustesse pour un MVP, RGPD-défendable avec DPA + minimisation des données (stocker les agrégats de séance — durée, distance, FC moyenne, charge — plutôt que les séries FC brutes, qui de toute façon ne servent pas à l'ACWR).
 
 - ⚠️ Caveat à documenter avec le DPO : Supabase = société US sur AWS → exposition CLOUD Act même en région UE. Pour le MVP c'est généralement défendable ; si le juridique bloque, plan B : Supabase self-hosted sur Scaleway/OVH (la stack applicative ne change pas).
-- **Le générateur de plan = package TypeScript pur** (`@runly/training-engine`) partagé front/back, validé par les schémas zod communs : fonction pure (profil, objectif, historique) → plan. Testable unitairement, exécutable côté client (offline) comme côté Edge Function.
+- **Le générateur de plan = module TypeScript pur** (`src/training-engine`) dans l'app, validé par les schémas zod communs : fonction pure (profil, objectif, historique) → plan. Testable unitairement, exécuté côté client (offline) ; les Edge Functions se limitent à l'ingestion (webhook Strava).
 - Webhooks Strava + ingestion → Edge Functions.
 
 ### Qualité & outillage
 
-CI/CD : **EAS Build + Submit** + GitHub Actions. Tests : **jest** (unitaires — en priorité le training-engine et le calcul ACWR) + **Maestro** (E2E parcours critiques : onboarding, player, RPE). Crash/monitoring : **Sentry**. Analytics produit : **PostHog** (région UE, events définis en spec §10). Distribution beta : TestFlight + Play Internal Testing via EAS.
+CI/CD : **EAS Build + Submit** + GitHub Actions. Tests : **jest** (unitaires — en priorité le training-engine et le calcul ACWR) + **Maestro** (E2E parcours critiques : onboarding, player, RPE). Crash/monitoring : **Sentry**. Pas d'analytics produit tiers au MVP (décision D10) : les KPI de la spec §10 sont calculés par requêtes directes sur la base Supabase. Distribution beta : TestFlight + Play Internal Testing via EAS.
 
 ## Risques techniques à lever en sprint 0 (par ordre de priorité)
 
