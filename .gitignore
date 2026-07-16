@@ -40,3 +40,6 @@ yarn-error.*
 # Supabase local
 supabase/.temp/
 supabase/.branches/
+
+# Couverture de tests (générée)
+coverage/

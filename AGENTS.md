@@ -9,13 +9,17 @@ contraintes réglementaires : voir `CLAUDE.md`.
 
 ```bash
 yarn install          # dépendances (yarn 1.x — pas de pnpm, pas de npm)
-yarn start            # Metro / dev client (Expo Go ne suffit pas)
-yarn ios / yarn android
-yarn lint             # ESLint (expo lint, 0 warning toléré)
-yarn type-check       # tsc --noEmit (TypeScript strict)
+yarn prebuild:ios / yarn prebuild:android   # bare workflow : régénère ios/ et android/ (jamais versionnés)
+yarn ios / yarn android                     # build natif local + lancement (expo run:*)
+yarn start            # Metro seul (--clear)
+yarn lint / yarn lint:fix                   # ESLint (expo lint, 0 warning toléré)
+yarn type-check       # tsc --noEmit (TypeScript strict) — alias : yarn typecheck
 yarn test             # jest (préréglage jest-expo)
+yarn format           # prettier (les docs *.md sont exclues)
+yarn pre-pr           # lint + type-check + tests avec couverture, avant chaque PR
 yarn db:start         # Supabase local (Docker requis)
 yarn db:reset         # ré-applique les migrations + seed en local
+yarn clean            # purge node_modules / .expo / ios / android / yarn.lock
 ```
 
 Definition of Done d'une story : code + tests + `yarn lint &&

@@ -10,8 +10,12 @@ petite équipe.
 
 ## Décision
 
-- **Expo SDK 57 + dev client + EAS Build**, TypeScript strict, **expo-router**
-  (4 tabs conformes à `navigation-app-running.mermaid`).
+- **Expo SDK 57 en workflow bare/prebuild** (arbitrage Cédric, 16/07/2026) :
+  dossiers natifs générés par `expo prebuild --clean` (CNG, jamais
+  versionnés), builds de dev **locaux** via `expo run:ios|android`
+  (expo-dev-client embarqué) ; EAS Build reste l'outil de distribution
+  beta/stores. TypeScript strict, **expo-router** (4 tabs conformes à
+  `navigation-app-running.mermaid`).
 - **zustand** (état local) + **TanStack Query** (état serveur) ; **zod** aux
   frontières (`src/schemas`).
 - Jauge : **@shopify/react-native-skia** + **react-native-reanimated** ;
@@ -31,6 +35,7 @@ petite équipe.
 
 ## Conséquences
 
-- Expo Go ne suffit pas : tout le monde travaille en dev client (EAS Build).
+- Expo Go ne suffit pas : `yarn prebuild:ios|android` puis `yarn ios|android`
+  en local ; EAS n'intervient que pour la distribution.
 - Les versions des libs santé sont pinnées ; toute montée de version passe
   par une PR dédiée avec tests d'ingestion.
