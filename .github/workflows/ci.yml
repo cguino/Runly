@@ -31,6 +31,9 @@ jobs:
       - name: Type-check
         run: yarn type-check
 
+      - name: Contrastes AA (tokens du design system)
+        run: yarn check:contrast
+
       - name: Tests
         run: yarn test --ci
 
