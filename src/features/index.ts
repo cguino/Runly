@@ -15,3 +15,5 @@ export const FEATURE_DOMAINS = [
 ] as const;
 
 export type FeatureDomain = (typeof FEATURE_DOMAINS)[number];
+
+export { PhysioReferencesScreen, usePhysioStore } from './profile';

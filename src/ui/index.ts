@@ -5,3 +5,5 @@
 export { colors, radii, spacing, theme, typography } from './theme';
 export type { Theme } from './theme';
 export { PlaceholderScreen } from './PlaceholderScreen';
+export { Pill } from './Pill';
+export type { PillVariant } from './Pill';

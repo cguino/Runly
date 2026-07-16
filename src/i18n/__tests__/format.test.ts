@@ -1,5 +1,6 @@
 import {
   formatApprox,
+  formatDateFr,
   formatDecimal,
   formatDistanceKm,
   formatDuration,
@@ -56,6 +57,17 @@ describe('formatDuration', () => {
   it('affiche les durées longues en heures + minutes paddées', () => {
     expect(formatDuration(3900)).toBe(`1${NNBSP}h${NNBSP}05`);
     expect(formatDuration(7200)).toBe(`2${NNBSP}h`);
+  });
+});
+
+describe('formatDateFr', () => {
+  it('formate une date ISO en JJ/MM/AAAA', () => {
+    expect(formatDateFr('2026-07-16')).toBe('16/07/2026');
+    expect(formatDateFr('2026-07-16T10:00:00+02:00')).toBe('16/07/2026');
+  });
+
+  it('rejette une chaîne non ISO', () => {
+    expect(() => formatDateFr('16/07/2026')).toThrow(RangeError);
   });
 });
 
