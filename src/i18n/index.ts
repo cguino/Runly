@@ -29,6 +29,7 @@ export { fr } from './fr';
 export type { FrResources } from './fr';
 export {
   formatApprox,
+  formatDateFr,
   formatDecimal,
   formatDistanceKm,
   formatDuration,

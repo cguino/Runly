@@ -51,3 +51,12 @@ export function formatDuration(totalSeconds: number): string {
 export function formatApprox(formattedValue: string): string {
   return `≈${NNBSP}${formattedValue}`;
 }
+
+/** Date ISO (`YYYY-MM-DD` ou datetime) au format français : « 16/07/2026 ». */
+export function formatDateFr(isoDate: string): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(isoDate);
+  if (!match) {
+    throw new RangeError(`date ISO invalide : ${isoDate}`);
+  }
+  return `${match[3]}/${match[2]}/${match[1]}`;
+}
