@@ -37,3 +37,21 @@ En cas de conflit entre documents, l'autorité est la suivante :
 ## Quand le code arrivera
 
 Suivre `plan-implementation-agents.md` : ses 10 règles transverses (§1), son architecture (§2) et sa boucle qualité par PR (§6) font foi. Les lots 3 (moteur de plan), 4 (onboarding), 6 (player), 7 (jauge) et 11 (RGPD/release) exigent une validation humaine avant merge. Le moteur de plan se vérifie par golden files par persona ; tout changement de ses sorties doit être justifié en PR.
+
+## Commandes yarn (depuis le Lot 0, le code vit à la racine du dépôt)
+
+```bash
+yarn install          # dépendances (yarn 1.x — pas de pnpm, pas de npm)
+yarn prebuild:ios / yarn prebuild:android   # bare workflow : régénère ios/ et android/ (jamais versionnés)
+yarn ios / yarn android                     # build natif local + lancement (expo run:*)
+yarn start            # Metro seul (--clear)
+yarn lint / yarn lint:fix                   # ESLint (expo lint, 0 warning toléré)
+yarn type-check       # tsc --noEmit (TypeScript strict)
+yarn test             # jest (préréglage jest-expo)
+yarn pre-pr           # lint + type-check + tests avec couverture, avant chaque PR
+yarn db:start         # Supabase local (Docker requis)
+yarn db:reset         # ré-applique les migrations + seed en local
+```
+
+Règles agents, architecture des modules `src/` et frontières ESLint :
+voir `AGENTS.md`. Décisions d'architecture : `docs/adr/`.
