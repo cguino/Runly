@@ -19,6 +19,7 @@ export const colors = {
   danger: '#EF4444',
   infoLoad: '#3B82F6',
   warn: '#FBBF24',
+  warnBg: 'rgba(251,191,36,.12)',
 } as const;
 
 export const radii = {
