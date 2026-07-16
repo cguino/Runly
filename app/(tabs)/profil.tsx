@@ -15,6 +15,13 @@ export default function ProfileScreen() {
           <Text style={styles.rowHint}>{t('screens.profile.physioLinkHint')}</Text>
         </View>
       </Link>
+      {__DEV__ ? (
+        <Link href="/ui-gallery" style={styles.rowLink}>
+          <View style={styles.rowContent}>
+            <Text style={styles.rowLabel}>{t('gallery.devLink')}</Text>
+          </View>
+        </Link>
+      ) : null}
       <Text style={styles.caption}>{t('screens.profile.placeholder')}</Text>
     </View>
   );
