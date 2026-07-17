@@ -2750,6 +2750,11 @@ available-typed-arrays@^1.0.7:
   dependencies:
     possible-typed-array-names "^1.0.0"
 
+await-lock@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/await-lock/-/await-lock-2.2.2.tgz#a95a9b269bfd2f69d22b17a321686f551152bcef"
+  integrity sha512-aDczADvlvTGajTDjcjpJMqRkOF6Qdz3YbPZm/PyW6tKPkx2hlYBzxMhEywM/tU72HrVZjgl5VCdRuMlA7pZ8Gw==
+
 babel-jest@^29.2.1, babel-jest@^29.7.0:
   version "29.7.0"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-29.7.0.tgz#f4369919225b684c56085998ac63dbd05be020d5"
@@ -4115,6 +4120,13 @@ expo-linking@~57.0.3:
     expo-constants "~57.0.5"
     invariant "^2.2.4"
 
+expo-location@~57.0.4:
+  version "57.0.5"
+  resolved "https://registry.yarnpkg.com/expo-location/-/expo-location-57.0.5.tgz#0b0b7dadecf6d0404860d25885967e5f5150a224"
+  integrity sha512-mwsbiZ9yusGS76MEKfKZpwmeYVYK860x3y3kkhor0p5RjKt0UEHiRkvLEIlPgl1jf0xuzY5++NDSHs1HxefSAw==
+  dependencies:
+    "@expo/image-utils" "^0.11.3"
+
 expo-manifests@~57.0.0:
   version "57.0.1"
   resolved "https://registry.yarnpkg.com/expo-manifests/-/expo-manifests-57.0.1.tgz#4596d35f82d65293570fcd8b636b51c5d9696dc4"
@@ -4186,6 +4198,11 @@ expo-server@^57.0.1:
   resolved "https://registry.yarnpkg.com/expo-server/-/expo-server-57.0.1.tgz#2362bf576e97250490209ac550c2610b88ba4cc1"
   integrity sha512-sBfVDH6dmKVHZxqUxbfkzS00PZELMZt1IpnHKxcOTMZtR/t7CtRAFrbXcisG+EyzeqHSVDacZT+1tbYfZt5D8w==
 
+expo-speech@~57.0.1:
+  version "57.0.1"
+  resolved "https://registry.yarnpkg.com/expo-speech/-/expo-speech-57.0.1.tgz#ac62c2f6c55d8ac4ec59fe9022bf8d2e0e26099f"
+  integrity sha512-xRI5FyAju4rK10xcVE+3SjdrF1ni24+Sj8ujSrylBsbrwFrrLO19H5DkG6EzXXVQ6lWdn+dC0JCr8OLaM7HI+Q==
+
 expo-splash-screen@~57.0.4:
   version "57.0.4"
   resolved "https://registry.yarnpkg.com/expo-splash-screen/-/expo-splash-screen-57.0.4.tgz#fb566fa420d2639840a7dc009e46d59141dd55b7"
@@ -4194,6 +4211,13 @@ expo-splash-screen@~57.0.4:
     "@expo/config-plugins" "~57.0.5"
     "@expo/image-utils" "^0.11.3"
     xml2js "0.6.0"
+
+expo-sqlite@~57.0.1:
+  version "57.0.1"
+  resolved "https://registry.yarnpkg.com/expo-sqlite/-/expo-sqlite-57.0.1.tgz#81a3afedf5e825ecd6d982b4671a7621af82bb40"
+  integrity sha512-I6KoUvfGIiROTKxr5D3H+jRIGA/iEvWEtqHK4XMukAA7tVTinz/YdS8zOz6/DdG6vgrNmvF7gyOcbhLinlfxzQ==
+  dependencies:
+    await-lock "^2.2.2"
 
 expo-status-bar@~57.0.1:
   version "57.0.1"
