@@ -24,6 +24,17 @@ export {
 export type { DailyLoad, GaugeStatus, LoadMethod, LoadState } from './load';
 
 export {
+  ALERT_THROTTLE_HOURS,
+  evaluateLoadAlerts,
+  hasConsecutiveHighRpe,
+  HIGH_RPE_MIN,
+  HIGH_RPE_STREAK,
+  PEAK_ALERT_THRESHOLD,
+  UNDERLOAD_MIN_DAYS,
+} from './alerts';
+export type { LoadAlertCandidate } from './alerts';
+
+export {
   DEFAULT_START_VOLUME_KM,
   generatePlan,
   MIN_PLAN_WEEKS,
