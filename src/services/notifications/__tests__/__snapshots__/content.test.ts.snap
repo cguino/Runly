@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`contenu des notifications (snapshots) demande de RPE 1`] = `
+{
+  "body": "Note ton effort de 0 à 10 : cinq secondes, et ta jauge est à jour.",
+  "title": "Comment était ta séance ?",
+}
+`;
+
+exports[`contenu des notifications (snapshots) rappel de séance : typé ou générique: rappel générique 1`] = `
+{
+  "body": "Une séance est prévue aujourd’hui — ton brief t’attend dans l’app.",
+  "title": "Séance du jour",
+}
+`;
+
+exports[`contenu des notifications (snapshots) rappel de séance : typé ou générique: rappel seuil 1`] = `
+{
+  "body": "Aujourd’hui : seuil. Ton brief t’attend dans l’app.",
+  "title": "Séance du jour",
+}
+`;
+
+exports[`contenu des notifications (snapshots) récap hebdo : réalisé vs prévu, évolution ACWR, message d’adaptation: pic de charge → semaine plus légère 1`] = `
+{
+  "body": "2 séance(s) réalisée(s) sur 3 prévue(s). 21,5 km · 2 h 45. Charge : 0,95 → 1,45. Ta charge a augmenté vite — une semaine plus légère t’aidera à bien assimiler.",
+  "title": "Ton récap de la semaine",
+}
+`;
+
+exports[`contenu des notifications (snapshots) récap hebdo : réalisé vs prévu, évolution ACWR, message d’adaptation: sans plan, jauge en calibration 1`] = `
+{
+  "body": "2 séance(s) cette semaine. 21,5 km · 2 h 45. Ta jauge apprend encore ton habitude — encore quelques séances notées et elle t’accompagne.",
+  "title": "Ton récap de la semaine",
+}
+`;
+
+exports[`contenu des notifications (snapshots) récap hebdo : réalisé vs prévu, évolution ACWR, message d’adaptation: semaine favorable 1`] = `
+{
+  "body": "2 séance(s) réalisée(s) sur 3 prévue(s). 21,5 km · 2 h 45. Charge : 0,95 → 1,12. Charge bien équilibrée — continue comme ça.",
+  "title": "Ton récap de la semaine",
+}
+`;
+
+exports[`contenu des notifications (snapshots) récap hebdo : réalisé vs prévu, évolution ACWR, message d’adaptation: semaine sans séance malgré un plan 1`] = `
+{
+  "body": "Semaine sans séance — ça arrive. Ton plan reprend avec toi, à ton rythme. Charge : 0,95 → 0,40. Une séance douce de plus la semaine prochaine, et tu retrouves ton rythme.",
+  "title": "Ton récap de la semaine",
+}
+`;
+
+exports[`contenu des notifications (snapshots) « ta semaine » : séances + charge prévisionnelle: kickoff favorable 1`] = `
+{
+  "body": "3 séance(s) planifiée(s) cette semaine. Charge prévisionnelle dans ta zone favorable — continue comme ça.",
+  "title": "Ta semaine",
+}
+`;
+
+exports[`contenu des notifications (snapshots) « ta semaine » : séances + charge prévisionnelle: kickoff pic 1`] = `
+{
+  "body": "1 séance(s) planifiée(s) cette semaine. Charge prévisionnelle au-dessus de ton habitude — tu peux alléger une séance si besoin.",
+  "title": "Ta semaine",
+}
+`;
+
+exports[`contenu des notifications (snapshots) « ta semaine » : séances + charge prévisionnelle: kickoff sans prévisionnel 1`] = `
+{
+  "body": "2 séance(s) planifiée(s) cette semaine.",
+  "title": "Ta semaine",
+}
+`;
