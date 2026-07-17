@@ -32,7 +32,7 @@ export function TextField({
           value={value}
           onChangeText={onChangeText}
           placeholder={placeholder}
-          placeholderTextColor={colors.textFaint}
+          placeholderTextColor={colors.textMuted}
           keyboardType={keyboardType}
         />
         {unit ? <Text style={styles.unit}>{unit}</Text> : null}

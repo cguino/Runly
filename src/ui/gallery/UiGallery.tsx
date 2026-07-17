@@ -47,7 +47,7 @@ export function UiGallery() {
         <Text style={styles.cardBody}>{t('gallery.samples.cardBody')}</Text>
         <Card nested active>
           <Text style={styles.cardTitle}>{t('gallery.samples.nestedCard')}</Text>
-          <Text style={styles.caption}>{t('gallery.samples.nestedCaption')}</Text>
+          <Text style={styles.cardCaption}>{t('gallery.samples.nestedCaption')}</Text>
         </Card>
       </Card>
 
@@ -157,6 +157,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 8,
+  },
+  cardCaption: {
+    color: colors.textMuted,
+    fontSize: typography.caption.fontSize,
   },
   cardTitle: {
     color: colors.text,

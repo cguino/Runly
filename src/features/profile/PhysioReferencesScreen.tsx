@@ -74,7 +74,7 @@ function PhysioValueRow({ field, physioValue }: { field: PhysioField; physioValu
           onSubmitEditing={commit}
           keyboardType="decimal-pad"
           placeholder={t('physio.emptyValue')}
-          placeholderTextColor={colors.textFaint}
+          placeholderTextColor={colors.textMuted}
         />
         <Text style={styles.valueUnit}>{t(`physio.units.${field}`)}</Text>
       </View>
@@ -149,7 +149,7 @@ function RevisionsCard() {
     <View style={styles.card}>
       <Text style={styles.sectionLabel}>{t('physio.revisionsTitle')}</Text>
       {revisions.length === 0 ? (
-        <Text style={styles.caption}>{t('physio.revisionsEmpty')}</Text>
+        <Text style={styles.cardCaption}>{t('physio.revisionsEmpty')}</Text>
       ) : (
         [...revisions].reverse().map((revision, index) => (
           <View key={`${revision.at}-${index}`} style={styles.revisionRow}>
@@ -158,7 +158,7 @@ function RevisionsCard() {
               {formatDecimal(revision.newValue, FIELD_DECIMALS[revision.field])}{' '}
               {t(`physio.units.${revision.field}`)}
             </Text>
-            <Text style={styles.caption}>
+            <Text style={styles.cardCaption}>
               {revision.source === 'manuel'
                 ? t('physio.revisionManual')
                 : t('physio.revisionRecalc')}
@@ -194,7 +194,7 @@ export function PhysioReferencesScreen() {
       <ZonesCard />
       <View style={styles.card}>
         <Text style={styles.sectionLabel}>{t('physio.cooperTitle')}</Text>
-        <Text style={styles.caption}>{t('physio.cooperBody')}</Text>
+        <Text style={styles.cardCaption}>{t('physio.cooperBody')}</Text>
       </View>
       <RevisionsCard />
     </ScrollView>
@@ -277,6 +277,11 @@ const styles = StyleSheet.create({
   },
   caption: {
     color: colors.textFaint,
+    fontSize: typography.caption.fontSize,
+    lineHeight: 17,
+  },
+  cardCaption: {
+    color: colors.textMuted,
     fontSize: typography.caption.fontSize,
     lineHeight: 17,
   },

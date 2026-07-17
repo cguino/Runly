@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     fontVariant: ['tabular-nums'],
   },
   caption: {
-    color: colors.textFaint,
+    color: colors.textMuted,
     fontSize: typography.caption.fontSize,
   },
   trio: {
