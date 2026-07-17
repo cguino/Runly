@@ -1,4 +1,4 @@
-import { useJournalStore } from '../journal-store';
+import { latestEntryWithoutFeedback, useJournalStore } from '../journal-store';
 
 const START = '2026-07-16T18:30:00+02:00';
 
@@ -34,5 +34,34 @@ describe('useJournalStore — saisie manuelle (E6-6)', () => {
     expect(store.addManualWorkout({ startedAt: START, durationMin: 0 })).toBe(false);
     expect(store.addManualWorkout({ startedAt: START, durationMin: 40, rpe: 11 })).toBe(false);
     expect(useJournalStore.getState().entries).toHaveLength(0);
+  });
+});
+
+describe('useJournalStore — saisie RPE post-séance (E7-5)', () => {
+  beforeEach(() => {
+    useJournalStore.setState({ entries: [] });
+  });
+
+  it('note la séance la plus récente sans feedback', () => {
+    const store = useJournalStore.getState();
+    store.addManualWorkout({ startedAt: '2026-07-15T18:30:00+02:00', durationMin: 40, rpe: 5 });
+    store.addManualWorkout({ startedAt: START, durationMin: 50 });
+
+    expect(latestEntryWithoutFeedback(useJournalStore.getState().entries)?.workout.durationS).toBe(
+      3000,
+    );
+    expect(useJournalStore.getState().addFeedbackToLatestWorkout(7, START)).toBe(true);
+
+    const entries = useJournalStore.getState().entries;
+    expect(entries[1]?.feedback?.rpe).toBe(7);
+    expect(entries[0]?.feedback?.rpe).toBe(5); // la séance déjà notée ne bouge pas
+    expect(latestEntryWithoutFeedback(entries)).toBeUndefined();
+  });
+
+  it('refuse un RPE hors échelle ou sans séance à noter', () => {
+    expect(useJournalStore.getState().addFeedbackToLatestWorkout(6)).toBe(false); // journal vide
+    useJournalStore.getState().addManualWorkout({ startedAt: START, durationMin: 30 });
+    expect(useJournalStore.getState().addFeedbackToLatestWorkout(11)).toBe(false);
+    expect(useJournalStore.getState().entries[0]?.feedback).toBeUndefined();
   });
 });

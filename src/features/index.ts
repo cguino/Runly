@@ -17,4 +17,12 @@ export const FEATURE_DOMAINS = [
 export type FeatureDomain = (typeof FEATURE_DOMAINS)[number];
 
 export { PhysioReferencesScreen, usePhysioStore } from './profile';
-export { ManualWorkoutScreen, useJournalStore } from './journal';
+export { latestEntryWithoutFeedback, ManualWorkoutScreen, useJournalStore } from './journal';
+export {
+  AlertBanner,
+  GaugeInfoScreen,
+  LoadGaugeCard,
+  RpeEntryScreen,
+  useLoadStore,
+} from './load';
+export type { PlannedLoad } from './load';
