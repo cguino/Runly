@@ -9,3 +9,4 @@ export * from './ingestion';
 export { createDefaultHealthAdapter, createMockHealthAdapter } from './health/adapter';
 export type { HealthAdapter } from './health/adapter';
 export * from './auth';
+export * from './notifications';

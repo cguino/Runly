@@ -1,8 +1,10 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import '@/i18n';
+import { initNotifications } from '@/features/notifications';
 import { useOnboardingStore } from '@/features/onboarding';
 import { initMonitoring } from '@/services';
 import { colors } from '@/ui';
@@ -11,6 +13,8 @@ initMonitoring();
 
 export default function RootLayout() {
   const { t } = useTranslation();
+  // Notifications locales (Lot 9) : resynchronisation + abonnements stores.
+  useEffect(() => initNotifications(), []);
   // Tant que l'onboarding n'est pas complété, il est la seule racine
   // accessible (reprise à l'étape courante) ; ensuite les 4 tabs (D2, E1-7).
   const onboardingCompleted = useOnboardingStore((state) => state.completed);
@@ -54,6 +58,16 @@ export default function RootLayout() {
           options={{
             headerShown: true,
             title: t('gauge.info.title'),
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="notification-settings"
+          options={{
+            headerShown: true,
+            title: t('notifications.settings.title'),
             headerStyle: { backgroundColor: colors.bg },
             headerTintColor: colors.text,
             headerShadowVisible: false,
