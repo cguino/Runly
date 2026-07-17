@@ -30,6 +30,17 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
+          name="manual-workout"
+          options={{
+            headerShown: true,
+            presentation: 'modal',
+            title: t('manualWorkout.title'),
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
           name="ui-gallery"
           options={{
             headerShown: true,
