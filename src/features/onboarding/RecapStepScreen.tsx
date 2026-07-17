@@ -78,7 +78,10 @@ export function RecapStepScreen() {
             </View>
           </>
         ) : null}
-        <Button label={t('onboarding.restitution.pedagogyNext')} onPress={() => setPhase('pedagogy')} />
+        <Button
+          label={t('onboarding.restitution.pedagogyNext')}
+          onPress={() => setPhase('pedagogy')}
+        />
       </StepScreen>
     );
   }

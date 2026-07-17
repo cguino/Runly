@@ -1,8 +1,4 @@
-export {
-  DEFAULT_CONTEXT,
-  ONBOARDING_STEPS,
-  useOnboardingStore,
-} from './onboarding-store';
+export { DEFAULT_CONTEXT, ONBOARDING_STEPS, useOnboardingStore } from './onboarding-store';
 export type {
   GoalSubmission,
   GoalSubmissionResult,

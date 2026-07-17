@@ -69,7 +69,12 @@ export function ContextStepScreen() {
       <Label>{t('onboarding.contexte.sessionsLabel')}</Label>
       <View style={styles.chipRow}>
         {SESSIONS_CHOICES.map((n) => (
-          <Chip key={n} label={String(n)} selected={sessions === n} onPress={() => setSessions(n)} />
+          <Chip
+            key={n}
+            label={String(n)}
+            selected={sessions === n}
+            onPress={() => setSessions(n)}
+          />
         ))}
       </View>
       <Text style={styles.caption}>{t('onboarding.contexte.sessionsHint')}</Text>

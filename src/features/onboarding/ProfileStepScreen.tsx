@@ -107,12 +107,7 @@ export function ProfileStepScreen() {
       ) : null}
 
       <Button label={t('onboarding.profil.continue')} onPress={submit} />
-      <Button
-        label={t('onboarding.skip')}
-        onPress={skip}
-        variant="ghost"
-        disabled={ageBlocked}
-      />
+      <Button label={t('onboarding.skip')} onPress={skip} variant="ghost" disabled={ageBlocked} />
     </StepScreen>
   );
 }

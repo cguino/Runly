@@ -34,8 +34,7 @@ export function AccountStepScreen() {
   const needsBirthDate = profileBirthDate === undefined;
   const today = () => new Date().toISOString().slice(0, 10);
 
-  const resolveBirthDate = (): string | undefined =>
-    profileBirthDate ?? parseFrDate(birthDateRaw);
+  const resolveBirthDate = (): string | undefined => profileBirthDate ?? parseFrDate(birthDateRaw);
 
   const onSignedUp = (user: AuthUser) => {
     attachToAccount(user.id);

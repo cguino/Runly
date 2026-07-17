@@ -6,7 +6,12 @@ import { goalSchema, userProfileSchema } from '@/schemas';
 import type { HealthAdapter } from '@/services';
 import { MIN_ACCOUNT_AGE_YEARS } from '@/services';
 import type { PlanAlternative, PlanGenerationResult } from '@/training-engine';
-import { averageWeeklyVolumeKm, generatePlan, isCalibrating, weeksOfHistory } from '@/training-engine';
+import {
+  averageWeeklyVolumeKm,
+  generatePlan,
+  isCalibrating,
+  weeksOfHistory,
+} from '@/training-engine';
 
 import { useJournalStore } from '../journal/journal-store';
 

@@ -37,9 +37,7 @@ describe('useOnboardingStore — connexion santé (E1-1, E1-2)', () => {
 
   it('importe 26 semaines, pré-remplit le volume et sort de calibration si ≥ 4 semaines', async () => {
     const adapter = createMockHealthAdapter(history(8));
-    const permission = await useOnboardingStore
-      .getState()
-      .connectHealth({ adapter, today: TODAY });
+    const permission = await useOnboardingStore.getState().connectHealth({ adapter, today: TODAY });
 
     expect(permission).toBe('granted');
     const { health, context, currentStep } = useOnboardingStore.getState();
@@ -64,9 +62,7 @@ describe('useOnboardingStore — connexion santé (E1-1, E1-2)', () => {
       ...createMockHealthAdapter(history(8)),
       requestPermissions: () => Promise.resolve(false),
     };
-    const permission = await useOnboardingStore
-      .getState()
-      .connectHealth({ adapter, today: TODAY });
+    const permission = await useOnboardingStore.getState().connectHealth({ adapter, today: TODAY });
 
     expect(permission).toBe('denied');
     const { health, currentStep } = useOnboardingStore.getState();
