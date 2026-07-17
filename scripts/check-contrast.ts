@@ -67,6 +67,18 @@ const PAIRS: Pair[] = [
     min: 3,
     note: 'segment de jauge (graphique, non textuel)',
   },
+  {
+    label: 'onAction / danger (pill pic, Lot 7)',
+    fg: colors.onAction,
+    bg: colors.danger,
+    min: 4.5,
+  },
+  {
+    label: 'onAction / infoLoad (pill sous-charge)',
+    fg: colors.onAction,
+    bg: colors.infoLoad,
+    min: 4.5,
+  },
 ];
 
 let failed = false;
