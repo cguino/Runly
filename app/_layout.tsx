@@ -91,6 +91,16 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
+          name="past-session"
+          options={{
+            headerShown: true,
+            title: t('planTab.past.title'),
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
           name="ui-gallery"
           options={{
             headerShown: true,

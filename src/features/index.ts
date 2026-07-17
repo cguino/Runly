@@ -49,3 +49,10 @@ export {
   RecapStepScreen,
   useOnboardingStore,
 } from './onboarding';
+export {
+  PastSessionDetailScreen,
+  PlanTimelineScreen,
+  selectActiveSessions,
+  usePlanStore,
+  WeekOverviewCard,
+} from './plan';

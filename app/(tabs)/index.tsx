@@ -9,12 +9,14 @@ import {
   LoadGaugeCard,
   useJournalStore,
   useLoadStore,
+  usePlanStore,
+  WeekOverviewCard,
 } from '@/features';
 import { colors, radii, spacing, typography } from '@/ui';
 
 /**
- * Accueil (Lot 7) : jauge de charge ACWR + bannière d'alerte + invites.
- * La semaine 7 jours et la timeline arrivent au Lot 8.
+ * Accueil : jauge de charge ACWR + bannière d'alerte (Lot 7) et semaine
+ * 7 jours fixes lun→dim avec jours de repos et statuts (Lot 8, E8-1).
  */
 export default function HomeScreen() {
   const { t } = useTranslation();
@@ -22,6 +24,12 @@ export default function HomeScreen() {
   const refresh = useLoadStore((state) => state.refresh);
   const activeAlert = useLoadStore((state) => state.activeAlert);
   const pendingFeedback = latestEntryWithoutFeedback(entries) !== undefined;
+
+  // Le plan (ou la semaine type) alimente la jauge prévisionnelle (E7-3/E8).
+  useEffect(() => {
+    usePlanStore.getState().hydrateFromOnboarding();
+    usePlanStore.getState().ensureCurrentWeek();
+  }, []);
 
   // La jauge se recalcule à chaque évolution du journal (séance ajoutée, RPE noté).
   useEffect(() => {
@@ -33,6 +41,7 @@ export default function HomeScreen() {
       <Text style={styles.title}>{t('screens.home.title')}</Text>
       {activeAlert !== undefined && <AlertBanner alert={activeAlert} />}
       <LoadGaugeCard />
+      <WeekOverviewCard />
       {pendingFeedback && (
         <Link href="/rpe-entry" style={styles.rowLink}>
           <Text style={styles.rowLabel}>{t('load.rpePrompt')}</Text>

@@ -35,6 +35,8 @@ type LoadStoreState = {
   forecast?: LoadState;
   /** Séances planifiées à venir avec charge estimée (renseigné par le Lot 8). */
   plannedLoads: PlannedLoad[];
+  /** Prochaine séance intense du plan (id) — cible de substitution des alertes (Lot 8). */
+  nextIntenseSessionRef?: string;
   /** Alerte en attente de décision (au plus une, spec §7.6). */
   activeAlert?: Alert;
   /** Décisions tracées (« l'utilisateur décide toujours »). */
@@ -43,7 +45,7 @@ type LoadStoreState = {
   lastLoadAlertAt?: string;
   /** Recalcule tout depuis le journal ; `at` injectable pour les tests. */
   refresh: (at?: { today?: string; now?: string }) => void;
-  setPlannedLoads: (plannedLoads: PlannedLoad[]) => void;
+  setPlannedLoads: (plannedLoads: PlannedLoad[], nextIntenseSessionRef?: string) => void;
   /** Trace la décision de l'utilisateur sur l'alerte active. */
   decideAlert: (decision: AlertDecision, decidedAt?: string) => void;
 };
@@ -56,12 +58,25 @@ function localIsoDate(date: Date): string {
 }
 
 /** Valorise une séance du journal en UA : sRPE si noté, sinon amorçage (D4). */
-function entryLoad(entry: JournalEntry, fcmaxBpm: number | undefined): number {
+export function entryLoad(entry: JournalEntry, fcmaxBpm: number | undefined): number {
   if (entry.feedback === undefined && entry.workout.load !== undefined) {
     // Charge déjà valorisée à l'ingestion (E6) : on la respecte.
     return entry.workout.load;
   }
   return workoutLoad(entry.workout, { rpe: entry.feedback?.rpe, fcmaxBpm }).load;
+}
+
+/** Chronique quotidienne du journal — partagée avec le plan (aperçu d'impact, Lot 8). */
+export function journalDailyLoads(
+  entries: JournalEntry[],
+  fcmaxBpm: number | undefined,
+): ReturnType<typeof buildDailyLoads> {
+  return buildDailyLoads(
+    entries.map((entry) => ({
+      startedAt: entry.workout.startedAt,
+      load: entryLoad(entry, fcmaxBpm),
+    })),
+  );
 }
 
 export const useLoadStore = create<LoadStoreState>()((set, get) => ({
@@ -79,12 +94,7 @@ export const useLoadStore = create<LoadStoreState>()((set, get) => ({
     const entries = useJournalStore.getState().entries;
     const fcmaxBpm = usePhysioStore.getState().profile.fcmaxBpm?.value;
 
-    const dailyLoads = buildDailyLoads(
-      entries.map((entry) => ({
-        startedAt: entry.workout.startedAt,
-        load: entryLoad(entry, fcmaxBpm),
-      })),
-    );
+    const dailyLoads = journalDailyLoads(entries, fcmaxBpm);
 
     const current = computeLoadState({ dailyLoads, today });
     const { plannedLoads } = get();
@@ -108,8 +118,7 @@ export const useLoadStore = create<LoadStoreState>()((set, get) => ({
       state: current,
       recentRpes,
       underloadDays: consecutiveUnderloadDays({ dailyLoads, today }),
-      // TODO(Lot 8) : référence de la prochaine séance intense du plan à substituer.
-      nextIntenseSessionRef: undefined,
+      nextIntenseSessionRef: get().nextIntenseSessionRef,
       lastLoadAlertAt: get().lastLoadAlertAt,
       now,
     });
@@ -122,8 +131,8 @@ export const useLoadStore = create<LoadStoreState>()((set, get) => ({
     set({ current, forecast, activeAlert: alert, lastLoadAlertAt: now });
   },
 
-  setPlannedLoads: (plannedLoads) => {
-    set({ plannedLoads });
+  setPlannedLoads: (plannedLoads, nextIntenseSessionRef) => {
+    set({ plannedLoads, nextIntenseSessionRef });
     get().refresh();
   },
 
