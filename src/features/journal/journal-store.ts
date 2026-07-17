@@ -25,7 +25,25 @@ type JournalState = {
   entries: JournalEntry[];
   /** Ajoute une séance saisie à la main ; retourne false si invalide. */
   addManualWorkout: (draft: ManualWorkoutDraft) => boolean;
+  /**
+   * Saisie RPE post-séance (E7-5) : note la séance la plus récente sans
+   * feedback ; retourne false si RPE invalide ou rien à noter.
+   * TODO(Lot 9) : notification « note ton effort » 30 min après la
+   * détection d'un workout importé — l'infra notifications arrive au Lot 9.
+   */
+  addFeedbackToLatestWorkout: (rpe: number, at?: string) => boolean;
 };
+
+/** Séance la plus récente sans feedback RPE (invite sur l'Accueil, E7-5). */
+export function latestEntryWithoutFeedback(entries: JournalEntry[]): JournalEntry | undefined {
+  for (let i = entries.length - 1; i >= 0; i -= 1) {
+    const entry = entries[i];
+    if (entry !== undefined && entry.feedback === undefined) {
+      return entry;
+    }
+  }
+  return undefined;
+}
 
 export const useJournalStore = create<JournalState>()((set) => ({
   entries: [],
@@ -54,5 +72,30 @@ export const useJournalStore = create<JournalState>()((set) => ({
     const entry: JournalEntry = { workout: workoutResult.data, feedback };
     set((state) => ({ entries: [...state.entries, entry] }));
     return true;
+  },
+
+  addFeedbackToLatestWorkout: (rpe, at = new Date().toISOString()) => {
+    let saved = false;
+    set((state) => {
+      const target = latestEntryWithoutFeedback(state.entries);
+      if (target === undefined) {
+        return state;
+      }
+      const feedbackResult = sessionFeedbackSchema.safeParse({
+        workoutId: target.workout.id,
+        rpe,
+        at,
+      });
+      if (!feedbackResult.success) {
+        return state;
+      }
+      saved = true;
+      return {
+        entries: state.entries.map((entry) =>
+          entry === target ? { ...entry, feedback: feedbackResult.data } : entry,
+        ),
+      };
+    });
+    return saved;
   },
 }));

@@ -8,6 +8,7 @@ export type { Theme } from './theme';
 export { PlaceholderScreen } from './PlaceholderScreen';
 export { Pill } from './Pill';
 export type { PillVariant } from './Pill';
+export { Gauge } from './Gauge';
 export { Label } from './Label';
 export { Button } from './Button';
 export { Card } from './Card';

@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@sentry/react-native": "~8.19.0",
+    "@shopify/react-native-skia": "2.6.2",
     "@tanstack/react-query": "^5.90.0",
     "expo": "~57.0.6",
     "expo-constants": "~57.0.5",
@@ -68,9 +69,11 @@
   },
   "jest": {
     "preset": "jest-expo",
+    "resolver": "react-native-worklets/jest/resolver.js",
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
-      "^@sentry/react-native$": "<rootDir>/test/mocks/sentry.ts"
+      "^@sentry/react-native$": "<rootDir>/test/mocks/sentry.ts",
+      "^@shopify/react-native-skia$": "<rootDir>/test/mocks/skia.ts"
     },
     "transformIgnorePatterns": [
       "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@sentry/react-native|native-base|react-native-svg|react-native-worklets|standard-navigation)"

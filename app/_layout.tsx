@@ -41,6 +41,27 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
+          name="gauge-info"
+          options={{
+            headerShown: true,
+            title: t('gauge.info.title'),
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="rpe-entry"
+          options={{
+            headerShown: true,
+            presentation: 'modal',
+            title: t('rpe.title'),
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
           name="ui-gallery"
           options={{
             headerShown: true,

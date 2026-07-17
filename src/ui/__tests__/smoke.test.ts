@@ -4,6 +4,7 @@ import {
   Card,
   Chip,
   colors,
+  Gauge,
   Label,
   Pill,
   PlaceholderScreen,
@@ -27,6 +28,7 @@ describe('src/ui (fumée)', () => {
     for (const component of [
       PlaceholderScreen,
       Pill,
+      Gauge,
       Label,
       Button,
       Card,

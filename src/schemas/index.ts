@@ -68,3 +68,18 @@ export type { InjuryRecord, UserProfile } from './user-profile';
 
 export { sessionFeedbackSchema } from './session-feedback';
 export type { SessionFeedback } from './session-feedback';
+
+export {
+  alertDecisionSchema,
+  alertProposedActionSchema,
+  alertSchema,
+  alertTriggerContextSchema,
+  alertTypeSchema,
+} from './alert';
+export type {
+  Alert,
+  AlertDecision,
+  AlertProposedAction,
+  AlertTriggerContext,
+  AlertType,
+} from './alert';

@@ -1,19 +1,48 @@
 import { Link } from 'expo-router';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text } from 'react-native';
 
+import {
+  AlertBanner,
+  latestEntryWithoutFeedback,
+  LoadGaugeCard,
+  useJournalStore,
+  useLoadStore,
+} from '@/features';
 import { colors, radii, spacing, typography } from '@/ui';
 
+/**
+ * Accueil (Lot 7) : jauge de charge ACWR + bannière d'alerte + invites.
+ * La semaine 7 jours et la timeline arrivent au Lot 8.
+ */
 export default function HomeScreen() {
   const { t } = useTranslation();
+  const entries = useJournalStore((state) => state.entries);
+  const refresh = useLoadStore((state) => state.refresh);
+  const activeAlert = useLoadStore((state) => state.activeAlert);
+  const pendingFeedback = latestEntryWithoutFeedback(entries) !== undefined;
+
+  // La jauge se recalcule à chaque évolution du journal (séance ajoutée, RPE noté).
+  useEffect(() => {
+    refresh();
+  }, [refresh, entries]);
+
   return (
-    <View style={styles.screen}>
+    <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text style={styles.title}>{t('screens.home.title')}</Text>
+      {activeAlert !== undefined && <AlertBanner alert={activeAlert} />}
+      <LoadGaugeCard />
+      {pendingFeedback && (
+        <Link href="/rpe-entry" style={styles.rowLink}>
+          <Text style={styles.rowLabel}>{t('load.rpePrompt')}</Text>
+        </Link>
+      )}
       <Link href="/manual-workout" style={styles.rowLink}>
         <Text style={styles.rowLabel}>{t('screensHome.addManualWorkout')}</Text>
       </Link>
-      <Text style={styles.caption}>{t('screens.home.placeholder')}</Text>
-    </View>
+      <Text style={styles.disclaimer}>{t('load.disclaimer')}</Text>
+    </ScrollView>
   );
 }
 
@@ -21,6 +50,8 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: colors.bg,
+  },
+  content: {
     padding: spacing.screenGutter,
     gap: spacing.cardGap,
   },
@@ -42,8 +73,10 @@ const styles = StyleSheet.create({
     fontSize: typography.body.fontSize,
     fontWeight: '600',
   },
-  caption: {
+  disclaimer: {
     color: colors.textFaint,
     fontSize: typography.caption.fontSize,
+    textAlign: 'center',
+    marginTop: spacing.cardGap,
   },
 });

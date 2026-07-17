@@ -87,6 +87,78 @@ export const fr = {
   screensHome: {
     addManualWorkout: 'Ajouter une séance manuelle',
   },
+  load: {
+    title: 'Ta charge',
+    alerts: {
+      title: {
+        pic_charge: 'Ta charge augmente vite',
+        sous_charge: 'Ton rythme se fait discret',
+        rpe_eleve: 'Deux séances corsées d’affilée',
+      },
+      body: {
+        pic_charge:
+          'Charge en hausse de {{pct}} % vs ton habitude — prudence. Suggestion : remplace ta prochaine séance intense par une sortie plus légère.',
+        sous_charge:
+          'Ta charge est en dessous de ton habitude depuis deux semaines. Une séance facile de plus par semaine, et tu retrouves ton rythme.',
+        rpe_eleve:
+          'Tu as ressenti tes deux dernières séances à {{rpe}}/10 ou plus. Suggestion : allège ta prochaine séance pour bien assimiler.',
+      },
+      accept: 'Adapter ma semaine',
+      keep: 'Garder mon plan',
+    },
+    rpePrompt: 'Note l’effort de ta dernière séance',
+    disclaimer: 'Aide à la décision d’entraînement — ne constitue pas un avis médical.',
+  },
+  gauge: {
+    empty: '—',
+    status: {
+      calibration: 'En calibration',
+      sous_charge: 'Sous ta zone · tu peux en faire un peu plus',
+      favorable: 'Zone favorable · continue comme ça',
+      pic: 'Pic de charge · prudence',
+    },
+    caption: {
+      calibration:
+        'Ta jauge apprend ton habitude d’entraînement : encore quelques semaines de données et elle t’accompagnera séance après séance.',
+      sous_charge:
+        'Ta charge est en dessous de ton habitude des 4 dernières semaines. Une séance douce de plus suffit souvent à relancer la dynamique.',
+      favorable: 'Ta charge est bien équilibrée par rapport à ton habitude des 4 dernières semaines.',
+      pic: 'Ta charge augmente vite par rapport à ton habitude — envisage une semaine plus légère.',
+    },
+    forecast: '≈ {{value}} à J+7 si tu suis ta semaine',
+    howItWorks: 'Comment ça marche ?',
+    a11y: 'Jauge de charge : {{status}}',
+    info: {
+      title: 'Comment ça marche ?',
+      intro:
+        'Ta jauge compare ce que tu viens de faire à ce que ton corps a l’habitude de faire. Rien de magique : deux nombres et un ratio.',
+      acuteTitle: 'Ta charge récente',
+      acuteBody:
+        'Chaque séance compte pour ton effort ressenti (RPE de 0 à 10) multiplié par sa durée en minutes. La jauge additionne tes 7 derniers jours : c’est ta charge récente.',
+      chronicTitle: 'Ton habitude',
+      chronicBody:
+        'Sur tes 4 dernières semaines, la jauge calcule ta charge moyenne par semaine : c’est ton habitude, la base que ton corps connaît et sur laquelle tu progresses.',
+      ratioTitle: 'Le ratio',
+      ratioBody:
+        'La jauge divise ta charge récente par ton habitude. Entre 0,8 et 1,3, tu es dans ta zone favorable : continue comme ça. En dessous, tu peux en faire un peu plus. Au-dessus, ta charge augmente vite — une séance plus légère aide à garder l’équilibre entre charge et récupération. Dans tous les cas, c’est toi qui décides.',
+    },
+  },
+  rpe: {
+    title: 'Ton ressenti',
+    question: 'Comment était ta séance ?',
+    hint: '0 = repos total · 10 = effort maximal',
+    save: 'Enregistrer',
+    noWorkout: 'Aucune séance à noter pour l’instant.',
+    /** Ancres émoji de l'échelle 0–10 (G6) — `max` = borne haute incluse. */
+    anchors: [
+      { max: 1, emoji: '😌', label: 'Très facile' },
+      { max: 3, emoji: '🙂', label: 'Facile' },
+      { max: 5, emoji: '😊', label: 'Modéré' },
+      { max: 7, emoji: '😅', label: 'Difficile' },
+      { max: 9, emoji: '🥵', label: 'Très difficile' },
+      { max: 10, emoji: '🤯', label: 'Maximal' },
+    ],
+  },
   gallery: {
     title: 'Galerie UI',
     intro: 'Revue visuelle des composants du design system (écran de dev).',
