@@ -17,6 +17,35 @@ export const ACWR_ZONES = {
 export const LOAD_WINDOWS = { acuteDays: 7, chronicDays: 28 } as const;
 
 export {
+  DEFAULT_START_VOLUME_KM,
+  generatePlan,
+  MIN_PLAN_WEEKS,
+  PEAK_VOLUME_KM,
+  placeWeekSessions,
+  RECOVERY_EVERY,
+  RECOVERY_FACTOR,
+  TAPER_WEEKS,
+  WEEKLY_GROWTH,
+} from './plan';
+export {
+  handleMissedSession,
+  isKeySession,
+  regenerateRemainingPlan,
+  REPERIODIZATION_GAP_DAYS,
+  shouldProposeReperiodization,
+} from './plan-adjust';
+export type {
+  MissedSessionOutcome,
+  PlanAlternative,
+  PlanContext,
+  PlanGenerationResult,
+  PlanInput,
+  PlanPhysio,
+  PlanRecommendation,
+  UnrealisticReason,
+} from './plan-types';
+export { buildSession, estimateBlocksKm, INTENSITY_PCT_VMA } from './session-templates';
+export {
   estimateFcmax,
   estimateThresholds,
   estimateVmaFromHistory,
