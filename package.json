@@ -72,6 +72,13 @@
   "jest": {
     "preset": "jest-expo",
     "resolver": "react-native-worklets/jest/resolver.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/.claude/"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/.claude/"
+    ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
       "^@sentry/react-native$": "<rootDir>/test/mocks/sentry.ts",
