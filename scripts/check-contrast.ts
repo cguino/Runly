@@ -33,19 +33,7 @@ const PAIRS: Pair[] = [
     fg: colors.textFaint,
     bg: colors.bg,
     min: 3,
-    note: 'AA large uniquement — réservé aux mentions légales/hints (écart documenté en PR Lot 2)',
-  },
-  {
-    label: 'textFaint / surface',
-    fg: colors.textFaint,
-    bg: colors.surface,
-    min: 3,
-    note: 'AA large uniquement — réservé aux mentions légales/hints',
-    // Écart CONNU remonté (règle §1.10) : #5B6472 sur #171C24 = 2,86 < 3,0
-    // alors que la charte §6 annonce « AA minimum ». À trancher : éclaircir
-    // le token, ou réserver textFaint au fond `bg`. Warning non bloquant en
-    // attendant l'arbitrage — voir PR Lot 2.
-    knownIssue: 'sous AA large — arbitrage design demandé (PR Lot 2)',
+    note: 'AA large uniquement — textFaint est réservé au fond bg (arbitrage 17/07/2026) ; dans les cartes : textMuted',
   },
   { label: 'onAction / action (CTA)', fg: colors.onAction, bg: colors.action, min: 4.5 },
   { label: 'action / bg (liens, tab active)', fg: colors.action, bg: colors.bg, min: 4.5 },

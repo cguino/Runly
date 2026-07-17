@@ -15,6 +15,7 @@ export const colors = {
   border: '#252D3A',
   text: '#F2F5F9',
   textMuted: '#8A94A6',
+  /** Réservé au fond `bg` (mentions légales, hints) — dans les cartes, utiliser `textMuted` (arbitrage 17/07/2026, PR Lot 2). */
   textFaint: '#5B6472',
   action: '#38BDF8',
   onAction: '#04121C',
