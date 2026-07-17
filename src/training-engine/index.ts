@@ -70,6 +70,13 @@ export type {
   UnrealisticReason,
 } from './plan-types';
 export { buildSession, estimateBlocksKm, INTENSITY_PCT_VMA } from './session-templates';
+export { buildWeeklyRecap, RECAP_TREND_EPSILON } from './weekly-recap';
+export type {
+  RecapWorkout,
+  WeeklyRecap,
+  WeeklyRecapAdaptation,
+  WeeklyRecapTrend,
+} from './weekly-recap';
 export {
   estimateFcmax,
   estimateThresholds,
