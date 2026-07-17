@@ -5,16 +5,23 @@
  * du TypeScript pur, testable unitairement (golden files au Lot 3).
  */
 
-/** Bornes de la jauge ACWR (D16 : rolling 7 j / 28 j ; charte §4). */
-export const ACWR_ZONES = {
-  underloadMin: 0.6,
-  optimalMin: 0.8,
-  peakMin: 1.3,
-  max: 1.6,
-} as const;
-
-/** Fenêtres de calcul de charge (D16). */
-export const LOAD_WINDOWS = { acuteDays: 7, chronicDays: 28 } as const;
+export {
+  ACWR_ZONES,
+  buildDailyLoads,
+  CALIBRATION_MIN_DAYS,
+  computeLoadState,
+  consecutiveUnderloadDays,
+  DEFAULT_EFFORT_FACTOR,
+  FORECAST_HORIZON_DAYS,
+  forecastLoadState,
+  LOAD_WINDOWS,
+  sessionLoadAmorcage,
+  sessionLoadSrpe,
+  workoutLoad,
+  ZONE_EFFORT_FACTORS,
+  zoneFromPctFcmax,
+} from './load';
+export type { DailyLoad, GaugeStatus, LoadMethod, LoadState } from './load';
 
 export {
   DEFAULT_START_VOLUME_KM,
