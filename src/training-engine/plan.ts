@@ -1,11 +1,5 @@
 import { addDays, diffDays, nextMonday } from '@/lib/dates';
-import type {
-  PlannedSession,
-  PlannedWeek,
-  PlanPhase,
-  RaceDistance,
-  SessionType,
-} from '@/schemas';
+import type { PlannedSession, PlannedWeek, PlanPhase, RaceDistance, SessionType } from '@/schemas';
 import { RACE_DISTANCES_M } from '@/schemas';
 
 import { RACE_INTENSITY } from './physio';

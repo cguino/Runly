@@ -5,3 +5,6 @@
  * HealthKit/Health Connect/Strava — toujours via ce module.
  */
 export { initMonitoring } from './monitoring';
+export * from './ingestion';
+export { createMockHealthAdapter } from './health/adapter';
+export type { HealthAdapter } from './health/adapter';
