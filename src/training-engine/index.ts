@@ -71,6 +71,50 @@ export type {
 } from './plan-types';
 export { buildSession, estimateBlocksKm, INTENSITY_PCT_VMA } from './session-templates';
 export {
+  abandonRunner,
+  addRunnerDistance,
+  createRunner,
+  currentFlatStep,
+  deserializeRunnerState,
+  flattenBlocks,
+  nextFlatStep,
+  pauseRunner,
+  resumeRunner,
+  runnerPhaseSchema,
+  serializeRunnerState,
+  SESSION_SNAPSHOT_VERSION,
+  sessionRunnerSnapshotSchema,
+  sessionRunnerStateSchema,
+  skipRunnerStep,
+  startRunner,
+  stepDistanceTargetM,
+  stepDurationMs,
+  tickRunner,
+} from './session-runner';
+export type {
+  CreateRunnerInput,
+  FlatStep,
+  RunnerPhase,
+  RunnerTransition,
+  RunnerUpdate,
+  SessionRunnerSnapshot,
+  SessionRunnerState,
+  StepResult,
+} from './session-runner';
+export {
+  PACE_BAR_TARGET_ZONE,
+  PACE_CUE_SOFT_MARGIN_S,
+  paceCue,
+  paceCursorFraction,
+} from './player-cues';
+export type { PaceCue } from './player-cues';
+export {
+  buildSessionRecap,
+  MIN_WORKOUT_DURATION_S,
+  workoutFromRunner,
+} from './session-recap';
+export type { SessionRecap } from './session-recap';
+export {
   estimateFcmax,
   estimateThresholds,
   estimateVmaFromHistory,
