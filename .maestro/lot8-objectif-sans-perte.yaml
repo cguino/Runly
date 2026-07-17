@@ -1,0 +1,40 @@
+# Lot 8 — E8-7 : créer puis supprimer un objectif depuis l'onglet Plan,
+# avec bascule semaine type → plan généré → semaine type SANS perte de
+# données (la semaine type composée survit). Lancer avec :
+#   maestro test .maestro/lot8-objectif-sans-perte.yaml -e APP_ID=<bundle id du build local>
+appId: ${APP_ID}
+---
+- runFlow: subflows/onboarding-semaine-type.yaml
+
+# Onglet Plan : mode semaine type (pas d'objectif).
+- tapOn: 'Plan'
+- assertVisible: 'Ma semaine type'
+- assertVisible: 'Ajouter un objectif'
+
+# 1. Composer la semaine type : une sortie longue le samedi.
+- tapOn:
+    text: '＋'
+    index: 5
+- tapOn: 'Sortie longue'
+- assertVisible: 'Sortie longue'
+
+# 2. Créer un objectif → le plan généré remplace l'affichage semaine type.
+- tapOn: 'Ajouter un objectif'
+- assertVisible: 'Ton objectif de course'
+- tapOn: 'JJ/MM/AAAA'
+- inputText: '31/12/2026'
+- hideKeyboard
+- tapOn: 'Générer mon plan'
+- assertVisible: '10 km'
+- assertVisible: 'Semaine 1'
+
+# 3. Supprimer l'objectif — confirmation explicite, jamais silencieuse.
+- tapOn: 'Supprimer'
+- assertVisible: 'Supprimer ton objectif ?'
+- assertVisible: 'Garder mon objectif'
+- tapOn: 'Supprimer l’objectif'
+
+# 4. Bascule sans perte : la semaine type composée est intacte.
+- assertVisible: 'Ma semaine type'
+- assertVisible: 'Sortie longue'
+- assertVisible: 'Ajouter un objectif'
