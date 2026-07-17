@@ -29,6 +29,16 @@ export default function RootLayout() {
             headerShadowVisible: false,
           }}
         />
+        <Stack.Screen
+          name="ui-gallery"
+          options={{
+            headerShown: true,
+            title: t('gallery.title'),
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerShadowVisible: false,
+          }}
+        />
       </Stack>
       <StatusBar style="light" />
     </>

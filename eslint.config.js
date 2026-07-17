@@ -1,5 +1,6 @@
 const { defineConfig } = require('eslint/config');
 const expoConfig = require('eslint-config-expo/flat');
+const reactNative = require('eslint-plugin-react-native');
 
 /**
  * Motifs interdits dans les modules purs (`training-engine`, `schemas`) :
@@ -76,6 +77,15 @@ module.exports = defineConfig([
     files: ['src/features/**/*.{ts,tsx}', 'app/**/*.{ts,tsx}'],
     rules: {
       'no-restricted-imports': ['error', { patterns: HEALTH_STRAVA_PATTERNS }],
+    },
+  },
+  {
+    // Règle transverse n°4 : aucune couleur en dur hors du thème —
+    // uniquement les tokens de src/ui/theme.ts (design-system-runly.md).
+    files: ['src/**/*.tsx', 'app/**/*.tsx'],
+    plugins: { 'react-native': reactNative },
+    rules: {
+      'react-native/no-color-literals': 'error',
     },
   },
 ]);

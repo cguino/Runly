@@ -6,6 +6,10 @@
  */
 export const colors = {
   bg: '#0B0E13',
+  /** Fond de la tab bar : `bg` à 96 % (charte §4). */
+  bgTranslucent: 'rgba(11,14,19,.96)',
+  /** Voile derrière les bottom sheets/modales (non spécifié par la charte — à valider en revue visuelle). */
+  overlay: 'rgba(0,0,0,.55)',
   surface: '#171C24',
   surface2: '#1E2530',
   border: '#252D3A',
@@ -45,6 +49,20 @@ export const typography = {
   caption: { fontSize: 12, fontWeight: '400' },
 } as const;
 
-export const theme = { colors, radii, spacing, typography } as const;
+/**
+ * Ombres : quasi absentes en dark mode — la hiérarchie vient des niveaux de
+ * surface. Seule exception : glow léger sous les CTA bleus (charte §3).
+ */
+export const shadows = {
+  ctaGlow: {
+    shadowColor: '#38BDF8',
+    shadowOffset: { width: 0, height: 8 },
+    shadowRadius: 24,
+    shadowOpacity: 0.25,
+    elevation: 8,
+  },
+} as const;
+
+export const theme = { colors, radii, spacing, typography, shadows } as const;
 
 export type Theme = typeof theme;
