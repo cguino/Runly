@@ -60,6 +60,12 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
+          name="player"
+          options={{
+            presentation: 'fullScreenModal',
+          }}
+        />
+        <Stack.Screen
           name="rpe-entry"
           options={{
             headerShown: true,
