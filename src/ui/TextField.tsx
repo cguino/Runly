@@ -12,6 +12,8 @@ type TextFieldProps = {
   /** Unité affichée à droite (« km/h », « bpm ») — déjà traduite. */
   unit?: string;
   keyboardType?: KeyboardTypeOptions;
+  /** Saisie masquée (mots de passe). */
+  secureTextEntry?: boolean;
 };
 
 /** Input (charte §1 : fond `surface-2`, bordure discrète, rayon imbriqué). */
@@ -22,6 +24,7 @@ export function TextField({
   placeholder,
   unit,
   keyboardType,
+  secureTextEntry,
 }: TextFieldProps) {
   return (
     <View style={styles.container}>
@@ -34,6 +37,7 @@ export function TextField({
           placeholder={placeholder}
           placeholderTextColor={colors.textMuted}
           keyboardType={keyboardType}
+          secureTextEntry={secureTextEntry}
         />
         {unit ? <Text style={styles.unit}>{unit}</Text> : null}
       </View>

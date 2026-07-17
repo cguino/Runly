@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useTranslation } from 'react-i18next';
 
 import '@/i18n';
+import { useOnboardingStore } from '@/features/onboarding';
 import { initMonitoring } from '@/services';
 import { colors } from '@/ui';
 
@@ -10,6 +11,9 @@ initMonitoring();
 
 export default function RootLayout() {
   const { t } = useTranslation();
+  // Tant que l'onboarding n'est pas complété, il est la seule racine
+  // accessible (reprise à l'étape courante) ; ensuite les 4 tabs (D2, E1-7).
+  const onboardingCompleted = useOnboardingStore((state) => state.completed);
   return (
     <>
       <Stack
@@ -18,7 +22,12 @@ export default function RootLayout() {
           contentStyle: { backgroundColor: colors.bg },
         }}
       >
-        <Stack.Screen name="(tabs)" />
+        <Stack.Protected guard={onboardingCompleted}>
+          <Stack.Screen name="(tabs)" />
+        </Stack.Protected>
+        <Stack.Protected guard={!onboardingCompleted}>
+          <Stack.Screen name="onboarding" />
+        </Stack.Protected>
         <Stack.Screen
           name="physio-references"
           options={{

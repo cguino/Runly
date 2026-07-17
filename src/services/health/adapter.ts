@@ -29,3 +29,12 @@ export function createMockHealthAdapter(fixtures: Workout[]): HealthAdapter {
     subscribe: () => () => undefined,
   };
 }
+
+/**
+ * Adaptateur par défaut de l'app : mock vide tant que les implémentations
+ * natives (HealthKit / Health Connect) ne sont pas branchées lors des tests
+ * device (Lot 5 / G2). Point d'échange unique pour l'onboarding (E1-1).
+ */
+export function createDefaultHealthAdapter(): HealthAdapter {
+  return createMockHealthAdapter([]);
+}

@@ -38,3 +38,20 @@ export function nextMonday(isoDate: string): string {
   const offset = 7 - dayOfWeek(isoDate);
   return addDays(isoDate, offset);
 }
+
+/**
+ * Âge en années révolues à une date donnée (contrôle 16+ à l'onboarding, D12).
+ * Anniversaire non atteint dans l'année → année non comptée.
+ */
+export function yearsBetween(birthIsoDate: string, atIsoDate: string): number {
+  const birth = toUtc(birthIsoDate);
+  const at = toUtc(atIsoDate);
+  let years = at.getUTCFullYear() - birth.getUTCFullYear();
+  const birthdayReached =
+    at.getUTCMonth() > birth.getUTCMonth() ||
+    (at.getUTCMonth() === birth.getUTCMonth() && at.getUTCDate() >= birth.getUTCDate());
+  if (!birthdayReached) {
+    years -= 1;
+  }
+  return years;
+}

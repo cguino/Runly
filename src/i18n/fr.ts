@@ -209,6 +209,177 @@ export const fr = {
       sheetClose: 'Fermer',
     },
   },
+  onboarding: {
+    skip: 'Passer cette étape',
+    days: {
+      d0: 'Lun',
+      d1: 'Mar',
+      d2: 'Mer',
+      d3: 'Jeu',
+      d4: 'Ven',
+      d5: 'Sam',
+      d6: 'Dim',
+    },
+    sante: {
+      title: 'Connecte tes séances',
+      body: 'Runly peut lire tes séances de course depuis Apple Santé ou Health Connect : ton historique amorce ta jauge de charge, et tes prochaines séances remonteront toutes seules, sans saisie.',
+      privacy:
+        'On ne garde que les résumés de séance — durée, distance, fréquence cardiaque moyenne. Jamais ton tracé GPS ni tes données brutes.',
+      promptNotice:
+        'La demande d’autorisation du système ne s’affiche qu’après cet écran — rien ne part sans ton accord.',
+      connect: 'Connecter mes données santé',
+      later: 'Plus tard',
+      laterHint:
+        'Sans montre ni connexion, tout fonctionne : tu noteras tes séances en trois champs (durée, distance, effort).',
+      imported: '{{count}} séance(s) de course importée(s) sur les 26 dernières semaines.',
+      importedNone:
+        'Aucune séance de course trouvée dans ton historique — pas de souci, ta jauge se calibrera au fil de tes premières séances.',
+      calibrationPill: 'Jauge en calibration',
+      calibrationHint:
+        'Moins de 4 semaines d’historique : ta jauge apprend encore ton habitude, ses repères s’affinent au fil des séances.',
+      denied:
+        'Pas d’accès santé pour l’instant : tu passes en mode déclaratif — l’app reste 100 % fonctionnelle.',
+      continue: 'Continuer',
+    },
+    profil: {
+      title: 'Parle-nous de toi',
+      firstName: 'Prénom (optionnel)',
+      firstNamePlaceholder: 'Ex. Marc',
+      birthDate: 'Date de naissance',
+      birthDatePlaceholder: 'JJ/MM/AAAA',
+      birthDateHint: 'Elle affine tes zones cardiaques et confirme l’âge minimum (16 ans).',
+      injuryQuestion: 'Ces 12 derniers mois, un pépin physique t’a-t-il arrêté de courir ?',
+      injuryYes: 'Oui',
+      injuryNo: 'Non',
+      injuryNote: 'Dis-nous en deux mots (optionnel)',
+      injuryNotePlaceholder: 'Ex. douleur au mollet au printemps, 3 semaines sans courir',
+      injuryHint: 'Si oui, ton plan progressera plus en douceur — c’est tout ce que ça change.',
+      underAge:
+        'Runly est réservé aux 16 ans et plus. On préfère te le dire franchement : reviens nous voir bientôt !',
+      invalid: 'Vérifie la date de naissance (format JJ/MM/AAAA).',
+      continue: 'Continuer',
+    },
+    contexte: {
+      title: 'Ton entraînement, aujourd’hui',
+      sessionsLabel: 'Séances par semaine',
+      sessionsHint:
+        'Minimum 2 : en dessous, impossible de construire une progression régulière — le moteur de plan ne génère rien.',
+      daysLabel: 'Tes jours disponibles',
+      volumeLabel: 'Volume hebdo actuel',
+      volumeUnit: 'km',
+      volumePlaceholder: 'Ex. 25',
+      volumePrefilled: 'Pré-rempli depuis ton historique — corrige si besoin.',
+      invalid: 'Choisis entre 2 et 6 séances et au moins un jour disponible.',
+      continue: 'Continuer',
+    },
+    objectif: {
+      title: 'Une course en vue ? (optionnel)',
+      body: 'Avec une course datée, Runly te construit un plan jusqu’au jour J. Sans objectif, tu composeras ta semaine type — et tu pourras en ajouter un à tout moment depuis l’onglet Plan.',
+      distanceLabel: 'Distance',
+      distances: {
+        '5k': '5 km',
+        '10k': '10 km',
+        semi: 'Semi',
+        marathon: 'Marathon',
+      },
+      dateLabel: 'Date de course',
+      datePlaceholder: 'JJ/MM/AAAA',
+      eventName: 'Nom de l’épreuve (optionnel)',
+      eventNamePlaceholder: 'Ex. Semi de Nantes',
+      ambitionLabel: 'Ton ambition',
+      ambitionFinish: 'Finir',
+      ambitionChrono: 'Chrono',
+      targetTime: 'Temps cible',
+      targetTimePlaceholder: 'Ex. 1:45',
+      targetTimeHint: 'Au format h:mm ou en minutes (ex. 45).',
+      generate: 'Générer mon plan',
+      skipGoal: 'Continuer sans objectif',
+      invalid: 'Vérifie la distance, la date et le temps cible.',
+      refusedDate: 'Cette date est déjà passée — choisis une date à venir.',
+      refusedSessions:
+        'Il faut au moins 2 séances par semaine pour construire un plan — ajuste ton contexte à l’étape précédente.',
+      unrealisticTitle: 'Ambitieux pour la date choisie',
+      unrealisticBody:
+        'Vu ton volume actuel et le temps restant, ce plan ferait grimper ta charge trop vite pour être tenable. Voici ce qu’on te propose — c’est toi qui décides :',
+      altFinish: 'Viser « finir » plutôt qu’un chrono',
+      altLater: 'Décaler la course au {{date}}',
+      altOther: 'Viser un {{distance}} d’abord',
+    },
+    compte: {
+      title: 'Crée ton compte',
+      body: 'Ton compte garde ton plan et ta progression synchronisés : tu retrouves tout sur un nouveau téléphone ou après une réinstallation.',
+      localNote:
+        'Jusqu’ici, tout est resté sur ton téléphone. À la création du compte, tes données y sont rattachées — rien ne se perd.',
+      email: 'E-mail',
+      emailPlaceholder: 'toi@exemple.fr',
+      password: 'Mot de passe',
+      passwordHint: '8 caractères minimum.',
+      birthDate: 'Date de naissance',
+      birthDatePlaceholder: 'JJ/MM/AAAA',
+      birthDateHint: 'Il nous la faut ici pour confirmer l’âge minimum (16 ans).',
+      signUp: 'Créer mon compte',
+      orProviders: 'ou en un tap :',
+      apple: 'Continuer avec Apple',
+      google: 'Continuer avec Google',
+      errors: {
+        under_min_age: 'Runly est réservé aux 16 ans et plus — on ne peut pas créer ton compte.',
+        birth_date_required: 'Renseigne ta date de naissance pour confirmer l’âge minimum.',
+        invalid_email: 'Vérifie l’adresse e-mail.',
+        weak_password: 'Choisis un mot de passe d’au moins 8 caractères.',
+        email_already_used: 'Un compte existe déjà avec cet e-mail.',
+        provider_failed: 'La connexion n’a pas abouti — réessaie.',
+      },
+    },
+    restitution: {
+      planTitle: 'Voici ton plan de {{weeks}} semaines',
+      planBody:
+        'Construit depuis ton objectif, ton volume et tes jours disponibles — ajustable à tout moment depuis l’onglet Plan.',
+      phases: {
+        generale: 'Phase générale',
+        specifique: 'Phase spécifique',
+        affutage: 'Affûtage',
+      },
+      phaseWeeks: '{{count}} sem',
+      statWeeks: 'Semaines',
+      statSessions: 'Séances/sem',
+      statPeak: 'Volume pic',
+      weekTypeTitle: 'Compose ta semaine type',
+      weekTypeBody:
+        'Pas de dossard en vue ? Parfait. Tu construiras ta semaine depuis la bibliothèque de séances, et la jauge veillera sur ta charge. Un objectif reste ajoutable à tout moment depuis l’onglet Plan.',
+      pedagogyLabel: 'Ta jauge de charge · {{step}}/3',
+      pedagogy1Title: 'Ton effort, mesuré simplement',
+      pedagogy1Body:
+        'Après chaque séance, tu notes ton effort de 0 à 10. Effort × durée = ta charge. La jauge compare ta semaine (7 jours) à ton habitude (28 jours).',
+      pedagogy2Title: 'La zone favorable',
+      pedagogy2Body:
+        'Entre 0,8 et 1,3, ta charge évolue à un rythme que ton corps connaît : c’est la zone verte — celle où tu progresses durablement.',
+      pedagogy3Title: 'C’est toi qui décides',
+      pedagogy3Body:
+        'Si ta charge grimpe vite, la jauge te le montre et te propose une séance plus légère. Un tap pour accepter, un tap pour garder ton plan.',
+      pedagogyNext: 'Suivant',
+      watchTitle: 'Active le partage depuis ta montre',
+      watchBody:
+        'C’est le réglage le plus souvent oublié : deux minutes dans l’app de ta montre, et tes séances remonteront toutes seules.',
+      brands: {
+        garmin: 'Garmin',
+        garminBody:
+          'Garmin Connect → Paramètres → Applications tierces : autorise Apple Santé (iPhone) ou Health Connect (Android). Durée, distance et FC remontent automatiquement.',
+        coros: 'Coros',
+        corosBody:
+          'App COROS → Profil → Applications tierces : active Apple Santé ou Health Connect.',
+        polar: 'Polar',
+        polarBody:
+          'Polar Flow → Paramètres → Partage de données : active Apple Santé ou Health Connect — le partage le plus complet du marché.',
+        suunto: 'Suunto',
+        suuntoBody:
+          'App Suunto → Services partenaires : active Apple Santé sur iPhone. Sur Android, Suunto ne parle pas encore à Health Connect — note tes séances en trois champs en attendant.',
+        applewatch: 'Apple Watch',
+        applewatchBody: 'Rien à faire : tes séances sont déjà dans Apple Santé.',
+      },
+      disclaimer: 'Aide à la décision d’entraînement — ne constitue pas un avis médical.',
+      cta: 'C’est parti !',
+    },
+  },
   common: {
     comingSoon: 'Bientôt disponible',
   },

@@ -32,6 +32,12 @@ type JournalState = {
    * détection d'un workout importé — l'infra notifications arrive au Lot 9.
    */
   addFeedbackToLatestWorkout: (rpe: number, at?: string) => boolean;
+  /**
+   * Import de séances déjà normalisées (onboarding E1-2 : historique 26
+   * semaines via HealthAdapter → ingestion). Re-validées zod à la frontière ;
+   * retourne le nombre de séances retenues.
+   */
+  importWorkouts: (workouts: Workout[]) => number;
 };
 
 /** Séance la plus récente sans feedback RPE (invite sur l'Accueil, E7-5). */
@@ -47,6 +53,20 @@ export function latestEntryWithoutFeedback(entries: JournalEntry[]): JournalEntr
 
 export const useJournalStore = create<JournalState>()((set) => ({
   entries: [],
+
+  importWorkouts: (workouts) => {
+    const valid: JournalEntry[] = [];
+    for (const workout of workouts) {
+      const result = workoutSchema.safeParse(workout);
+      if (result.success) {
+        valid.push({ workout: result.data });
+      }
+    }
+    if (valid.length > 0) {
+      set((state) => ({ entries: [...state.entries, ...valid] }));
+    }
+    return valid.length;
+  },
 
   addManualWorkout: (draft) => {
     const workoutResult = workoutSchema.safeParse({

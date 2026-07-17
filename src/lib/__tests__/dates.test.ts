@@ -1,4 +1,4 @@
-import { addDays, dayOfWeek, diffDays, nextMonday } from '../dates';
+import { addDays, dayOfWeek, diffDays, nextMonday, yearsBetween } from '../dates';
 
 describe('src/lib/dates', () => {
   it('addDays traverse mois et années', () => {
@@ -25,5 +25,12 @@ describe('src/lib/dates', () => {
 
   it('rejette un format invalide', () => {
     expect(() => addDays('16/07/2026', 1)).toThrow(RangeError);
+  });
+
+  it('yearsBetween : années révolues, anniversaire compté le jour même (D12)', () => {
+    expect(yearsBetween('2010-07-17', '2026-07-17')).toBe(16); // anniversaire le jour J
+    expect(yearsBetween('2010-07-18', '2026-07-17')).toBe(15); // veille de l'anniversaire
+    expect(yearsBetween('2010-01-01', '2026-07-17')).toBe(16);
+    expect(yearsBetween('2010-12-31', '2026-07-17')).toBe(15);
   });
 });
