@@ -35,6 +35,13 @@ export {
 export type { LoadAlertCandidate } from './alerts';
 
 export {
+  averageWeeklyVolumeKm,
+  CALIBRATION_MIN_WEEKS,
+  isCalibrating,
+  VOLUME_WINDOW_WEEKS,
+  weeksOfHistory,
+} from './history';
+export {
   DEFAULT_START_VOLUME_KM,
   generatePlan,
   MIN_PLAN_WEEKS,

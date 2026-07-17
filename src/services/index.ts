@@ -6,5 +6,6 @@
  */
 export { initMonitoring } from './monitoring';
 export * from './ingestion';
-export { createMockHealthAdapter } from './health/adapter';
+export { createDefaultHealthAdapter, createMockHealthAdapter } from './health/adapter';
 export type { HealthAdapter } from './health/adapter';
+export * from './auth';

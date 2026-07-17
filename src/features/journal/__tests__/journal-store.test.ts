@@ -65,3 +65,20 @@ describe('useJournalStore — saisie RPE post-séance (E7-5)', () => {
     expect(useJournalStore.getState().entries[0]?.feedback).toBeUndefined();
   });
 });
+
+describe('useJournalStore — import de séances normalisées (E1-2)', () => {
+  beforeEach(() => {
+    useJournalStore.setState({ entries: [] });
+  });
+
+  it('importe les séances valides et écarte les invalides (frontière zod)', () => {
+    const imported = useJournalStore.getState().importWorkouts([
+      { source: 'healthkit', startedAt: START, durationS: 2400, distanceM: 6000 },
+      // durationS négative : rejetée par le schéma.
+      { source: 'healthkit', startedAt: START, durationS: -5 },
+    ]);
+    expect(imported).toBe(1);
+    expect(useJournalStore.getState().entries).toHaveLength(1);
+    expect(useJournalStore.getState().entries[0]?.workout.source).toBe('healthkit');
+  });
+});
