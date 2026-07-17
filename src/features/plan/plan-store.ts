@@ -367,7 +367,9 @@ export const usePlanStore = create<PlanStoreState>()((set, get) => ({
     }
     const state = get();
     const archived =
-      state.plan !== undefined ? [...state.archivedPlans, { ...state.plan, status: 'superseded' as const }] : state.archivedPlans;
+      state.plan !== undefined
+        ? [...state.archivedPlans, { ...state.plan, status: 'superseded' as const }]
+        : state.archivedPlans;
     set({
       goal: { ...parsed.data, id: parsed.data.id ?? randomUuid() },
       plan: withSessionIds(result.plan),

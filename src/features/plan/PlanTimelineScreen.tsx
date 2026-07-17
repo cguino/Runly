@@ -14,7 +14,17 @@ import {
   weekRealizedSummary,
 } from '@/training-engine';
 import type { TimelineStep } from '@/ui';
-import { Button, Card, Chip, colors, Label, Pill, spacing, TimelineStepper, typography } from '@/ui';
+import {
+  Button,
+  Card,
+  Chip,
+  colors,
+  Label,
+  Pill,
+  spacing,
+  TimelineStepper,
+  typography,
+} from '@/ui';
 
 import { useJournalStore } from '../journal/journal-store';
 import { entryLoad } from '../load/load-store';
@@ -155,9 +165,7 @@ function PlanWeeks({
               volumeKm={week.targetVolumeKm}
               sessions={week.sessions}
               today={today}
-              realized={
-                isPast ? weekRealizedSummary(realizedWorkouts, weekStart) : undefined
-              }
+              realized={isPast ? weekRealizedSummary(realizedWorkouts, weekStart) : undefined}
               onSessionPress={onSessionPress}
             />
           </View>

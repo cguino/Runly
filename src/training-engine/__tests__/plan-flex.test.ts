@@ -44,59 +44,98 @@ describe('moveSessionWarnings (E8-3, spec §7.9)', () => {
   it('qualité déplacée à côté d’une autre qualité → quality_back_to_back (avant et après)', () => {
     const others = [session('2026-07-21', 'seuil')];
     expect(
-      moveSessionWarnings({ session: session('2026-07-24', 'vma_court'), newDate: '2026-07-22', otherSessions: others }),
+      moveSessionWarnings({
+        session: session('2026-07-24', 'vma_court'),
+        newDate: '2026-07-22',
+        otherSessions: others,
+      }),
     ).toEqual(['quality_back_to_back']);
     expect(
-      moveSessionWarnings({ session: session('2026-07-24', 'vma_court'), newDate: '2026-07-20', otherSessions: others }),
+      moveSessionWarnings({
+        session: session('2026-07-24', 'vma_court'),
+        newDate: '2026-07-20',
+        otherSessions: others,
+      }),
     ).toEqual(['quality_back_to_back']);
   });
 
   it('qualité déplacée la veille de la sortie longue → quality_before_long_run', () => {
     const others = [session('2026-07-26', 'sortie_longue')];
     expect(
-      moveSessionWarnings({ session: session('2026-07-21', 'tempo'), newDate: '2026-07-25', otherSessions: others }),
+      moveSessionWarnings({
+        session: session('2026-07-21', 'tempo'),
+        newDate: '2026-07-25',
+        otherSessions: others,
+      }),
     ).toEqual(['quality_before_long_run']);
   });
 
   it('sortie longue déplacée au lendemain d’une qualité → même enchaînement signalé', () => {
     const others = [session('2026-07-24', 'seuil')];
     expect(
-      moveSessionWarnings({ session: session('2026-07-26', 'sortie_longue'), newDate: '2026-07-25', otherSessions: others }),
+      moveSessionWarnings({
+        session: session('2026-07-26', 'sortie_longue'),
+        newDate: '2026-07-25',
+        otherSessions: others,
+      }),
     ).toEqual(['quality_before_long_run']);
   });
 
   it('les deux enchaînements peuvent se cumuler', () => {
     const others = [session('2026-07-24', 'seuil'), session('2026-07-26', 'sortie_longue')];
     expect(
-      moveSessionWarnings({ session: session('2026-07-21', 'vma_court'), newDate: '2026-07-25', otherSessions: others }),
+      moveSessionWarnings({
+        session: session('2026-07-21', 'vma_court'),
+        newDate: '2026-07-25',
+        otherSessions: others,
+      }),
     ).toEqual(['quality_back_to_back', 'quality_before_long_run']);
   });
 
   it('EF déplacée n’importe où → aucun avertissement', () => {
     const others = [session('2026-07-24', 'seuil'), session('2026-07-26', 'sortie_longue')];
     expect(
-      moveSessionWarnings({ session: session('2026-07-21', 'ef'), newDate: '2026-07-25', otherSessions: others }),
+      moveSessionWarnings({
+        session: session('2026-07-21', 'ef'),
+        newDate: '2026-07-25',
+        otherSessions: others,
+      }),
     ).toEqual([]);
   });
 
   it('qualité déplacée sur un jour isolé → aucun avertissement', () => {
     const others = [session('2026-07-20', 'ef'), session('2026-07-26', 'sortie_longue')];
     expect(
-      moveSessionWarnings({ session: session('2026-07-21', 'seuil'), newDate: '2026-07-22', otherSessions: others }),
+      moveSessionWarnings({
+        session: session('2026-07-21', 'seuil'),
+        newDate: '2026-07-22',
+        otherSessions: others,
+      }),
     ).toEqual([]);
   });
 
   it('les séances annulées/manquées ne comptent pas dans les enchaînements', () => {
-    const others = [session('2026-07-21', 'seuil', 'cancelled'), session('2026-07-23', 'tempo', 'missed')];
+    const others = [
+      session('2026-07-21', 'seuil', 'cancelled'),
+      session('2026-07-23', 'tempo', 'missed'),
+    ];
     expect(
-      moveSessionWarnings({ session: session('2026-07-25', 'vma_court'), newDate: '2026-07-22', otherSessions: others }),
+      moveSessionWarnings({
+        session: session('2026-07-25', 'vma_court'),
+        newDate: '2026-07-22',
+        otherSessions: others,
+      }),
     ).toEqual([]);
   });
 
   it('la sortie longue n’est pas une qualité : SL + SL adjacentes → pas d’avertissement', () => {
     const others = [session('2026-07-25', 'sortie_longue')];
     expect(
-      moveSessionWarnings({ session: session('2026-07-21', 'sortie_longue'), newDate: '2026-07-26', otherSessions: others }),
+      moveSessionWarnings({
+        session: session('2026-07-21', 'sortie_longue'),
+        newDate: '2026-07-26',
+        otherSessions: others,
+      }),
     ).toEqual([]);
   });
 });
@@ -155,10 +194,7 @@ describe('estimatePlannedSessionLoad', () => {
   it('EF 6 km ≈ durée estimée × RPE attendu 3', () => {
     const spec = buildSession({ type: 'ef', vmaKmh: 15, distanceKm: 6 });
     const durationMin = estimateBlocksDurationS(spec.blocks, 15) / 60;
-    const load = estimatePlannedSessionLoad(
-      { sessionType: 'ef', blocks: spec.blocks },
-      15,
-    );
+    const load = estimatePlannedSessionLoad({ sessionType: 'ef', blocks: spec.blocks }, 15);
     expect(load).toBe(Math.round(3 * durationMin));
   });
 
@@ -166,7 +202,10 @@ describe('estimatePlannedSessionLoad', () => {
     const ef = buildSession({ type: 'ef', vmaKmh: 15, distanceKm: 8 });
     const seuil = buildSession({ type: 'seuil', vmaKmh: 15 });
     const efLoad = estimatePlannedSessionLoad({ sessionType: 'ef', blocks: ef.blocks }, 15);
-    const seuilLoad = estimatePlannedSessionLoad({ sessionType: 'seuil', blocks: seuil.blocks }, 15);
+    const seuilLoad = estimatePlannedSessionLoad(
+      { sessionType: 'seuil', blocks: seuil.blocks },
+      15,
+    );
     expect(seuilLoad).toBeGreaterThan(efLoad);
   });
 
@@ -203,7 +242,12 @@ describe('recalcul de l’ACWR prévisionnel après déplacement/ajout (E8-3)', 
     const sessions = [session('2026-07-18', 'seuil'), session('2026-07-20', 'ef')];
     const before = forecastForSessions({ dailyLoads: stableLoads, today, sessions, vmaKmh: 15 });
     const movedOut = [session('2026-07-30', 'seuil', 'moved'), session('2026-07-20', 'ef')];
-    const after = forecastForSessions({ dailyLoads: stableLoads, today, sessions: movedOut, vmaKmh: 15 });
+    const after = forecastForSessions({
+      dailyLoads: stableLoads,
+      today,
+      sessions: movedOut,
+      vmaKmh: 15,
+    });
     expect(after.acuteLoad7d).toBeLessThan(before.acuteLoad7d);
   });
 
@@ -211,7 +255,12 @@ describe('recalcul de l’ACWR prévisionnel après déplacement/ajout (E8-3)', 
     const sessions = [session('2026-07-18', 'seuil'), session('2026-07-20', 'ef')];
     const before = forecastForSessions({ dailyLoads: stableLoads, today, sessions, vmaKmh: 15 });
     const movedInside = [session('2026-07-19', 'seuil', 'moved'), session('2026-07-20', 'ef')];
-    const after = forecastForSessions({ dailyLoads: stableLoads, today, sessions: movedInside, vmaKmh: 15 });
+    const after = forecastForSessions({
+      dailyLoads: stableLoads,
+      today,
+      sessions: movedInside,
+      vmaKmh: 15,
+    });
     expect(after.acuteLoad7d).toBe(before.acuteLoad7d);
     expect(after.acwr).toBe(before.acwr);
   });
@@ -220,7 +269,12 @@ describe('recalcul de l’ACWR prévisionnel après déplacement/ajout (E8-3)', 
     const sessions = [session('2026-07-20', 'ef')];
     const before = forecastForSessions({ dailyLoads: stableLoads, today, sessions, vmaKmh: 15 });
     const withExtra = [...sessions, session('2026-07-21', 'seuil')];
-    const after = forecastForSessions({ dailyLoads: stableLoads, today, sessions: withExtra, vmaKmh: 15 });
+    const after = forecastForSessions({
+      dailyLoads: stableLoads,
+      today,
+      sessions: withExtra,
+      vmaKmh: 15,
+    });
     expect(after.acuteLoad7d).toBeGreaterThan(before.acuteLoad7d);
   });
 
@@ -242,7 +296,10 @@ describe('lighteningSuggested — l’app se tait dans la zone (spec §7.9)', ()
   const today = '2026-07-16';
   const stable = Array.from({ length: 28 }, (_, i) => {
     const day = 19 + i;
-    const date = day <= 30 ? `2026-06-${String(day).padStart(2, '0')}` : `2026-07-${String(day - 30).padStart(2, '0')}`;
+    const date =
+      day <= 30
+        ? `2026-06-${String(day).padStart(2, '0')}`
+        : `2026-07-${String(day - 30).padStart(2, '0')}`;
     return { date, load: 100 };
   });
 

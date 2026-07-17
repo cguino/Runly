@@ -122,7 +122,8 @@ export const fr = {
         'Ta jauge apprend ton habitude d’entraînement : encore quelques semaines de données et elle t’accompagnera séance après séance.',
       sous_charge:
         'Ta charge est en dessous de ton habitude des 4 dernières semaines. Une séance douce de plus suffit souvent à relancer la dynamique.',
-      favorable: 'Ta charge est bien équilibrée par rapport à ton habitude des 4 dernières semaines.',
+      favorable:
+        'Ta charge est bien équilibrée par rapport à ton habitude des 4 dernières semaines.',
       pic: 'Ta charge augmente vite par rapport à ton habitude — envisage une semaine plus légère.',
     },
     forecast: '≈ {{value}} à J+7 si tu suis ta semaine',
@@ -410,7 +411,8 @@ export const fr = {
     },
   },
   planTab: {
-    intro: 'Ton plan est une proposition, pas un contrat : déplace, ajoute — c’est toi qui décides.',
+    intro:
+      'Ton plan est une proposition, pas un contrat : déplace, ajoute — c’est toi qui décides.',
     goal: {
       label: 'Ton objectif',
       add: 'Ajouter un objectif',

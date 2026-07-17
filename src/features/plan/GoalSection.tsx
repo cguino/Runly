@@ -5,7 +5,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import { formatDateFr, formatDuration } from '@/i18n';
 import type { RaceDistance } from '@/schemas';
 import type { PlanAlternative } from '@/training-engine';
-import { BottomSheet, Button, Card, Chip, colors, Label, spacing, TextField, typography } from '@/ui';
+import {
+  BottomSheet,
+  Button,
+  Card,
+  Chip,
+  colors,
+  Label,
+  spacing,
+  TextField,
+  typography,
+} from '@/ui';
 
 import { parseFrDate, parseTargetTimeS } from '../onboarding/parse';
 import type { GoalEditResult } from './plan-store';
@@ -41,10 +51,7 @@ export function GoalSection() {
         <>
           <Text style={styles.deleteTitle}>{t('planTab.goal.deleteTitle')}</Text>
           <Text style={styles.body}>{t('planTab.goal.deleteBody')}</Text>
-          <Button
-            label={t('planTab.goal.deleteKeep')}
-            onPress={() => setConfirmingDelete(false)}
-          />
+          <Button label={t('planTab.goal.deleteKeep')} onPress={() => setConfirmingDelete(false)} />
           <Button
             label={t('planTab.goal.deleteConfirm')}
             onPress={() => {
@@ -154,7 +161,9 @@ function GoalFormSheet({ visible, onClose }: { visible: boolean; onClose: () => 
     <BottomSheet
       visible={visible}
       onClose={close}
-      title={goal === undefined ? t('planTab.goal.formTitleCreate') : t('planTab.goal.formTitleEdit')}
+      title={
+        goal === undefined ? t('planTab.goal.formTitleCreate') : t('planTab.goal.formTitleEdit')
+      }
     >
       <Label>{t('onboarding.objectif.distanceLabel')}</Label>
       <View style={styles.chipRow}>

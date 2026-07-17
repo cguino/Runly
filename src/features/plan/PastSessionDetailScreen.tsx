@@ -17,7 +17,16 @@ import {
   estimateBlocksKm,
   estimatePlannedSessionLoad,
 } from '@/training-engine';
-import { Card, Chip, colors, Label, spacing, StatCardTrio, TimelineStepper, typography } from '@/ui';
+import {
+  Card,
+  Chip,
+  colors,
+  Label,
+  spacing,
+  StatCardTrio,
+  TimelineStepper,
+  typography,
+} from '@/ui';
 
 import { useJournalStore } from '../journal/journal-store';
 import { entryLoad } from '../load/load-store';
