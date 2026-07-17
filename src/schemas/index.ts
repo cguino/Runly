@@ -65,3 +65,6 @@ export type {
 
 export { injuryRecordSchema, userProfileSchema } from './user-profile';
 export type { InjuryRecord, UserProfile } from './user-profile';
+
+export { sessionFeedbackSchema } from './session-feedback';
+export type { SessionFeedback } from './session-feedback';
