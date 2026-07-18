@@ -19,10 +19,6 @@ export const fr = {
       title: 'Plan',
       placeholder: 'Ta timeline d’entraînement arrive ici.',
     },
-    sessions: {
-      title: 'Séances',
-      placeholder: 'La bibliothèque de séances arrive ici.',
-    },
     profile: {
       title: 'Profil',
       placeholder: 'Tes infos et tes références physio arrivent ici.',
@@ -694,6 +690,223 @@ export const fr = {
       blockRealizedNote:
         'Le détail réalisé bloc par bloc arrive avec les séances jouées dans le player.',
       notFound: 'Séance introuvable.',
+    },
+  },
+  // --- Lot 10 : bibliothèque pédagogique & builder (E4) -----------------------
+  // Wording des fiches : rédigé depuis `synthese-lantelme.md`, filtré par le
+  // tableau proscrit/recommandé de `note-reglementaire-dm.md` (jamais
+  // « blessure » ni pathologie — charge, fatigue, récupération, progression).
+  // 🧑 G3 : relecture coach obligatoire avant beta.
+  library: {
+    title: 'Séances',
+    intro:
+      'Explore librement : chaque séance t’explique ce qu’elle développe et comment la réussir — que tu la fasses aujourd’hui ou plus tard.',
+    typesLabel: 'Bibliothèque',
+    customLabel: 'Mes séances',
+    customEmpty:
+      'Compose ta propre séance par blocs — celle de ton coach, de ton club, ou la tienne.',
+    create: 'Créer une séance',
+    duplicate: 'Dupliquer',
+    duplicateSuffix: '(copie)',
+    customSummary: '{{distance}} · {{duration}}',
+    sheet: {
+      structureLabel: 'Structure de la séance',
+      statDistance: 'Distance',
+      statDuration: 'Durée',
+      statRpe: 'Effort attendu',
+      rpeValue: 'RPE {{value}}',
+      vmaHint: 'Renseigne ta VMA dans ton profil pour des allures personnalisées.',
+      developsLabel: 'Ce que ça développe',
+      goalsLabel: 'Pour quels objectifs',
+      rpeLabel: 'L’effort attendu',
+      tipsLabel: 'Pour la réussir',
+      mistakesLabel: 'Les pièges classiques',
+      variantsLabel: 'Variantes',
+      doNow: 'La faire maintenant',
+      addToWeek: 'L’ajouter à ma semaine',
+      notFound: 'Séance introuvable.',
+    },
+    add: {
+      title: 'Ajouter à ma semaine',
+      intro: 'Elle comptera dans ta charge, comme les autres.',
+      dayLabel: 'Quel jour ?',
+      confirm: 'Ajouter à ma semaine',
+      close: 'Fermer',
+    },
+    builder: {
+      title: 'Créer une séance',
+      nameLabel: 'Nom de la séance',
+      namePlaceholder: 'Ex. Séance club du mardi',
+      typeLabel: 'Type de séance',
+      typeHint: 'Sert à situer l’effort de ta séance dans ta charge.',
+      blocksLabel: 'Blocs',
+      empty: 'Ajoute un premier bloc : échauffement, travail, récupération…',
+      addStep: 'Ajouter un bloc',
+      addSeries: 'Ajouter une série',
+      remove: 'Retirer',
+      save: 'Sauvegarder la séance',
+      saved: 'Séance sauvegardée dans « Mes séances » 👍',
+      backToLibrary: 'Voir mes séances',
+      block: {
+        stepTitle: 'Un bloc',
+        seriesTitle: 'Une série',
+        roleLabel: 'Rôle du bloc',
+        repsLabel: 'Répétitions',
+        extentLabel: 'Durée ou distance',
+        duration: 'Durée',
+        distance: 'Distance',
+        durationUnit: 'min',
+        distanceUnit: 'm',
+        durationPlaceholder: '10',
+        distancePlaceholder: '1000',
+        targetLabel: 'Cible',
+        targetPace: 'Allure',
+        targetZone: 'Zone FC',
+        targetRpe: 'RPE',
+        targetFree: 'Libre',
+        paceMinLabel: 'De',
+        paceMaxLabel: 'À',
+        paceUnit: 'min/km',
+        pacePlaceholder: '4:59',
+        recoveryLabel: 'Récup entre répétitions (min)',
+        recoveryPlaceholder: 'Aucune',
+        confirm: 'Ajouter le bloc',
+      },
+    },
+    sheets: {
+      ef: {
+        what: 'Le footing à allure très confortable qui construit ta base d’endurance.',
+        develops:
+          'Ton moteur aérobie : le cœur, le souffle et les fibres qui te permettent d’encaisser puis d’assimiler tout le reste de l’entraînement.',
+        goals:
+          'La colonne vertébrale de tous les plans, du 5 km au marathon : la majorité de ton volume hebdo se court à cette intensité.',
+        rpe: 'RPE 3/10 — tu peux tenir une conversation complète sans chercher ton souffle.',
+        tips: [
+          'Cours vraiment lentement : si tu ne peux plus parler, ralentis encore.',
+          'La régularité prime sur l’exploit : plusieurs footings courts valent mieux qu’un seul énorme.',
+          'Reste en zones 1–2 de FC, même dans les côtes — marche si besoin.',
+        ],
+        mistakes: [
+          'Courir l’EF trop vite — l’erreur n°1 : la séance fatigue au lieu de construire.',
+          'Te comparer aux autres : l’allure EF est propre à chacun.',
+        ],
+        variants: [
+          'Débutant : alterne course et marche pour rester à l’aise du début à la fin.',
+          'Confirmé : termine par quelques lignes droites en accélération progressive.',
+        ],
+      },
+      sortie_longue: {
+        what: 'La sortie la plus longue de ta semaine, courue en aisance, pour apprendre à durer.',
+        develops:
+          'L’endurance de fond : tes réserves d’énergie, ta solidité musculaire et ton mental sur la durée.',
+        goals: 'Indispensable pour le semi et le marathon, très utile dès le 10 km.',
+        rpe: 'RPE 4/10 — confortable au départ, une fatigue saine s’installe sur la fin.',
+        tips: [
+          'Allonge la durée progressivement, semaine après semaine — c’est la progressivité qui fait la sortie longue.',
+          'Au-delà d’une heure, pense à boire et à t’alimenter.',
+          'Le temps passé à courir compte plus que l’allure.',
+        ],
+        mistakes: [
+          'La rallonger de trop d’un coup : ta charge grimpe vite et ta semaine le paie.',
+          'Partir trop vite et finir en survie.',
+        ],
+        variants: [
+          'Débutant : une heure en aisance complète.',
+          'Confirmé : termine par 15–20 min à allure objectif (finish rapide).',
+        ],
+      },
+      vma_court: {
+        what: 'Des répétitions courtes et rapides pour développer ta vitesse maximale aérobie.',
+        develops:
+          'Ta cylindrée : la VMA élève le plafond qui détermine toutes tes allures, de l’EF à la course.',
+        goals: 'Progresser sur 5 et 10 km, relancer la machine quand les chronos stagnent.',
+        rpe: 'RPE 8/10 — intense mais contrôlé : la dernière répétition doit passer comme la première.',
+        tips: [
+          'Échauffe-toi au moins 15 minutes avant la première répétition.',
+          'Vise une allure régulière sur toute la série, pas un record sur la première.',
+          'Récupère en trottinant pour garder le corps en route.',
+        ],
+        mistakes: [
+          'Partir trop vite et subir la moitié de la séance.',
+          'Enchaîner deux séances intenses sans jour facile entre les deux.',
+        ],
+        variants: [
+          'Débutant : 30 secondes vite / 30 secondes lent.',
+          'Confirmé : allonge à 400 m ou ajoute des répétitions, progressivement.',
+        ],
+      },
+      seuil: {
+        what: 'Un effort soutenu et régulier, à la frontière où le souffle commence à monter.',
+        develops:
+          'Ta capacité à soutenir une allure rapide longtemps : ton corps apprend à tenir l’effort au lieu de le subir.',
+        goals: 'L’arme n°1 du 10 km au semi — précieuse aussi en préparation marathon.',
+        rpe: 'RPE 7/10 — parler devient difficile : quelques mots, pas des phrases.',
+        tips: [
+          'Reste juste sous le point de bascule : soutenu mais maîtrisé, du premier au dernier bloc.',
+          'Fractionne en blocs de 8 à 12 minutes avec des récupérations courtes.',
+          'Fie-toi à tes sensations autant qu’à l’allure cible.',
+        ],
+        mistakes: [
+          'Transformer le seuil en course : trop vite, c’est une autre séance.',
+          'Zapper l’échauffement et attaquer à froid.',
+        ],
+        variants: ['Débutant : 2 × 8 min.', 'Confirmé : 3 × 12 min, ou 2 × 20 min récup 3 min.'],
+      },
+      tempo: {
+        what: 'Un bloc continu à allure « confortablement exigeante », entre l’EF et le seuil.',
+        develops: 'L’endurance active : tenir une allure engagée en restant économique et relâché.',
+        goals: 'Excellent du 10 km au marathon — et la meilleure école pour apprendre à doser.',
+        rpe: 'RPE 5–6/10 — engagé mais tenable : tu pourrais continuer à la fin du bloc.',
+        tips: [
+          'Entre dans l’allure progressivement sur les premières minutes.',
+          'Cherche la régularité au kilomètre près : c’est tout l’intérêt de la séance.',
+        ],
+        mistakes: [
+          'Confondre tempo et seuil : le tempo se tient, il ne s’arrache pas.',
+          'L’allonger sans raison : 20 à 40 minutes suffisent largement.',
+        ],
+        variants: [
+          'Débutant : 15–20 min.',
+          'Confirmé : 2 × 20 min, ou un tempo final en fin de sortie longue.',
+        ],
+      },
+      fartlek: {
+        what: 'Le « jeu de vitesse » : des accélérations libres au fil d’un footing, sans piste ni chrono.',
+        develops:
+          'La vitesse, les relances et le sens de l’allure — dans un cadre ludique qui casse la routine.',
+        goals:
+          'Parfait pour découvrir le travail rapide, s’entraîner en nature ou garder du rythme sans pression.',
+        rpe: 'RPE 6–7/10 sur les accélérations, récupérations très faciles entre.',
+        tips: [
+          'Joue avec le terrain : accélère jusqu’au prochain arbre, en haut de la côte…',
+          'C’est l’envie qui pilote, pas le chrono : reste à l’écoute de tes sensations.',
+          'Envie d’une structure précise ? Compose la tienne avec le builder.',
+        ],
+        mistakes: [
+          'Sprinter à fond dès la première relance.',
+          'Négliger les phases lentes : la récupération fait partie du jeu.',
+        ],
+        variants: [
+          'Débutant : 6 × 30 s d’accélération au ressenti.',
+          'Confirmé : pyramide 1-2-3-2-1 min, récup égale au temps d’effort.',
+        ],
+      },
+      recuperation: {
+        what: 'Un footing très court et très lent pour aider ton corps à assimiler.',
+        develops:
+          'Rien — et c’est le but : elle active la circulation et favorise la récupération sans ajouter de fatigue.',
+        goals: 'Le lendemain d’une séance intense ou d’une course, quel que soit ton objectif.',
+        rpe: 'RPE 2/10 — presque une promenade en courant.',
+        tips: [
+          'Encore plus lent que ton EF : personne ne juge une allure de récup.',
+          '20 à 40 minutes suffisent — au-delà, ce n’est plus de la récupération.',
+        ],
+        mistakes: [
+          'La courir trop vite « parce que les jambes vont bien » : tu entames ta prochaine séance.',
+          'L’ajouter partout : parfois, le bon choix est le repos complet.',
+        ],
+        variants: ['Fatigué ? Remplace-la par du repos ou de la marche — c’est aussi s’entraîner.'],
+      },
     },
   },
   blocks: {
