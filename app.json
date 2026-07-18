@@ -9,6 +9,7 @@
     "userInterfaceStyle": "dark",
     "backgroundColor": "#0B0E13",
     "ios": {
+      "bundleIdentifier": "fr.beapp.runly",
       "icon": "./assets/expo.icon",
       "supportsTablet": false,
       "infoPlist": {
@@ -16,6 +17,7 @@
       }
     },
     "android": {
+      "package": "fr.beapp.runly",
       "adaptiveIcon": {
         "backgroundColor": "#0B0E13",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
