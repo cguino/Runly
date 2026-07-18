@@ -59,6 +59,33 @@ export {
   REPERIODIZATION_GAP_DAYS,
   shouldProposeReperiodization,
 } from './plan-adjust';
+export {
+  addSessionToPlan,
+  buildWeekOverview,
+  DEFAULT_SESSION_DURATION_MIN,
+  estimateBlocksDurationS,
+  estimatePlannedSessionLoad,
+  EXPECTED_SESSION_RPE,
+  forecastForSessions,
+  instantiateWeekTemplate,
+  isQualitySession,
+  lighteningSuggested,
+  mondayOf,
+  movePlannedSession,
+  moveSessionWarnings,
+  sessionDisplayStatus,
+  upcomingPlannedLoads,
+  weekRealizedSummary,
+} from './plan-flex';
+export type {
+  PlanSessionRef,
+  SessionDisplayStatus,
+  SessionMoveWarning,
+  TemplateSessionType,
+  WeekDayOverview,
+  WeekRealizedSummary,
+  WeekTemplateEntry,
+} from './plan-flex';
 export type {
   MissedSessionOutcome,
   PlanAlternative,

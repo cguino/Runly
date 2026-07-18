@@ -1,0 +1,39 @@
+# Sous-flow : onboarding complet AVEC objectif daté → plan généré.
+# Réutilisé par les parcours du Lot 8 (l'onboarding garde la racine tant
+# qu'il n'est pas complété, app/_layout.tsx).
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+# OB1 · Santé — mode déclaratif (pas de permission simulateur).
+- tapOn: 'Plus tard'
+# OB2 · Profil — skippable (E1-7).
+- tapOn: 'Passer cette étape'
+# OB3 · Contexte — défauts : 3 séances/sem, mar/jeu/sam.
+- tapOn: 'Passer cette étape'
+# OB4 · Objectif : 10 km (défaut) au 31/12, ambition « finir » (défaut).
+- tapOn: 'JJ/MM/AAAA'
+- inputText: '31/12/2026'
+- hideKeyboard
+- tapOn: 'Générer mon plan'
+# OB5 · Compte (auth mock).
+- tapOn: 'toi@exemple.fr'
+- inputText: 'coureur@exemple.fr'
+- hideKeyboard
+- tapOn: '8 caractères minimum.'
+- inputText: 'motdepasse'
+- hideKeyboard
+- tapOn: 'JJ/MM/AAAA'
+- inputText: '01/01/1990'
+- hideKeyboard
+- tapOn: 'Créer mon compte'
+# OB6 · Restitution : résumé + 3 écrans de pédagogie jauge + guide montre.
+- tapOn: 'Suivant'
+- tapOn: 'Suivant'
+- tapOn: 'Suivant'
+- tapOn: 'Suivant'
+- scrollUntilVisible:
+    element:
+      text: 'C’est parti !'
+- tapOn: 'C’est parti !'
+- assertVisible: 'Accueil'

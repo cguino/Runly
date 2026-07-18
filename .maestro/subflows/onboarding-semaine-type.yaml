@@ -1,0 +1,34 @@
+# Sous-flow : onboarding SANS objectif (D5) → mode semaine type.
+appId: ${APP_ID}
+---
+- launchApp:
+    clearState: true
+- tapOn: 'Plus tard'
+- tapOn: 'Passer cette étape'
+- tapOn: 'Passer cette étape'
+# OB4 · Objectif : continuer sans objectif → semaine type (E8-6).
+- scrollUntilVisible:
+    element:
+      text: 'Continuer sans objectif'
+- tapOn: 'Continuer sans objectif'
+# OB5 · Compte (auth mock).
+- tapOn: 'toi@exemple.fr'
+- inputText: 'coureur@exemple.fr'
+- hideKeyboard
+- tapOn: '8 caractères minimum.'
+- inputText: 'motdepasse'
+- hideKeyboard
+- tapOn: 'JJ/MM/AAAA'
+- inputText: '01/01/1990'
+- hideKeyboard
+- tapOn: 'Créer mon compte'
+# OB6 · Restitution « Compose ta semaine type » + pédagogie jauge.
+- tapOn: 'Suivant'
+- tapOn: 'Suivant'
+- tapOn: 'Suivant'
+- tapOn: 'Suivant'
+- scrollUntilVisible:
+    element:
+      text: 'C’est parti !'
+- tapOn: 'C’est parti !'
+- assertVisible: 'Accueil'
