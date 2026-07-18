@@ -152,6 +152,46 @@ describe('usePlanStore — séance spontanée (E8-4)', () => {
   });
 });
 
+describe('usePlanStore — ajout depuis la bibliothèque (E4-3)', () => {
+  const LIBRARY_BLOCKS = [
+    {
+      kind: 'step' as const,
+      role: 'travail' as const,
+      extent: { type: 'duration' as const, seconds: 40 * 60 },
+      target: { type: 'rpe' as const, rpe: 7 },
+    },
+  ];
+
+  it('previewAdd projette la jauge avant/après sans modifier l’état', () => {
+    resetStores(steadyEntries(60, 5));
+    usePlanStore.getState().hydrateFromOnboarding(TODAY);
+    const preview = usePlanStore.getState().previewAdd({
+      sessionType: 'seuil',
+      blocks: LIBRARY_BLOCKS,
+      date: addDays(TODAY, 1),
+      today: TODAY,
+    });
+    expect(preview.forecastBefore.acwr).toBeDefined();
+    expect(preview.forecastAfter.acwr).toBeGreaterThan(preview.forecastBefore.acwr!);
+    expect(selectActiveSessions(usePlanStore.getState())).toHaveLength(0);
+  });
+
+  it('addSpontaneousSession avec blocs custom garde la structure (builder/fiche)', () => {
+    resetStores(steadyEntries(60, 5));
+    usePlanStore.getState().hydrateFromOnboarding(TODAY);
+    usePlanStore.getState().addSpontaneousSession({
+      sessionType: 'fartlek',
+      blocks: LIBRARY_BLOCKS,
+      date: addDays(TODAY, 2),
+      today: TODAY,
+    });
+    const sessions = selectActiveSessions(usePlanStore.getState());
+    expect(sessions).toHaveLength(1);
+    expect(sessions[0]?.sessionType).toBe('fartlek');
+    expect(sessions[0]?.blocks).toEqual(LIBRARY_BLOCKS);
+  });
+});
+
 describe('usePlanStore — semaine type manuelle (E8-6)', () => {
   it('addTemplateEntry matérialise la semaine courante (jours restants uniquement)', () => {
     resetStores();
