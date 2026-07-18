@@ -7,6 +7,8 @@ dist/
 web-build/
 expo-env.d.ts
 
+.yarn
+
 # Native (CNG/prebuild : dossiers générés, jamais versionnés)
 /ios
 /android
