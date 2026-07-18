@@ -15,6 +15,12 @@ export default function ProfileScreen() {
           <Text style={styles.rowHint}>{t('screens.profile.physioLinkHint')}</Text>
         </View>
       </Link>
+      <Link href="/notification-settings" style={styles.rowLink}>
+        <View style={styles.rowContent}>
+          <Text style={styles.rowLabel}>{t('screens.profile.notificationsLink')}</Text>
+          <Text style={styles.rowHint}>{t('screens.profile.notificationsLinkHint')}</Text>
+        </View>
+      </Link>
       {__DEV__ ? (
         <Link href="/ui-gallery" style={styles.rowLink}>
           <View style={styles.rowContent}>

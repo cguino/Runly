@@ -28,6 +28,8 @@ export const fr = {
       placeholder: 'Tes infos et tes références physio arrivent ici.',
       physioLink: 'Références physio',
       physioLinkHint: 'FCmax · VMA · seuils · zones',
+      notificationsLink: 'Notifications',
+      notificationsLinkHint: 'Ta semaine · rappels · récap hebdo',
     },
   },
   physio: {
@@ -122,7 +124,8 @@ export const fr = {
         'Ta jauge apprend ton habitude d’entraînement : encore quelques semaines de données et elle t’accompagnera séance après séance.',
       sous_charge:
         'Ta charge est en dessous de ton habitude des 4 dernières semaines. Une séance douce de plus suffit souvent à relancer la dynamique.',
-      favorable: 'Ta charge est bien équilibrée par rapport à ton habitude des 4 dernières semaines.',
+      favorable:
+        'Ta charge est bien équilibrée par rapport à ton habitude des 4 dernières semaines.',
       pic: 'Ta charge augmente vite par rapport à ton habitude — envisage une semaine plus légère.',
     },
     forecast: '≈ {{value}} à J+7 si tu suis ta semaine',
@@ -378,6 +381,83 @@ export const fr = {
       },
       disclaimer: 'Aide à la décision d’entraînement — ne constitue pas un avis médical.',
       cta: 'C’est parti !',
+    },
+  },
+  /**
+   * Notifications locales & récap hebdo (Lot 9, E9 ; spec §6.2 ; D15 : pas de
+   * streaks ni de relances culpabilisantes). Chaque string passe le filtre
+   * proscrit/recommandé de `note-reglementaire-dm.md` — vérifié par test.
+   */
+  notifications: {
+    settings: {
+      title: 'Notifications',
+      intro: 'Choisis ce que Runly t’envoie. Tout se règle ici, notification par notification.',
+      noPressure:
+        'Pas de série à entretenir ni de relance insistante : Runly t’informe, c’est toi qui décides.',
+      types: {
+        ta_semaine: {
+          label: 'Ta semaine',
+          description: 'Le lundi matin : tes séances planifiées et ta charge prévisionnelle.',
+        },
+        rappel_seance: {
+          label: 'Séance du jour',
+          description: 'Le matin d’un jour de séance : un rappel de ce qui t’attend.',
+        },
+        demande_rpe: {
+          label: 'Ressenti de séance',
+          description:
+            '30 minutes après une séance détectée : note ton effort pour tenir ta jauge à jour.',
+        },
+        recap_hebdo: {
+          label: 'Récap hebdo',
+          description: 'Le dimanche soir : réalisé vs prévu et évolution de ta charge.',
+        },
+      },
+    },
+    taSemaine: {
+      title: 'Ta semaine',
+      body: '{{count}} séance(s) planifiée(s) cette semaine.',
+      forecast: {
+        favorable: 'Charge prévisionnelle dans ta zone favorable — continue comme ça.',
+        pic: 'Charge prévisionnelle au-dessus de ton habitude — tu peux alléger une séance si besoin.',
+        sous_charge:
+          'Charge prévisionnelle en dessous de ton habitude — de la marge pour progresser.',
+        calibration: 'Ta jauge se calibre encore : note ton effort après chaque séance.',
+      },
+    },
+    rappelSeance: {
+      title: 'Séance du jour',
+      body: 'Aujourd’hui : {{session}}. Ton brief t’attend dans l’app.',
+      bodyGeneric: 'Une séance est prévue aujourd’hui — ton brief t’attend dans l’app.',
+      sessionTypes: {
+        ef: 'endurance fondamentale',
+        sortie_longue: 'sortie longue',
+        vma_court: 'VMA',
+        seuil: 'seuil',
+        tempo: 'tempo',
+        fartlek: 'fartlek',
+        recuperation: 'récupération',
+      },
+    },
+    demandeRpe: {
+      title: 'Comment était ta séance ?',
+      body: 'Note ton effort de 0 à 10 : cinq secondes, et ta jauge est à jour.',
+    },
+    recapHebdo: {
+      title: 'Ton récap de la semaine',
+      donePlanned: '{{done}} séance(s) réalisée(s) sur {{planned}} prévue(s).',
+      doneOnly: '{{done}} séance(s) cette semaine.',
+      noneWithPlan: 'Semaine sans séance — ça arrive. Ton plan reprend avec toi, à ton rythme.',
+      volume: '{{distance}} · {{duration}}.',
+      acwrEvolution: 'Charge : {{from}} → {{to}}.',
+      adaptation: {
+        semaine_legere:
+          'Ta charge a augmenté vite — une semaine plus légère t’aidera à bien assimiler.',
+        continuite: 'Charge bien équilibrée — continue comme ça.',
+        relance_douce: 'Une séance douce de plus la semaine prochaine, et tu retrouves ton rythme.',
+        calibration:
+          'Ta jauge apprend encore ton habitude — encore quelques séances notées et elle t’accompagne.',
+      },
     },
   },
   common: {
