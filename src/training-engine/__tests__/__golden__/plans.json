@@ -1,0 +1,6567 @@
+{
+  "marc-semi-14sem-3j": {
+    "outcome": "plan",
+    "plan": {
+      "phases": [
+        {
+          "type": "generale",
+          "startWeekIndex": 0,
+          "weekCount": 6
+        },
+        {
+          "type": "specifique",
+          "startWeekIndex": 6,
+          "weekCount": 6
+        },
+        {
+          "type": "affutage",
+          "startWeekIndex": 12,
+          "weekCount": 2
+        }
+      ],
+      "status": "active",
+      "version": 1,
+      "weeks": [
+        {
+          "weekIndex": 0,
+          "targetVolumeKm": 30,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-21",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 208,
+                        "maxSecondsPerKm": 218
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-23",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-26",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 12000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 1,
+          "targetVolumeKm": 32.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-28",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 208,
+                        "maxSecondsPerKm": 218
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-30",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-02",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 2,
+          "targetVolumeKm": 35.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-04",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 208,
+                        "maxSecondsPerKm": 218
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-06",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 12000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-09",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 15000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 3,
+          "targetVolumeKm": 25,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-11",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-13",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-16",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 4,
+          "targetVolumeKm": 39,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-18",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 208,
+                        "maxSecondsPerKm": 218
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-20",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 14000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-23",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 16500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 5,
+          "targetVolumeKm": 42.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-25",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 208,
+                        "maxSecondsPerKm": 218
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-27",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 15500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-30",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 18500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 6,
+          "targetVolumeKm": 45,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-01",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 242,
+                        "maxSecondsPerKm": 257
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-03",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 15500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-06",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 19500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 7,
+          "targetVolumeKm": 31.5,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-08",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-10",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-13",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 14000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 8,
+          "targetVolumeKm": 45,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-15",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 242,
+                        "maxSecondsPerKm": 257
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-17",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 15500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-20",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 19500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 9,
+          "targetVolumeKm": 45,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-22",
+              "sessionType": "tempo",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 1200
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 260,
+                    "maxSecondsPerKm": 280
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-24",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 16000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-27",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 19500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 10,
+          "targetVolumeKm": 45,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-29",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 242,
+                        "maxSecondsPerKm": 257
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-01",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 15500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-04",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 19500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 11,
+          "targetVolumeKm": 31.5,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-10-06",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-08",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-11",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 14000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 12,
+          "targetVolumeKm": 27,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-10-13",
+              "sessionType": "tempo",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 1200
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 260,
+                    "maxSecondsPerKm": 280
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-15",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 8000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-18",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 303,
+                    "maxSecondsPerKm": 352
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 13,
+          "targetVolumeKm": 13.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-10-20",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-22",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 291,
+                    "maxSecondsPerKm": 336
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    "recommendations": []
+  },
+  "marathon-prudent-post-blessure": {
+    "outcome": "plan",
+    "plan": {
+      "phases": [
+        {
+          "type": "generale",
+          "startWeekIndex": 0,
+          "weekCount": 8
+        },
+        {
+          "type": "specifique",
+          "startWeekIndex": 8,
+          "weekCount": 8
+        },
+        {
+          "type": "affutage",
+          "startWeekIndex": 16,
+          "weekCount": 2
+        }
+      ],
+      "status": "active",
+      "version": 1,
+      "weeks": [
+        {
+          "weekIndex": 0,
+          "targetVolumeKm": 35,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-21",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-23",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-25",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-26",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 12000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 1,
+          "targetVolumeKm": 37,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-28",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-30",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 8000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-01",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 8000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-02",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 2,
+          "targetVolumeKm": 39.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-04",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-06",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-08",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-09",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 14000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 3,
+          "targetVolumeKm": 27.5,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-11",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-13",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-15",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-16",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 12500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 4,
+          "targetVolumeKm": 41,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-18",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-20",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-22",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-23",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 15000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 5,
+          "targetVolumeKm": 41,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-25",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-27",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-29",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-30",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 15000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 6,
+          "targetVolumeKm": 41,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-01",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-03",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-05",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-06",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 15000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 7,
+          "targetVolumeKm": 28.5,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-08",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-10",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-12",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-13",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 8,
+          "targetVolumeKm": 41,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-15",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 267,
+                        "maxSecondsPerKm": 282
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-17",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-19",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-20",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 9,
+          "targetVolumeKm": 41,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-22",
+              "sessionType": "tempo",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 1200
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 308
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-24",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 267,
+                        "maxSecondsPerKm": 282
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-26",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 10000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-27",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 10,
+          "targetVolumeKm": 41,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-29",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 267,
+                        "maxSecondsPerKm": 282
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-01",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-03",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-04",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 11,
+          "targetVolumeKm": 28.5,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-10-06",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-08",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-10",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-11",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 12,
+          "targetVolumeKm": 41,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-10-13",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 267,
+                        "maxSecondsPerKm": 282
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-15",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-17",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-18",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 13,
+          "targetVolumeKm": 41,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-10-20",
+              "sessionType": "tempo",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 1200
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 308
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-22",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 267,
+                        "maxSecondsPerKm": 282
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-24",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 10000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-25",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 14,
+          "targetVolumeKm": 41,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-10-27",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 267,
+                        "maxSecondsPerKm": 282
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-29",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 240
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-10-31",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-11-01",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 15,
+          "targetVolumeKm": 28.5,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-11-03",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-11-05",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-11-07",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-11-08",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 13000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 16,
+          "targetVolumeKm": 24.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-11-10",
+              "sessionType": "tempo",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 1200
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 308
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-11-12",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-11-14",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-11-15",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 333,
+                    "maxSecondsPerKm": 387
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 17,
+          "targetVolumeKm": 12.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-11-17",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 6500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-11-19",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 6500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 320,
+                    "maxSecondsPerKm": 369
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    "recommendations": []
+  },
+  "5k-debutant-2j": {
+    "outcome": "plan",
+    "plan": {
+      "phases": [
+        {
+          "type": "generale",
+          "startWeekIndex": 0,
+          "weekCount": 5
+        },
+        {
+          "type": "specifique",
+          "startWeekIndex": 5,
+          "weekCount": 4
+        },
+        {
+          "type": "affutage",
+          "startWeekIndex": 9,
+          "weekCount": 1
+        }
+      ],
+      "status": "active",
+      "version": 1,
+      "weeks": [
+        {
+          "weekIndex": 0,
+          "targetVolumeKm": 18,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-22",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 245,
+                        "maxSecondsPerKm": 257
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-26",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 357,
+                    "maxSecondsPerKm": 415
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 1,
+          "targetVolumeKm": 19.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-29",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 245,
+                        "maxSecondsPerKm": 257
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-02",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 6500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 357,
+                    "maxSecondsPerKm": 415
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 2,
+          "targetVolumeKm": 21.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-05",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 245,
+                        "maxSecondsPerKm": 257
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-09",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 357,
+                    "maxSecondsPerKm": 415
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 3,
+          "targetVolumeKm": 15,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-12",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 6500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 343,
+                    "maxSecondsPerKm": 396
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-16",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 8500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 357,
+                    "maxSecondsPerKm": 415
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 4,
+          "targetVolumeKm": 23.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-19",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 245,
+                        "maxSecondsPerKm": 257
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-23",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 8500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 357,
+                    "maxSecondsPerKm": 415
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 5,
+          "targetVolumeKm": 25.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-26",
+              "sessionType": "tempo",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 1200
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 306,
+                    "maxSecondsPerKm": 330
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-30",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 357,
+                    "maxSecondsPerKm": 415
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 6,
+          "targetVolumeKm": 27.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-02",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 286,
+                        "maxSecondsPerKm": 303
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-06",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 10500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 357,
+                    "maxSecondsPerKm": 415
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 7,
+          "targetVolumeKm": 19.5,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-09",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 9000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 343,
+                    "maxSecondsPerKm": 396
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-13",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 10500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 357,
+                    "maxSecondsPerKm": 415
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 8,
+          "targetVolumeKm": 30,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-16",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 286,
+                        "maxSecondsPerKm": 303
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-20",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 12000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 357,
+                    "maxSecondsPerKm": 415
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 9,
+          "targetVolumeKm": 9,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-23",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 343,
+                    "maxSecondsPerKm": 396
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-27",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 343,
+                    "maxSecondsPerKm": 396
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    "recommendations": ["recommend_three_sessions_for_chrono"]
+  },
+  "10k-chrono-5j": {
+    "outcome": "plan",
+    "plan": {
+      "phases": [
+        {
+          "type": "generale",
+          "startWeekIndex": 0,
+          "weekCount": 5
+        },
+        {
+          "type": "specifique",
+          "startWeekIndex": 5,
+          "weekCount": 4
+        },
+        {
+          "type": "affutage",
+          "startWeekIndex": 9,
+          "weekCount": 1
+        }
+      ],
+      "status": "active",
+      "version": 1,
+      "weeks": [
+        {
+          "weekIndex": 0,
+          "targetVolumeKm": 40,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-20",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 196,
+                        "maxSecondsPerKm": 206
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-21",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-23",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-24",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-26",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 14000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 332
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 1,
+          "targetVolumeKm": 35,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-27",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 196,
+                        "maxSecondsPerKm": 206
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-28",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-30",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-31",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-02",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 332
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 2,
+          "targetVolumeKm": 35,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-03",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 196,
+                        "maxSecondsPerKm": 206
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-04",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-06",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-07",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-09",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 332
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 3,
+          "targetVolumeKm": 24.5,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-10",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-11",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-13",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-14",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-16",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 332
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 4,
+          "targetVolumeKm": 35,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-17",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 196,
+                        "maxSecondsPerKm": 206
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-18",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-20",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-21",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-23",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 332
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 5,
+          "targetVolumeKm": 35,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-24",
+              "sessionType": "tempo",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 1200
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 245,
+                    "maxSecondsPerKm": 264
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-25",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-27",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 242
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-28",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-30",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 6500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 332
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 6,
+          "targetVolumeKm": 35,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-31",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 242
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-01",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-03",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 196,
+                        "maxSecondsPerKm": 206
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-04",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-06",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 332
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 7,
+          "targetVolumeKm": 24.5,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-07",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-08",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-10",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-11",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-13",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 11000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 332
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 8,
+          "targetVolumeKm": 35,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-14",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 229,
+                        "maxSecondsPerKm": 242
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-15",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-17",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "pace",
+                        "minSecondsPerKm": 196,
+                        "maxSecondsPerKm": 206
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-18",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-20",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7000
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 286,
+                    "maxSecondsPerKm": 332
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 9,
+          "targetVolumeKm": 10.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-21",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-22",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5500
+                  },
+                  "target": {
+                    "type": "pace",
+                    "minSecondsPerKm": 274,
+                    "maxSecondsPerKm": 316
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    "recommendations": []
+  },
+  "objectif-irrealiste": {
+    "outcome": "unrealistic",
+    "reasons": ["too_few_weeks", "volume_gap", "pace_above_capacity"],
+    "alternatives": [
+      {
+        "type": "finish_ambition"
+      },
+      {
+        "type": "later_date",
+        "suggestedRaceDate": "2026-10-05"
+      },
+      {
+        "type": "other_goal",
+        "raceDistance": "10k"
+      }
+    ]
+  },
+  "sans-historique": {
+    "outcome": "plan",
+    "plan": {
+      "phases": [
+        {
+          "type": "generale",
+          "startWeekIndex": 0,
+          "weekCount": 4
+        },
+        {
+          "type": "specifique",
+          "startWeekIndex": 4,
+          "weekCount": 3
+        },
+        {
+          "type": "affutage",
+          "startWeekIndex": 7,
+          "weekCount": 1
+        }
+      ],
+      "status": "active",
+      "version": 1,
+      "weeks": [
+        {
+          "weekIndex": 0,
+          "targetVolumeKm": 18,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-21",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "rpe",
+                        "rpe": 9
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-23",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-26",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5500
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 1,
+          "targetVolumeKm": 19.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-07-28",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "rpe",
+                        "rpe": 9
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-07-30",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 5500
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-02",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 6500
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 2,
+          "targetVolumeKm": 21.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-04",
+              "sessionType": "vma_court",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 8,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "distance",
+                        "meters": 300
+                      },
+                      "target": {
+                        "type": "rpe",
+                        "rpe": 9
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 60
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-06",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 6500
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-09",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7500
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 3,
+          "targetVolumeKm": 15,
+          "isRecovery": true,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-11",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-13",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-16",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 4,
+          "targetVolumeKm": 23.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-18",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "hrZone",
+                        "zone": 4
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-20",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 7000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-23",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 8500
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 5,
+          "targetVolumeKm": 25.5,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-08-25",
+              "sessionType": "tempo",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 1200
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 3
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-27",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 8000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-08-30",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 10000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 6,
+          "targetVolumeKm": 26,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-01",
+              "sessionType": "seuil",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "echauffement",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 900
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                },
+                {
+                  "kind": "series",
+                  "repetitions": 2,
+                  "blocks": [
+                    {
+                      "kind": "step",
+                      "role": "travail",
+                      "extent": {
+                        "type": "duration",
+                        "seconds": 600
+                      },
+                      "target": {
+                        "type": "hrZone",
+                        "zone": 4
+                      }
+                    }
+                  ],
+                  "recovery": {
+                    "kind": "step",
+                    "role": "recuperation",
+                    "extent": {
+                      "type": "duration",
+                      "seconds": 120
+                    },
+                    "target": {
+                      "type": "none"
+                    }
+                  }
+                },
+                {
+                  "kind": "step",
+                  "role": "retour_calme",
+                  "extent": {
+                    "type": "duration",
+                    "seconds": 600
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 1
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-03",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 8000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-06",
+              "sessionType": "sortie_longue",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 10000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        },
+        {
+          "weekIndex": 7,
+          "targetVolumeKm": 8,
+          "isRecovery": false,
+          "sessions": [
+            {
+              "scheduledDate": "2026-09-08",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            },
+            {
+              "scheduledDate": "2026-09-10",
+              "sessionType": "ef",
+              "blocks": [
+                {
+                  "kind": "step",
+                  "role": "travail",
+                  "extent": {
+                    "type": "distance",
+                    "meters": 4000
+                  },
+                  "target": {
+                    "type": "hrZone",
+                    "zone": 2
+                  }
+                }
+              ],
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    "recommendations": []
+  }
+}

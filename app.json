@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "Runly",
+    "slug": "runly",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "runly",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0B0E13",
+    "ios": {
+      "bundleIdentifier": "fr.beapp.runly",
+      "icon": "./assets/expo.icon",
+      "supportsTablet": false,
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"]
+      }
+    },
+    "android": {
+      "package": "fr.beapp.runly",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0E13",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Runly utilise ta position pendant la séance pour afficher ton allure et ta distance en temps réel. Rien n'est suivi en dehors d'une séance, et ton tracé GPS n'est jamais conservé.",
+          "isAndroidBackgroundLocationEnabled": false
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0B0E13",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 76
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

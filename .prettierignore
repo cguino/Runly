@@ -1,0 +1,13 @@
+# Docs produit canoniques et proto : jamais reformatés par l'outillage
+*.md
+docs/**/*.md
+*.html
+*.mermaid
+LANTELME.pdf
+
+# Généré / verrouillé
+yarn.lock
+assets/
+supabase/migrations/
+supabase/config.toml
+.expo/

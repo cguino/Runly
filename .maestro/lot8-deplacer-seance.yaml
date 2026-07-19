@@ -1,0 +1,39 @@
+# Lot 8 — E8-3 : déplacer une séance et voir l'impact sur la jauge.
+# Parcours : plan généré → onglet Plan → séance à venir → bottom sheet
+# « Choisir un autre jour » → impact ACWR prévisionnel affiché → déplacement
+# confirmé (jamais bloqué). Lancer avec :
+#   maestro test .maestro/lot8-deplacer-seance.yaml -e APP_ID=<bundle id du build local>
+appId: ${APP_ID}
+---
+- runFlow: subflows/onboarding-plan.yaml
+
+# Aller sur l'onglet Plan (timeline).
+- tapOn: 'Plan'
+- assertVisible: 'Ton objectif'
+- assertVisible: 'Semaine 1'
+
+# Ouvrir une séance à venir de la timeline (id stable posé par le Lot 8).
+- scrollUntilVisible:
+    element:
+      id: 'timeline-session-.*'
+- tapOn:
+    id: 'timeline-session-.*'
+
+# Bottom sheet de déplacement : choisir un autre jour.
+- assertVisible: 'Choisir un autre jour'
+- tapOn: 'Dim'
+
+# L'impact jauge (ACWR prévisionnel recalculé) est visible AVANT de décider.
+- assertVisible:
+    text: 'Jauge à J\+7.*'
+
+# « Garder mon plan » reste proposé — l'app n'interdit jamais.
+- assertVisible: 'Garder mon plan'
+
+# Confirmer le déplacement.
+- tapOn: 'Déplacer la séance'
+- assertVisible: 'Semaine 1'
+
+# Retour Accueil : la semaine 7 jours reflète toujours l'état du plan.
+- tapOn: 'Accueil'
+- assertVisible: 'Ta semaine'

@@ -1,0 +1,928 @@
+/**
+ * Strings FR externalisées (D7 : i18n-ready, FR seul au MVP).
+ * Règle transverse n°3 : aucune string en dur dans les composants.
+ * Tout texte visible passe le filtre wording de `note-reglementaire-dm.md`.
+ */
+export const fr = {
+  tabs: {
+    home: 'Accueil',
+    plan: 'Plan',
+    sessions: 'Séances',
+    profile: 'Profil',
+  },
+  screens: {
+    home: {
+      title: 'Accueil',
+      placeholder: 'Ta jauge de charge et ta semaine arrivent ici.',
+    },
+    plan: {
+      title: 'Plan',
+      placeholder: 'Ta timeline d’entraînement arrive ici.',
+    },
+    profile: {
+      title: 'Profil',
+      placeholder: 'Tes infos et tes références physio arrivent ici.',
+      physioLink: 'Références physio',
+      physioLinkHint: 'FCmax · VMA · seuils · zones',
+      notificationsLink: 'Notifications',
+      notificationsLinkHint: 'Ta semaine · rappels · récap hebdo',
+    },
+  },
+  physio: {
+    title: 'Références physio',
+    intro: 'Tes repères d’entraînement. Tout est éditable — tape une valeur pour la corriger.',
+    fields: {
+      vmaKmh: 'VMA',
+      fcmaxBpm: 'FC max',
+      sv1PctVma: 'Seuil SV1',
+      sv2PctVma: 'Seuil SV2',
+    },
+    units: {
+      vmaKmh: 'km/h',
+      fcmaxBpm: 'bpm',
+      sv1PctVma: '% VMA',
+      sv2PctVma: '% VMA',
+    },
+    confidence: {
+      mesure: 'Mesuré',
+      estime: 'Estimé',
+      defaut: 'Par défaut',
+    },
+    emptyValue: 'À renseigner',
+    zonesTitle: 'Zones FC',
+    zoneLabel: 'Zone {{n}}',
+    zonePct: '{{min}}–{{max}} % FCmax',
+    zoneBpm: '{{min}}–{{max}} bpm',
+    revisionsTitle: 'Historique des révisions',
+    revisionsEmpty: 'Aucune révision pour l’instant.',
+    revisionManual: 'Saisie manuelle',
+    revisionRecalc: 'Recalcul accepté',
+    revisionFrom: 'depuis {{value}}',
+    cooperTitle: 'Estimer ma VMA : test demi-Cooper',
+    cooperBody:
+      'Après un bon échauffement, cours 6 minutes à l’allure la plus rapide que tu peux tenir sans t’effondrer. Ta distance en mètres divisée par 100 donne ta VMA en km/h : 1 500 m ≈ 15 km/h. Le test guidé dans le player arrive bientôt.',
+    recalcTitle: 'Tes dernières séances suggèrent une VMA de {{value}} km/h',
+    recalcBody: 'C’est toi qui décides : mettre à jour tes allures, ou garder tes valeurs.',
+    recalcAccept: 'Mettre à jour',
+    recalcKeep: 'Garder mes valeurs',
+  },
+  manualWorkout: {
+    title: 'Ajouter une séance',
+    intro: 'Pas de montre, pas de problème : note ta séance en trois champs.',
+    duration: 'Durée',
+    durationUnit: 'min',
+    durationPlaceholder: 'Ex. 45',
+    distance: 'Distance (optionnelle)',
+    distanceUnit: 'km',
+    distancePlaceholder: 'Ex. 8,2',
+    rpe: 'Effort ressenti (RPE 0–10, optionnel)',
+    rpePlaceholder: 'Ex. 6',
+    rpeHint: '0 = repos total · 10 = effort maximal',
+    save: 'Enregistrer la séance',
+    invalid: 'Vérifie la durée (obligatoire) et le RPE (entre 0 et 10).',
+    saved: 'Séance enregistrée 👍',
+  },
+  screensHome: {
+    addManualWorkout: 'Ajouter une séance manuelle',
+  },
+  load: {
+    title: 'Ta charge',
+    alerts: {
+      title: {
+        pic_charge: 'Ta charge augmente vite',
+        sous_charge: 'Ton rythme se fait discret',
+        rpe_eleve: 'Deux séances corsées d’affilée',
+      },
+      body: {
+        pic_charge:
+          'Charge en hausse de {{pct}} % vs ton habitude — prudence. Suggestion : remplace ta prochaine séance intense par une sortie plus légère.',
+        sous_charge:
+          'Ta charge est en dessous de ton habitude depuis deux semaines. Une séance facile de plus par semaine, et tu retrouves ton rythme.',
+        rpe_eleve:
+          'Tu as ressenti tes deux dernières séances à {{rpe}}/10 ou plus. Suggestion : allège ta prochaine séance pour bien assimiler.',
+      },
+      accept: 'Adapter ma semaine',
+      keep: 'Garder mon plan',
+    },
+    rpePrompt: 'Note l’effort de ta dernière séance',
+    disclaimer: 'Aide à la décision d’entraînement — ne constitue pas un avis médical.',
+  },
+  gauge: {
+    empty: '—',
+    status: {
+      calibration: 'En calibration',
+      sous_charge: 'Sous ta zone · tu peux en faire un peu plus',
+      favorable: 'Zone favorable · continue comme ça',
+      pic: 'Pic de charge · prudence',
+    },
+    caption: {
+      calibration:
+        'Ta jauge apprend ton habitude d’entraînement : encore quelques semaines de données et elle t’accompagnera séance après séance.',
+      sous_charge:
+        'Ta charge est en dessous de ton habitude des 4 dernières semaines. Une séance douce de plus suffit souvent à relancer la dynamique.',
+      favorable:
+        'Ta charge est bien équilibrée par rapport à ton habitude des 4 dernières semaines.',
+      pic: 'Ta charge augmente vite par rapport à ton habitude — envisage une semaine plus légère.',
+    },
+    forecast: '≈ {{value}} à J+7 si tu suis ta semaine',
+    howItWorks: 'Comment ça marche ?',
+    a11y: 'Jauge de charge : {{status}}',
+    info: {
+      title: 'Comment ça marche ?',
+      intro:
+        'Ta jauge compare ce que tu viens de faire à ce que ton corps a l’habitude de faire. Rien de magique : deux nombres et un ratio.',
+      acuteTitle: 'Ta charge récente',
+      acuteBody:
+        'Chaque séance compte pour ton effort ressenti (RPE de 0 à 10) multiplié par sa durée en minutes. La jauge additionne tes 7 derniers jours : c’est ta charge récente.',
+      chronicTitle: 'Ton habitude',
+      chronicBody:
+        'Sur tes 4 dernières semaines, la jauge calcule ta charge moyenne par semaine : c’est ton habitude, la base que ton corps connaît et sur laquelle tu progresses.',
+      ratioTitle: 'Le ratio',
+      ratioBody:
+        'La jauge divise ta charge récente par ton habitude. Entre 0,8 et 1,3, tu es dans ta zone favorable : continue comme ça. En dessous, tu peux en faire un peu plus. Au-dessus, ta charge augmente vite — une séance plus légère aide à garder l’équilibre entre charge et récupération. Dans tous les cas, c’est toi qui décides.',
+    },
+  },
+  rpe: {
+    title: 'Ton ressenti',
+    question: 'Comment était ta séance ?',
+    hint: '0 = repos total · 10 = effort maximal',
+    save: 'Enregistrer',
+    noWorkout: 'Aucune séance à noter pour l’instant.',
+    /** Ancres émoji de l'échelle 0–10 (G6) — `max` = borne haute incluse. */
+    anchors: [
+      { max: 1, emoji: '😌', label: 'Très facile' },
+      { max: 3, emoji: '🙂', label: 'Facile' },
+      { max: 5, emoji: '😊', label: 'Modéré' },
+      { max: 7, emoji: '😅', label: 'Difficile' },
+      { max: 9, emoji: '🥵', label: 'Très difficile' },
+      { max: 10, emoji: '🤯', label: 'Maximal' },
+    ],
+  },
+  gallery: {
+    title: 'Galerie UI',
+    intro: 'Revue visuelle des composants du design system (écran de dev).',
+    devLink: 'Galerie UI (dev)',
+    sections: {
+      buttons: 'Boutons',
+      pills: 'Pills & chips',
+      cards: 'Cartes',
+      stats: 'Stat-cards',
+      timeline: 'Timeline de séance',
+      checklist: 'Checklist hebdo',
+      inputs: 'Inputs',
+      sheet: 'Bottom sheet',
+    },
+    samples: {
+      ctaStart: 'Démarrer la séance',
+      ctaGhost: 'Garder mon plan',
+      pillPositive: 'Zone favorable · continue comme ça',
+      pillWarn: 'Estimé',
+      pillMuted: 'À renseigner',
+      chipQuality: 'Qualité',
+      chipRpe: 'RPE 4',
+      cardTitle: 'Carte de base',
+      cardBody: 'La hiérarchie vient des niveaux de surface, pas des ombres.',
+      nestedCard: '2000 m @ 4:59/km',
+      nestedCaption: 'Récupération 2 min',
+      statDistance: 'Distance',
+      statDuration: 'Durée',
+      statLoad: 'Charge',
+      timelineWarmup: 'Échauffement',
+      timelineWarmupSub: '15 min · allure libre',
+      timelineWork: '2 × 2000 m',
+      timelineWorkSub: '@ 4:59 /km · récup 2 min',
+      timelineCooldown: 'Retour au calme',
+      timelineCooldownSub: '10 min · zone 1',
+      checkMonday: 'Lun',
+      checkMondayTitle: 'Endurance fondamentale 45 min',
+      checkWednesday: 'Mer',
+      checkWednesdayTitle: 'Seuil 2 × 12 min',
+      checkSaturday: 'Sam',
+      checkSaturdayTitle: 'Sortie longue 1 h 20',
+      inputLabel: 'VMA',
+      inputPlaceholder: 'Ex. 16,5',
+      inputUnit: 'km/h',
+      openSheet: 'Ouvrir le bottom sheet',
+      sheetTitle: 'Adapter ma semaine',
+      sheetBody: 'Le contenu réel arrive avec le Lot 8 — ceci est la coquille visuelle.',
+      sheetClose: 'Fermer',
+    },
+  },
+  onboarding: {
+    skip: 'Passer cette étape',
+    days: {
+      d0: 'Lun',
+      d1: 'Mar',
+      d2: 'Mer',
+      d3: 'Jeu',
+      d4: 'Ven',
+      d5: 'Sam',
+      d6: 'Dim',
+    },
+    sante: {
+      title: 'Connecte tes séances',
+      body: 'Runly peut lire tes séances de course depuis Apple Santé ou Health Connect : ton historique amorce ta jauge de charge, et tes prochaines séances remonteront toutes seules, sans saisie.',
+      privacy:
+        'On ne garde que les résumés de séance — durée, distance, fréquence cardiaque moyenne. Jamais ton tracé GPS ni tes données brutes.',
+      promptNotice:
+        'La demande d’autorisation du système ne s’affiche qu’après cet écran — rien ne part sans ton accord.',
+      connect: 'Connecter mes données santé',
+      later: 'Plus tard',
+      laterHint:
+        'Sans montre ni connexion, tout fonctionne : tu noteras tes séances en trois champs (durée, distance, effort).',
+      imported: '{{count}} séance(s) de course importée(s) sur les 26 dernières semaines.',
+      importedNone:
+        'Aucune séance de course trouvée dans ton historique — pas de souci, ta jauge se calibrera au fil de tes premières séances.',
+      calibrationPill: 'Jauge en calibration',
+      calibrationHint:
+        'Moins de 4 semaines d’historique : ta jauge apprend encore ton habitude, ses repères s’affinent au fil des séances.',
+      denied:
+        'Pas d’accès santé pour l’instant : tu passes en mode déclaratif — l’app reste 100 % fonctionnelle.',
+      continue: 'Continuer',
+    },
+    profil: {
+      title: 'Parle-nous de toi',
+      firstName: 'Prénom (optionnel)',
+      firstNamePlaceholder: 'Ex. Marc',
+      birthDate: 'Date de naissance',
+      birthDatePlaceholder: 'JJ/MM/AAAA',
+      birthDateHint: 'Elle affine tes zones cardiaques et confirme l’âge minimum (16 ans).',
+      injuryQuestion: 'Ces 12 derniers mois, un pépin physique t’a-t-il arrêté de courir ?',
+      injuryYes: 'Oui',
+      injuryNo: 'Non',
+      injuryNote: 'Dis-nous en deux mots (optionnel)',
+      injuryNotePlaceholder: 'Ex. douleur au mollet au printemps, 3 semaines sans courir',
+      injuryHint: 'Si oui, ton plan progressera plus en douceur — c’est tout ce que ça change.',
+      underAge:
+        'Runly est réservé aux 16 ans et plus. On préfère te le dire franchement : reviens nous voir bientôt !',
+      invalid: 'Vérifie la date de naissance (format JJ/MM/AAAA).',
+      continue: 'Continuer',
+    },
+    contexte: {
+      title: 'Ton entraînement, aujourd’hui',
+      sessionsLabel: 'Séances par semaine',
+      sessionsHint:
+        'Minimum 2 : en dessous, impossible de construire une progression régulière — le moteur de plan ne génère rien.',
+      daysLabel: 'Tes jours disponibles',
+      volumeLabel: 'Volume hebdo actuel',
+      volumeUnit: 'km',
+      volumePlaceholder: 'Ex. 25',
+      volumePrefilled: 'Pré-rempli depuis ton historique — corrige si besoin.',
+      invalid: 'Choisis entre 2 et 6 séances et au moins un jour disponible.',
+      continue: 'Continuer',
+    },
+    objectif: {
+      title: 'Une course en vue ? (optionnel)',
+      body: 'Avec une course datée, Runly te construit un plan jusqu’au jour J. Sans objectif, tu composeras ta semaine type — et tu pourras en ajouter un à tout moment depuis l’onglet Plan.',
+      distanceLabel: 'Distance',
+      distances: {
+        '5k': '5 km',
+        '10k': '10 km',
+        semi: 'Semi',
+        marathon: 'Marathon',
+      },
+      dateLabel: 'Date de course',
+      datePlaceholder: 'JJ/MM/AAAA',
+      eventName: 'Nom de l’épreuve (optionnel)',
+      eventNamePlaceholder: 'Ex. Semi de Nantes',
+      ambitionLabel: 'Ton ambition',
+      ambitionFinish: 'Finir',
+      ambitionChrono: 'Chrono',
+      targetTime: 'Temps cible',
+      targetTimePlaceholder: 'Ex. 1:45',
+      targetTimeHint: 'Au format h:mm ou en minutes (ex. 45).',
+      generate: 'Générer mon plan',
+      skipGoal: 'Continuer sans objectif',
+      invalid: 'Vérifie la distance, la date et le temps cible.',
+      refusedDate: 'Cette date est déjà passée — choisis une date à venir.',
+      refusedSessions:
+        'Il faut au moins 2 séances par semaine pour construire un plan — ajuste ton contexte à l’étape précédente.',
+      unrealisticTitle: 'Ambitieux pour la date choisie',
+      unrealisticBody:
+        'Vu ton volume actuel et le temps restant, ce plan ferait grimper ta charge trop vite pour être tenable. Voici ce qu’on te propose — c’est toi qui décides :',
+      altFinish: 'Viser « finir » plutôt qu’un chrono',
+      altLater: 'Décaler la course au {{date}}',
+      altOther: 'Viser un {{distance}} d’abord',
+    },
+    compte: {
+      title: 'Crée ton compte',
+      body: 'Ton compte garde ton plan et ta progression synchronisés : tu retrouves tout sur un nouveau téléphone ou après une réinstallation.',
+      localNote:
+        'Jusqu’ici, tout est resté sur ton téléphone. À la création du compte, tes données y sont rattachées — rien ne se perd.',
+      email: 'E-mail',
+      emailPlaceholder: 'toi@exemple.fr',
+      password: 'Mot de passe',
+      passwordHint: '8 caractères minimum.',
+      birthDate: 'Date de naissance',
+      birthDatePlaceholder: 'JJ/MM/AAAA',
+      birthDateHint: 'Il nous la faut ici pour confirmer l’âge minimum (16 ans).',
+      signUp: 'Créer mon compte',
+      orProviders: 'ou en un tap :',
+      apple: 'Continuer avec Apple',
+      google: 'Continuer avec Google',
+      errors: {
+        under_min_age: 'Runly est réservé aux 16 ans et plus — on ne peut pas créer ton compte.',
+        birth_date_required: 'Renseigne ta date de naissance pour confirmer l’âge minimum.',
+        invalid_email: 'Vérifie l’adresse e-mail.',
+        weak_password: 'Choisis un mot de passe d’au moins 8 caractères.',
+        email_already_used: 'Un compte existe déjà avec cet e-mail.',
+        provider_failed: 'La connexion n’a pas abouti — réessaie.',
+      },
+    },
+    restitution: {
+      planTitle: 'Voici ton plan de {{weeks}} semaines',
+      planBody:
+        'Construit depuis ton objectif, ton volume et tes jours disponibles — ajustable à tout moment depuis l’onglet Plan.',
+      phases: {
+        generale: 'Phase générale',
+        specifique: 'Phase spécifique',
+        affutage: 'Affûtage',
+      },
+      phaseWeeks: '{{count}} sem',
+      statWeeks: 'Semaines',
+      statSessions: 'Séances/sem',
+      statPeak: 'Volume pic',
+      weekTypeTitle: 'Compose ta semaine type',
+      weekTypeBody:
+        'Pas de dossard en vue ? Parfait. Tu construiras ta semaine depuis la bibliothèque de séances, et la jauge veillera sur ta charge. Un objectif reste ajoutable à tout moment depuis l’onglet Plan.',
+      pedagogyLabel: 'Ta jauge de charge · {{step}}/3',
+      pedagogy1Title: 'Ton effort, mesuré simplement',
+      pedagogy1Body:
+        'Après chaque séance, tu notes ton effort de 0 à 10. Effort × durée = ta charge. La jauge compare ta semaine (7 jours) à ton habitude (28 jours).',
+      pedagogy2Title: 'La zone favorable',
+      pedagogy2Body:
+        'Entre 0,8 et 1,3, ta charge évolue à un rythme que ton corps connaît : c’est la zone verte — celle où tu progresses durablement.',
+      pedagogy3Title: 'C’est toi qui décides',
+      pedagogy3Body:
+        'Si ta charge grimpe vite, la jauge te le montre et te propose une séance plus légère. Un tap pour accepter, un tap pour garder ton plan.',
+      pedagogyNext: 'Suivant',
+      watchTitle: 'Active le partage depuis ta montre',
+      watchBody:
+        'C’est le réglage le plus souvent oublié : deux minutes dans l’app de ta montre, et tes séances remonteront toutes seules.',
+      brands: {
+        garmin: 'Garmin',
+        garminBody:
+          'Garmin Connect → Paramètres → Applications tierces : autorise Apple Santé (iPhone) ou Health Connect (Android). Durée, distance et FC remontent automatiquement.',
+        coros: 'Coros',
+        corosBody:
+          'App COROS → Profil → Applications tierces : active Apple Santé ou Health Connect.',
+        polar: 'Polar',
+        polarBody:
+          'Polar Flow → Paramètres → Partage de données : active Apple Santé ou Health Connect — le partage le plus complet du marché.',
+        suunto: 'Suunto',
+        suuntoBody:
+          'App Suunto → Services partenaires : active Apple Santé sur iPhone. Sur Android, Suunto ne parle pas encore à Health Connect — note tes séances en trois champs en attendant.',
+        applewatch: 'Apple Watch',
+        applewatchBody: 'Rien à faire : tes séances sont déjà dans Apple Santé.',
+      },
+      disclaimer: 'Aide à la décision d’entraînement — ne constitue pas un avis médical.',
+      cta: 'C’est parti !',
+    },
+  },
+  /**
+   * Notifications locales & récap hebdo (Lot 9, E9 ; spec §6.2 ; D15 : pas de
+   * streaks ni de relances culpabilisantes). Chaque string passe le filtre
+   * proscrit/recommandé de `note-reglementaire-dm.md` — vérifié par test.
+   */
+  notifications: {
+    settings: {
+      title: 'Notifications',
+      intro: 'Choisis ce que Runly t’envoie. Tout se règle ici, notification par notification.',
+      noPressure:
+        'Pas de série à entretenir ni de relance insistante : Runly t’informe, c’est toi qui décides.',
+      types: {
+        ta_semaine: {
+          label: 'Ta semaine',
+          description: 'Le lundi matin : tes séances planifiées et ta charge prévisionnelle.',
+        },
+        rappel_seance: {
+          label: 'Séance du jour',
+          description: 'Le matin d’un jour de séance : un rappel de ce qui t’attend.',
+        },
+        demande_rpe: {
+          label: 'Ressenti de séance',
+          description:
+            '30 minutes après une séance détectée : note ton effort pour tenir ta jauge à jour.',
+        },
+        recap_hebdo: {
+          label: 'Récap hebdo',
+          description: 'Le dimanche soir : réalisé vs prévu et évolution de ta charge.',
+        },
+      },
+    },
+    taSemaine: {
+      title: 'Ta semaine',
+      body: '{{count}} séance(s) planifiée(s) cette semaine.',
+      forecast: {
+        favorable: 'Charge prévisionnelle dans ta zone favorable — continue comme ça.',
+        pic: 'Charge prévisionnelle au-dessus de ton habitude — tu peux alléger une séance si besoin.',
+        sous_charge:
+          'Charge prévisionnelle en dessous de ton habitude — de la marge pour progresser.',
+        calibration: 'Ta jauge se calibre encore : note ton effort après chaque séance.',
+      },
+    },
+    rappelSeance: {
+      title: 'Séance du jour',
+      body: 'Aujourd’hui : {{session}}. Ton brief t’attend dans l’app.',
+      bodyGeneric: 'Une séance est prévue aujourd’hui — ton brief t’attend dans l’app.',
+      sessionTypes: {
+        ef: 'endurance fondamentale',
+        sortie_longue: 'sortie longue',
+        vma_court: 'VMA',
+        seuil: 'seuil',
+        tempo: 'tempo',
+        fartlek: 'fartlek',
+        recuperation: 'récupération',
+      },
+    },
+    demandeRpe: {
+      title: 'Comment était ta séance ?',
+      body: 'Note ton effort de 0 à 10 : cinq secondes, et ta jauge est à jour.',
+    },
+    recapHebdo: {
+      title: 'Ton récap de la semaine',
+      donePlanned: '{{done}} séance(s) réalisée(s) sur {{planned}} prévue(s).',
+      doneOnly: '{{done}} séance(s) cette semaine.',
+      noneWithPlan: 'Semaine sans séance — ça arrive. Ton plan reprend avec toi, à ton rythme.',
+      volume: '{{distance}} · {{duration}}.',
+      acwrEvolution: 'Charge : {{from}} → {{to}}.',
+      adaptation: {
+        semaine_legere:
+          'Ta charge a augmenté vite — une semaine plus légère t’aidera à bien assimiler.',
+        continuite: 'Charge bien équilibrée — continue comme ça.',
+        relance_douce: 'Une séance douce de plus la semaine prochaine, et tu retrouves ton rythme.',
+        calibration:
+          'Ta jauge apprend encore ton habitude — encore quelques séances notées et elle t’accompagne.',
+      },
+    },
+  },
+  player: {
+    title: 'Séance guidée',
+    /** Titres par type de séance (partagés avec la bibliothèque au Lot 10). */
+    sessionTypes: {
+      ef: 'Endurance fondamentale',
+      sortie_longue: 'Sortie longue',
+      vma_court: 'VMA courte',
+      seuil: 'Seuil',
+      tempo: 'Tempo',
+      fartlek: 'Fartlek',
+      recuperation: 'Récupération',
+    },
+    stepRoles: {
+      echauffement: 'Échauffement',
+      travail: 'Travail',
+      recuperation: 'Récupération',
+      retour_calme: 'Retour au calme',
+    },
+    seriesLabel: 'Série {{rep}} / {{total}}',
+    seriesSummary: '{{reps}} × {{extent}}',
+    recoverySuffix: 'récup {{extent}}',
+    stepOf: 'sur {{extent}}',
+    gps: {
+      acquiring: 'GPS…',
+      ok: 'GPS',
+      weak: 'Signal faible',
+      lost: 'Signal faible',
+    },
+    targetLabel: 'Allure cible',
+    target: {
+      hrZone: 'Zone {{zone}}',
+      rpe: 'RPE {{rpe}}',
+      none: 'Allure libre',
+    },
+    stats: {
+      pace: 'Allure',
+      distance: 'Distance',
+      duration: 'Durée',
+    },
+    emptyValue: '—',
+    coaching: {
+      in_target: 'Dans la cible, relâche les épaules',
+      slightly_fast: 'Un poil vite — relâche un peu',
+      too_fast: 'Bien plus vite que la cible — ralentis en douceur',
+      slightly_slow: 'Un poil lent — allonge légèrement la foulée',
+      too_slow: 'En dessous de la cible — accélère si tu te sens bien',
+      no_target: 'Allure libre — cours à ton aise',
+      no_signal: 'Allure en attente de signal — le timer continue',
+    },
+    nextLabel: 'Prochain',
+    nextNone: 'Dernier bloc — savoure',
+    controls: {
+      pause: 'Mettre en pause',
+      resume: 'Reprendre',
+      skip: 'Passer au bloc suivant',
+      finish: 'Terminer la séance',
+      keepGoing: 'Continuer la séance',
+    },
+    restoreBanner: 'Séance retrouvée — reprends quand tu es prêt.',
+    start: 'Démarrer la séance',
+    cardMode: 'Je cours avec ma montre',
+    permissionDenied:
+      'Sans accès à ta position, l’allure et la distance restent vides — le timer et les annonces fonctionnent quand même.',
+    announcements: {
+      session_started: 'C’est parti ! {{step}}',
+      block_start: 'Bloc suivant : {{step}}',
+      block_recovery: 'Récupération : {{step}}',
+      session_paused: 'Séance en pause.',
+      session_resumed: 'On reprend : {{step}}',
+      session_completed: 'Séance terminée, bravo ! Pense à noter ton effort.',
+    },
+    speech: {
+      seconds: '{{count}} secondes',
+      minutes: '{{count}} minutes',
+      minutesSeconds: '{{minutes}} minutes {{seconds}}',
+      meters: '{{count}} mètres',
+      kilometers: '{{count}} kilomètres',
+      paceBand: 'allure {{min}} à {{max}} au kilomètre',
+      hrZone: 'zone cardiaque {{zone}}',
+      rpe: 'effort {{rpe}} sur 10',
+      freePace: 'allure libre',
+    },
+    recap: {
+      title: 'Séance terminée 🎉',
+      titleAbandoned: 'Séance enregistrée',
+      subtitle: 'Bien joué — savoure, tu l’as fait.',
+      statDistance: 'Distance',
+      statDuration: 'Durée',
+      statAvgPace: 'Allure moy.',
+      workPace: 'Allure sur les blocs cibles',
+      hr: 'FC moyenne',
+      hrPending: 'Récupérée via ta connexion santé après la séance.',
+      skipped: '{{count}} bloc(s) passé(s)',
+      ratePrompt: 'Note ton effort : c’est lui qui alimente ta jauge de charge.',
+      rateCta: 'Noter mon effort',
+      close: 'Fermer',
+      tooShort: 'Séance trop courte pour être enregistrée — elle n’a pas été comptée.',
+    },
+    carte: {
+      title: 'Mode carte',
+      body: 'Tu cours avec ta montre : garde la structure sous les yeux, ta montre s’occupe du reste.',
+      matching:
+        'Après ta course, ta séance remontera via ta connexion santé et sera rapprochée automatiquement de ta séance prévue.',
+      structure: 'Structure de la séance',
+      done: 'C’est compris',
+    },
+    finishConfirm: {
+      title: 'Terminer maintenant ?',
+      body: 'Ta séance s’arrête là et sera enregistrée telle quelle.',
+      confirm: 'Terminer la séance',
+      cancel: 'Continuer la séance',
+    },
+  },
+  // --- Lot 8 : plan, timeline, objectif & flexibilité (E8) --------------------
+  sessionTypes: {
+    ef: 'Endurance fondamentale',
+    sortie_longue: 'Sortie longue',
+    vma_court: 'VMA courte',
+    seuil: 'Seuil',
+    tempo: 'Tempo',
+    fartlek: 'Fartlek',
+    recuperation: 'Récupération',
+  },
+  week: {
+    title: 'Ta semaine',
+    days: {
+      d0: 'Lun',
+      d1: 'Mar',
+      d2: 'Mer',
+      d3: 'Jeu',
+      d4: 'Ven',
+      d5: 'Sam',
+      d6: 'Dim',
+    },
+    rest: 'Repos',
+    volume: 'Volume prévu : {{km}} km',
+    status: {
+      prevu: 'Prévue',
+      fait: 'Faite',
+      manque: 'Manquée',
+    },
+  },
+  planTab: {
+    intro:
+      'Ton plan est une proposition, pas un contrat : déplace, ajoute — c’est toi qui décides.',
+    goal: {
+      label: 'Ton objectif',
+      add: 'Ajouter un objectif',
+      edit: 'Modifier',
+      delete: 'Supprimer',
+      raceOn: 'le {{date}}',
+      ambitionFinish: 'Finir',
+      ambitionChrono: 'Chrono {{time}}',
+      deleteTitle: 'Supprimer ton objectif ?',
+      deleteBody:
+        'Ton plan s’arrête ici — il reste dans ton historique. Tu reprends ta semaine type : rien n’est perdu.',
+      deleteConfirm: 'Supprimer l’objectif',
+      deleteKeep: 'Garder mon objectif',
+      formTitleCreate: 'Ton objectif de course',
+      formTitleEdit: 'Modifier ton objectif',
+      saveCreate: 'Générer mon plan',
+      saveEdit: 'Mettre à jour mon plan',
+      cancel: 'Annuler',
+    },
+    timeline: {
+      label: 'Ta timeline',
+      weekTitle: 'Semaine {{n}}',
+      pastWeekTitle: 'Semaine du {{date}}',
+      currentWeekTitle: 'Semaine en cours',
+      currentBadge: 'En cours',
+      recoveryBadge: 'Semaine allégée',
+      phases: {
+        generale: 'Phase générale',
+        specifique: 'Phase spécifique',
+        affutage: 'Affûtage',
+      },
+      volumePlanned: '{{km}} km prévus',
+      realizedSummary: '{{count}}/{{planned}} séances · {{load}} UA',
+      realizedRpe: 'RPE moyen {{rpe}}',
+      pastWeekEmpty: 'Semaine sans séance.',
+      raceDay: 'Jour J : {{event}}',
+      raceDayDefault: 'ta course',
+    },
+    weekType: {
+      title: 'Ma semaine type',
+      intro:
+        'Pas de dossard en vue : compose ta semaine depuis les types de séance, la jauge veille sur ta charge. Un objectif reste ajoutable à tout moment.',
+      addForDay: 'Ajouter une séance le {{day}}',
+      remove: 'Retirer',
+      rest: 'Repos',
+    },
+    move: {
+      title: 'Choisir un autre jour',
+      subtitle: '{{title}} · prévue le {{date}}',
+      dayLabel: 'Nouveau jour',
+      impact: 'Jauge à J+7 : {{before}} → {{after}}',
+      impactCalibration:
+        'Ta jauge est encore en calibration : l’impact chiffré arrive après quelques semaines de données.',
+      warnings: {
+        quality_back_to_back:
+          'Deux séances intenses d’affilée : un jour plus doux entre les deux aide ton corps à bien assimiler.',
+        quality_before_long_run:
+          'Séance intense la veille de ta sortie longue : l’enchaînement est exigeant — à toi de voir.',
+      },
+      confirm: 'Déplacer la séance',
+      keep: 'Garder mon plan',
+    },
+    add: {
+      open: 'Ajouter une séance',
+      title: 'Ajouter une séance',
+      intro: 'Une sortie en plus ? Elle compte dans ta charge, comme les autres.',
+      typeLabel: 'Type de séance',
+      dayLabel: 'Quel jour ?',
+      confirm: 'Ajouter à ma semaine',
+      added: 'Séance ajoutée — elle compte dans ta charge 👍',
+      close: 'Fermer',
+      lightening:
+        'Avec cette séance, ta charge projetée sort de ta zone favorable. Suggestion : allège une autre séance de la semaine — c’est toi qui décides.',
+    },
+    past: {
+      title: 'Séance passée',
+      plannedLabel: 'Prévu',
+      realizedLabel: 'Réalisé',
+      structureLabel: 'Structure prévue',
+      statDistance: 'Distance',
+      statDuration: 'Durée',
+      statLoad: 'Charge',
+      loadUnit: 'UA',
+      rpe: 'RPE {{value}}',
+      noWorkout: 'Aucune séance mesurée ce jour-là. Tu l’as faite ? Ajoute-la depuis l’Accueil.',
+      realizedIntro: 'Ta séance mesurée, en face de ce qui était prévu :',
+      blockRealizedNote:
+        'Le détail réalisé bloc par bloc arrive avec les séances jouées dans le player.',
+      notFound: 'Séance introuvable.',
+    },
+  },
+  // --- Lot 10 : bibliothèque pédagogique & builder (E4) -----------------------
+  // Wording des fiches : rédigé depuis `synthese-lantelme.md`, filtré par le
+  // tableau proscrit/recommandé de `note-reglementaire-dm.md` (jamais
+  // « blessure » ni pathologie — charge, fatigue, récupération, progression).
+  // 🧑 G3 : relecture coach obligatoire avant beta.
+  library: {
+    title: 'Séances',
+    intro:
+      'Explore librement : chaque séance t’explique ce qu’elle développe et comment la réussir — que tu la fasses aujourd’hui ou plus tard.',
+    typesLabel: 'Bibliothèque',
+    customLabel: 'Mes séances',
+    customEmpty:
+      'Compose ta propre séance par blocs — celle de ton coach, de ton club, ou la tienne.',
+    create: 'Créer une séance',
+    duplicate: 'Dupliquer',
+    duplicateSuffix: '(copie)',
+    customSummary: '{{distance}} · {{duration}}',
+    sheet: {
+      structureLabel: 'Structure de la séance',
+      statDistance: 'Distance',
+      statDuration: 'Durée',
+      statRpe: 'Effort attendu',
+      rpeValue: 'RPE {{value}}',
+      vmaHint: 'Renseigne ta VMA dans ton profil pour des allures personnalisées.',
+      developsLabel: 'Ce que ça développe',
+      goalsLabel: 'Pour quels objectifs',
+      rpeLabel: 'L’effort attendu',
+      tipsLabel: 'Pour la réussir',
+      mistakesLabel: 'Les pièges classiques',
+      variantsLabel: 'Variantes',
+      doNow: 'La faire maintenant',
+      addToWeek: 'L’ajouter à ma semaine',
+      notFound: 'Séance introuvable.',
+    },
+    add: {
+      title: 'Ajouter à ma semaine',
+      intro: 'Elle comptera dans ta charge, comme les autres.',
+      dayLabel: 'Quel jour ?',
+      confirm: 'Ajouter à ma semaine',
+      close: 'Fermer',
+    },
+    builder: {
+      title: 'Créer une séance',
+      nameLabel: 'Nom de la séance',
+      namePlaceholder: 'Ex. Séance club du mardi',
+      typeLabel: 'Type de séance',
+      typeHint: 'Sert à situer l’effort de ta séance dans ta charge.',
+      blocksLabel: 'Blocs',
+      empty: 'Ajoute un premier bloc : échauffement, travail, récupération…',
+      addStep: 'Ajouter un bloc',
+      addSeries: 'Ajouter une série',
+      remove: 'Retirer',
+      save: 'Sauvegarder la séance',
+      saved: 'Séance sauvegardée dans « Mes séances » 👍',
+      backToLibrary: 'Voir mes séances',
+      block: {
+        stepTitle: 'Un bloc',
+        seriesTitle: 'Une série',
+        roleLabel: 'Rôle du bloc',
+        repsLabel: 'Répétitions',
+        extentLabel: 'Durée ou distance',
+        duration: 'Durée',
+        distance: 'Distance',
+        durationUnit: 'min',
+        distanceUnit: 'm',
+        durationPlaceholder: '10',
+        distancePlaceholder: '1000',
+        targetLabel: 'Cible',
+        targetPace: 'Allure',
+        targetZone: 'Zone FC',
+        targetRpe: 'RPE',
+        targetFree: 'Libre',
+        paceMinLabel: 'De',
+        paceMaxLabel: 'À',
+        paceUnit: 'min/km',
+        pacePlaceholder: '4:59',
+        recoveryLabel: 'Récup entre répétitions (min)',
+        recoveryPlaceholder: 'Aucune',
+        confirm: 'Ajouter le bloc',
+      },
+    },
+    sheets: {
+      ef: {
+        what: 'Le footing à allure très confortable qui construit ta base d’endurance.',
+        develops:
+          'Ton moteur aérobie : le cœur, le souffle et les fibres qui te permettent d’encaisser puis d’assimiler tout le reste de l’entraînement.',
+        goals:
+          'La colonne vertébrale de tous les plans, du 5 km au marathon : la majorité de ton volume hebdo se court à cette intensité.',
+        rpe: 'RPE 3/10 — tu peux tenir une conversation complète sans chercher ton souffle.',
+        tips: [
+          'Cours vraiment lentement : si tu ne peux plus parler, ralentis encore.',
+          'La régularité prime sur l’exploit : plusieurs footings courts valent mieux qu’un seul énorme.',
+          'Reste en zones 1–2 de FC, même dans les côtes — marche si besoin.',
+        ],
+        mistakes: [
+          'Courir l’EF trop vite — l’erreur n°1 : la séance fatigue au lieu de construire.',
+          'Te comparer aux autres : l’allure EF est propre à chacun.',
+        ],
+        variants: [
+          'Débutant : alterne course et marche pour rester à l’aise du début à la fin.',
+          'Confirmé : termine par quelques lignes droites en accélération progressive.',
+        ],
+      },
+      sortie_longue: {
+        what: 'La sortie la plus longue de ta semaine, courue en aisance, pour apprendre à durer.',
+        develops:
+          'L’endurance de fond : tes réserves d’énergie, ta solidité musculaire et ton mental sur la durée.',
+        goals: 'Indispensable pour le semi et le marathon, très utile dès le 10 km.',
+        rpe: 'RPE 4/10 — confortable au départ, une fatigue saine s’installe sur la fin.',
+        tips: [
+          'Allonge la durée progressivement, semaine après semaine — c’est la progressivité qui fait la sortie longue.',
+          'Au-delà d’une heure, pense à boire et à t’alimenter.',
+          'Le temps passé à courir compte plus que l’allure.',
+        ],
+        mistakes: [
+          'La rallonger de trop d’un coup : ta charge grimpe vite et ta semaine le paie.',
+          'Partir trop vite et finir en survie.',
+        ],
+        variants: [
+          'Débutant : une heure en aisance complète.',
+          'Confirmé : termine par 15–20 min à allure objectif (finish rapide).',
+        ],
+      },
+      vma_court: {
+        what: 'Des répétitions courtes et rapides pour développer ta vitesse maximale aérobie.',
+        develops:
+          'Ta cylindrée : la VMA élève le plafond qui détermine toutes tes allures, de l’EF à la course.',
+        goals: 'Progresser sur 5 et 10 km, relancer la machine quand les chronos stagnent.',
+        rpe: 'RPE 8/10 — intense mais contrôlé : la dernière répétition doit passer comme la première.',
+        tips: [
+          'Échauffe-toi au moins 15 minutes avant la première répétition.',
+          'Vise une allure régulière sur toute la série, pas un record sur la première.',
+          'Récupère en trottinant pour garder le corps en route.',
+        ],
+        mistakes: [
+          'Partir trop vite et subir la moitié de la séance.',
+          'Enchaîner deux séances intenses sans jour facile entre les deux.',
+        ],
+        variants: [
+          'Débutant : 30 secondes vite / 30 secondes lent.',
+          'Confirmé : allonge à 400 m ou ajoute des répétitions, progressivement.',
+        ],
+      },
+      seuil: {
+        what: 'Un effort soutenu et régulier, à la frontière où le souffle commence à monter.',
+        develops:
+          'Ta capacité à soutenir une allure rapide longtemps : ton corps apprend à tenir l’effort au lieu de le subir.',
+        goals: 'L’arme n°1 du 10 km au semi — précieuse aussi en préparation marathon.',
+        rpe: 'RPE 7/10 — parler devient difficile : quelques mots, pas des phrases.',
+        tips: [
+          'Reste juste sous le point de bascule : soutenu mais maîtrisé, du premier au dernier bloc.',
+          'Fractionne en blocs de 8 à 12 minutes avec des récupérations courtes.',
+          'Fie-toi à tes sensations autant qu’à l’allure cible.',
+        ],
+        mistakes: [
+          'Transformer le seuil en course : trop vite, c’est une autre séance.',
+          'Zapper l’échauffement et attaquer à froid.',
+        ],
+        variants: ['Débutant : 2 × 8 min.', 'Confirmé : 3 × 12 min, ou 2 × 20 min récup 3 min.'],
+      },
+      tempo: {
+        what: 'Un bloc continu à allure « confortablement exigeante », entre l’EF et le seuil.',
+        develops: 'L’endurance active : tenir une allure engagée en restant économique et relâché.',
+        goals: 'Excellent du 10 km au marathon — et la meilleure école pour apprendre à doser.',
+        rpe: 'RPE 5–6/10 — engagé mais tenable : tu pourrais continuer à la fin du bloc.',
+        tips: [
+          'Entre dans l’allure progressivement sur les premières minutes.',
+          'Cherche la régularité au kilomètre près : c’est tout l’intérêt de la séance.',
+        ],
+        mistakes: [
+          'Confondre tempo et seuil : le tempo se tient, il ne s’arrache pas.',
+          'L’allonger sans raison : 20 à 40 minutes suffisent largement.',
+        ],
+        variants: [
+          'Débutant : 15–20 min.',
+          'Confirmé : 2 × 20 min, ou un tempo final en fin de sortie longue.',
+        ],
+      },
+      fartlek: {
+        what: 'Le « jeu de vitesse » : des accélérations libres au fil d’un footing, sans piste ni chrono.',
+        develops:
+          'La vitesse, les relances et le sens de l’allure — dans un cadre ludique qui casse la routine.',
+        goals:
+          'Parfait pour découvrir le travail rapide, s’entraîner en nature ou garder du rythme sans pression.',
+        rpe: 'RPE 6–7/10 sur les accélérations, récupérations très faciles entre.',
+        tips: [
+          'Joue avec le terrain : accélère jusqu’au prochain arbre, en haut de la côte…',
+          'C’est l’envie qui pilote, pas le chrono : reste à l’écoute de tes sensations.',
+          'Envie d’une structure précise ? Compose la tienne avec le builder.',
+        ],
+        mistakes: [
+          'Sprinter à fond dès la première relance.',
+          'Négliger les phases lentes : la récupération fait partie du jeu.',
+        ],
+        variants: [
+          'Débutant : 6 × 30 s d’accélération au ressenti.',
+          'Confirmé : pyramide 1-2-3-2-1 min, récup égale au temps d’effort.',
+        ],
+      },
+      recuperation: {
+        what: 'Un footing très court et très lent pour aider ton corps à assimiler.',
+        develops:
+          'Rien — et c’est le but : elle active la circulation et favorise la récupération sans ajouter de fatigue.',
+        goals: 'Le lendemain d’une séance intense ou d’une course, quel que soit ton objectif.',
+        rpe: 'RPE 2/10 — presque une promenade en courant.',
+        tips: [
+          'Encore plus lent que ton EF : personne ne juge une allure de récup.',
+          '20 à 40 minutes suffisent — au-delà, ce n’est plus de la récupération.',
+        ],
+        mistakes: [
+          'La courir trop vite « parce que les jambes vont bien » : tu entames ta prochaine séance.',
+          'L’ajouter partout : parfois, le bon choix est le repos complet.',
+        ],
+        variants: ['Fatigué ? Remplace-la par du repos ou de la marche — c’est aussi s’entraîner.'],
+      },
+    },
+  },
+  blocks: {
+    warmup: 'Échauffement',
+    work: 'Travail',
+    recovery: 'Récupération',
+    cooldown: 'Retour au calme',
+    series: '{{reps}} × {{content}}',
+    recoveryBetween: 'récup {{duration}}',
+    hrZone: 'zone {{n}}',
+    rpeTarget: 'RPE {{value}}',
+    freePace: 'allure libre',
+  },
+  common: {
+    comingSoon: 'Bientôt disponible',
+  },
+} as const;
+
+export type FrResources = typeof fr;

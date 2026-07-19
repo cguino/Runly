@@ -1,0 +1,47 @@
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+.yarn
+
+# Native (CNG/prebuild : dossiers générés, jamais versionnés)
+/ios
+/android
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# env — le DSN Sentry et les clés Supabase ne se committent jamais
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# Supabase local
+supabase/.temp/
+supabase/.branches/
+
+# Couverture de tests (générée)
+coverage/
