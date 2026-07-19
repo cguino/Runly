@@ -97,6 +97,9 @@ export type {
   UnrealisticReason,
 } from './plan-types';
 export { buildSession, estimateBlocksKm, INTENSITY_PCT_VMA } from './session-templates';
+export type { SessionSpec } from './session-templates';
+export { buildLibrarySession, estimateSessionTotals, LIBRARY_SESSION_TYPES } from './library';
+export type { SessionTotals } from './library';
 export { buildWeeklyRecap, RECAP_TREND_EPSILON } from './weekly-recap';
 export type {
   RecapWorkout,
@@ -142,11 +145,7 @@ export {
   paceCursorFraction,
 } from './player-cues';
 export type { PaceCue } from './player-cues';
-export {
-  buildSessionRecap,
-  MIN_WORKOUT_DURATION_S,
-  workoutFromRunner,
-} from './session-recap';
+export { buildSessionRecap, MIN_WORKOUT_DURATION_S, workoutFromRunner } from './session-recap';
 export type { SessionRecap } from './session-recap';
 export {
   estimateFcmax,

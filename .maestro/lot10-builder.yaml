@@ -1,0 +1,64 @@
+# Lot 10 — E4-4 : créer, sauvegarder, dupliquer puis jouer une séance
+# custom du builder (US-06, spec §7.3). La série créée est le cas canonique
+# « 2 × 2000 m @ allure semi, récup 2 min ». Lancer avec :
+#   maestro test .maestro/lot10-builder.yaml -e APP_ID=<bundle id du build local>
+appId: ${APP_ID}
+---
+- runFlow: subflows/onboarding-semaine-type.yaml
+
+# Onglet Séances : bibliothèque librement explorable, « Mes séances » vide.
+- tapOn: 'Séances'
+- assertVisible: 'Créer une séance'
+- scrollUntilVisible:
+    element:
+      text: 'Endurance fondamentale'
+
+# 1. Créer : nom + une série 2 × 2000 m @ 4:59 /km, récup 2 min.
+- scrollUntilVisible:
+    element:
+      text: 'Créer une séance'
+    direction: UP
+- tapOn: 'Créer une séance'
+- tapOn: 'Ex. Séance club du mardi'
+- inputText: 'Séance club'
+- hideKeyboard
+- tapOn: 'Ajouter une série'
+- assertVisible: 'Une série'
+- tapOn: '2×'
+- tapOn: 'Distance'
+- tapOn: '1000'
+- inputText: '2000'
+- hideKeyboard
+- tapOn: 'Allure'
+- tapOn:
+    text: '4:59'
+    index: 0
+- inputText: '4:59'
+- hideKeyboard
+- tapOn: 'Aucune'
+- inputText: '2'
+- hideKeyboard
+- tapOn: 'Ajouter le bloc'
+
+# Calcul auto distance/durée totales visible avant sauvegarde (US-05).
+- assertVisible:
+    text: '.*km.*min.*'
+
+# 2. Sauvegarder → la séance apparaît dans « Mes séances ».
+- tapOn: 'Sauvegarder la séance'
+- assertVisible:
+    text: 'Séance sauvegardée.*'
+- tapOn: 'Voir mes séances'
+- assertVisible: 'Séance club'
+
+# 3. Dupliquer : copie indépendante suffixée.
+- tapOn: 'Dupliquer'
+- assertVisible: 'Séance club (copie)'
+
+# 4. Jouer : fiche de la séance custom → player prêt sur sa structure.
+- tapOn: 'Séance club'
+- assertVisible: 'Structure de la séance'
+- assertVisible: 'La faire maintenant'
+- tapOn: 'La faire maintenant'
+- assertVisible: 'Séance club'
+- assertVisible: 'Démarrer la séance'

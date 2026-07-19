@@ -63,6 +63,9 @@ export type {
   TrainingPlan,
 } from './plan';
 
+export { customSessionSchema } from './custom-session';
+export type { CustomSession } from './custom-session';
+
 export { injuryRecordSchema, userProfileSchema } from './user-profile';
 export type { InjuryRecord, UserProfile } from './user-profile';
 

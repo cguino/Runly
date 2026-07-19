@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 import { dayOfWeek } from '@/lib/dates';
 import { randomUuid } from '@/lib/uid';
-import type { Goal, PlannedSession, TrainingPlan } from '@/schemas';
+import type { Goal, PlannedSession, SessionBlock, SessionType, TrainingPlan } from '@/schemas';
 import { goalSchema } from '@/schemas';
 import type {
   LoadState,
@@ -10,7 +10,6 @@ import type {
   PlanGenerationResult,
   PlanSessionRef,
   SessionMoveWarning,
-  TemplateSessionType,
   WeekTemplateEntry,
 } from '@/training-engine';
 import {
@@ -59,6 +58,9 @@ export type MovePreview = {
   forecastAfter: LoadState;
 };
 
+/** Impact jauge prévisionnelle d'un ajout envisagé (E4-3, spec §7.3). */
+export type AddPreview = Pick<MovePreview, 'forecastBefore' | 'forecastAfter'>;
+
 type PlanStoreState = {
   hydrated: boolean;
   goal?: Goal;
@@ -82,10 +84,23 @@ type PlanStoreState = {
   previewMove: (sessionId: string, newDate: string, today?: string) => MovePreview | undefined;
   /** Déplace la séance — toujours permis, jamais bloqué (spec §7.9). */
   moveSession: (sessionId: string, newDate: string, today?: string) => void;
-  /** Ajoute une séance spontanée ; suggestion d'allègement SEULEMENT si sortie de zone (E8-4). */
-  addSpontaneousSession: (params: {
-    sessionType: TemplateSessionType;
+  /** Aperçu de l'impact jauge d'un ajout envisagé, avant confirmation (E4-3). */
+  previewAdd: (params: {
+    sessionType: SessionType;
+    blocks: SessionBlock[];
     date: string;
+    today?: string;
+  }) => AddPreview;
+  /**
+   * Ajoute une séance spontanée ; suggestion d'allègement SEULEMENT si
+   * sortie de zone (E8-4). Sans `blocks`, la structure vient des templates
+   * du moteur ; avec `blocks`, la séance vient de la bibliothèque ou du
+   * builder (E4-3) et entre dans la charge comme les autres.
+   */
+  addSpontaneousSession: (params: {
+    sessionType: SessionType;
+    date: string;
+    blocks?: SessionBlock[];
     today?: string;
   }) => { lightening: boolean };
   /** Ajoute une entrée à la semaine type (E8-6) et la matérialise si à venir. */
@@ -279,9 +294,33 @@ export const usePlanStore = create<PlanStoreState>()((set, get) => ({
     get().syncPlannedLoads(today);
   },
 
-  addSpontaneousSession: ({ sessionType, date, today = localIsoDate() }) => {
+  previewAdd: ({ sessionType, blocks, date, today = localIsoDate() }) => {
+    const sessions = selectActiveSessions(get());
+    const entries = useJournalStore.getState().entries;
+    const fcmaxBpm = usePhysioStore.getState().profile.fcmaxBpm?.value;
     const vmaKmh = usePhysioStore.getState().profile.vmaKmh?.value;
-    const spec = buildSession({ type: sessionType, vmaKmh });
+    const dailyLoads = journalDailyLoads(entries, fcmaxBpm);
+    const added: PlannedSession = { scheduledDate: date, sessionType, blocks, status: 'planned' };
+    return {
+      forecastBefore: forecastForSessions({ dailyLoads, today, sessions, vmaKmh }),
+      forecastAfter: forecastForSessions({
+        dailyLoads,
+        today,
+        sessions: [...sessions, added],
+        vmaKmh,
+      }),
+    };
+  },
+
+  addSpontaneousSession: ({ sessionType, date, blocks, today = localIsoDate() }) => {
+    const vmaKmh = usePhysioStore.getState().profile.vmaKmh?.value;
+    const spec =
+      blocks !== undefined
+        ? { sessionType, blocks }
+        : sessionType === 'fartlek'
+          ? // Fartlek sans structure = course libre (durée par défaut en charge).
+            { sessionType, blocks: [] as SessionBlock[] }
+          : buildSession({ type: sessionType, vmaKmh });
     const session: PlannedSession = {
       id: randomUuid(),
       scheduledDate: date,

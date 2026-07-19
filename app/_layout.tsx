@@ -80,6 +80,27 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
+          name="session-sheet"
+          options={{
+            headerShown: true,
+            title: t('library.title'),
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="session-builder"
+          options={{
+            headerShown: true,
+            presentation: 'modal',
+            title: t('library.builder.title'),
+            headerStyle: { backgroundColor: colors.bg },
+            headerTintColor: colors.text,
+            headerShadowVisible: false,
+          }}
+        />
+        <Stack.Screen
           name="rpe-entry"
           options={{
             headerShown: true,
